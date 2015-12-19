@@ -20,9 +20,9 @@
         $(this).closest('.cmd').find('.actionType').show();
         $(this).closest('.cmd').find('.infoType').hide();
     }else{
-     $(this).closest('.cmd').find('.actionType').hide();
-     $(this).closest('.cmd').find('.infoType').show();
- }
+       $(this).closest('.cmd').find('.actionType').hide();
+       $(this).closest('.cmd').find('.infoType').show();
+   }
 });
 
  $('#table_cmd').on('change','.cmdAttr[data-l1key=configuration][data-l2key=actionCmd]',function(){
@@ -36,6 +36,11 @@
 
     $(this).closest('.cmd').find('.actionOption').hide();
     $(this).closest('.cmd').find('.actionOption.'+$(this).value()).show();
+});
+
+  $('#table_cmd').on('change','.cmdAttr[data-l1key=configuration][data-l2key=infoType]',function(){
+    $(this).closest('.cmd').find('.infoParameter').hide();
+    $(this).closest('.cmd').find('.infoParameter.'+$(this).value()).show();
 });
 
  function addCmdToTable(_cmd) {
@@ -55,6 +60,7 @@
     tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>';
     tr += '</td>';
     tr += '<td>';
+
     tr += '<span class="actionType">';
 
     tr += '<div class="row">';
@@ -79,7 +85,7 @@
 
     tr += '<div class="row" style="margin-top:5px;">';
     tr += '<div class="col-xs-6">';
-    tr += '<input class="cmdAttr form-control actionParameter R" data-l1key="configuration" data-l2key="actionParameterR" placeholder="{{Numéro de la sortie de 1 à 56}}" />';
+    tr += '<input class="cmdAttr form-control actionParameter R" data-l1key="configuration" data-l2key="actionParameterR" placeholder="{{Numéro du relai de 1 à 56}}" />';
     tr += '<input class="cmdAttr form-control actionParameter VO" data-l1key="configuration" data-l2key="actionParameterVO" placeholder="{{Numéro de la sortie de 1 à 128}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter VI" data-l1key="configuration" data-l2key="actionParameterVI" placeholder="{{Numéro de l\'entrée de 1 à 128}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter VA" data-l1key="configuration" data-l2key="actionParameterVA" placeholder="{{Numéro de l\'entrée de 1 à 32}}" style="display:none;" />';
@@ -89,6 +95,39 @@
     tr += '<div class="col-xs-6">';
     tr += '<input class="cmdAttr form-control actionOption VA" data-l1key="configuration" data-l2key="actionOptionVA" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption C" data-l1key="configuration" data-l2key="actionOptionC" placeholder="{{Opération}}" style="display:none;" />';
+    tr += '</div>';
+    tr += '</div>';
+
+    tr += '</span>';
+
+    tr += '<span class="infoType">';
+
+    tr += '<div class="row">';
+    tr += '<div class="col-xs-6">';
+    tr += '<select class="cmdAttr form-control" data-l1key="configuration" data-l2key="infoType">';
+    tr += '<option value="R">{{Relais}}</option>';
+    tr += '<option value="D">{{Entrée digital}}</option>';
+    tr += '<option value="VI">{{Entrée virtuelle}}</option>';
+    tr += '<option value="VO">{{Sortie virtuelle}}</option>';
+    tr += '<option value="PW">{{Watchdog}}</option>';
+    tr += '<option value="ENO">{{EnOcean}}</option>';
+    tr += '<option value="A">{{Analogique}}</option>';
+    tr += '<option value="VA">{{Analogique virtuelle}}</option>';
+    tr += '<option value="C">{{Compteur}}</option>';
+    tr += '</select>';
+    tr += '</div>';
+
+    tr += '<div class="col-xs-6">';
+    tr += '<input class="cmdAttr form-control infoParameter R" data-l1key="configuration" data-l2key="infoParameterR" placeholder="{{Numéro du relai de 1 à 56}}" />';
+    tr += '<input class="cmdAttr form-control infoParameter VO" data-l1key="configuration" data-l2key="infoParameterVO" placeholder="{{Numéro de la sortie de 1 à 128}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter VI" data-l1key="configuration" data-l2key="infoParameterVI" placeholder="{{Numéro de l\'entrée de 1 à 128}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter VA" data-l1key="configuration" data-l2key="infoParameterVA" placeholder="{{Numéro de l\'entrée de 1 à 32}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter C" data-l1key="configuration" data-l2key="infoParameterC" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
+
+    tr += '<input class="cmdAttr form-control infoParameter D" data-l1key="configuration" data-l2key="infoParameterD" placeholder="{{Entrée digital de 1 à 56}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter PW" data-l1key="configuration" data-l2key="infoParameterPW" placeholder="{{Watchdog de 1 à 32}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter ENO" data-l1key="configuration" data-l2key="infoParameterENO" placeholder="{{EnOcean de 1 à 48}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter A" data-l1key="configuration" data-l2key="infoParameterA" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
     tr += '</div>';
     tr += '</div>';
 

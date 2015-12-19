@@ -18,4 +18,45 @@
 
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
+function ipx800v4_install() {
+	$cron = cron::byClassAndFunction('ipx800v4', 'pull');
+	if (!is_object($cron)) {
+		$cron = new cron();
+		$cron->setClass('ipx800v4');
+		$cron->setFunction('pull');
+		$cron->setEnable(1);
+		$cron->setDeamon(1);
+		$cron->setDeamonSleepTime(5);
+		$cron->setSchedule('* * * * *');
+		$cron->setTimeout(1440);
+		$cron->save();
+	}
+}
+
+function ipx800v4_update() {
+	$cron = cron::byClassAndFunction('ipx800v4', 'pull');
+	if (!is_object($cron)) {
+		$cron = new cron();
+	}
+	$cron->setClass('ipx800v4');
+	$cron->setFunction('pull');
+	$cron->setEnable(1);
+	$cron->setDeamon(1);
+	$cron->setDeamonSleepTime(5);
+	$cron->setTimeout(1440);
+	$cron->setSchedule('* * * * *');
+	$cron->save();
+	$cron->stop();
+	foreach (ipx800v4::byType('ipx800v4') as $ipx800v4) {
+		$ipx800v4->save();
+	}
+}
+
+function ipx800v4_remove() {
+	$cron = cron::byClassAndFunction('ipx800v4', 'pull');
+	if (is_object($cron)) {
+		$cron->remove();
+	}
+}
+
 ?>
