@@ -24,67 +24,7 @@ class ipx800v4 extends eqLogic {
 
 	/*     * ***********************Methode static*************************** */
 
-	/*
-		     * Fonction exécutée automatiquement toutes les minutes par Jeedom
-		      public static function cron() {
-
-		      }
-	*/
-
-	/*
-		     * Fonction exécutée automatiquement toutes les heures par Jeedom
-		      public static function cronHourly() {
-
-		      }
-	*/
-
-	/*
-		     * Fonction exécutée automatiquement tous les jours par Jeedom
-		      public static function cronDayly() {
-
-		      }
-	*/
-
 	/*     * *********************Méthodes d'instance************************* */
-
-	public function preInsert() {
-
-	}
-
-	public function postInsert() {
-
-	}
-
-	public function preSave() {
-
-	}
-
-	public function postSave() {
-
-	}
-
-	public function preUpdate() {
-
-	}
-
-	public function postUpdate() {
-
-	}
-
-	public function preRemove() {
-
-	}
-
-	public function postRemove() {
-
-	}
-
-	/*
-		     * Non obligatoire mais permet de modifier l'affichage du widget si vous en avez besoin
-		      public function toHtml($_version = 'dashboard') {
-
-		      }
-	*/
 
 	/*     * **********************Getteur Setteur*************************** */
 }
@@ -96,15 +36,32 @@ class ipx800v4Cmd extends cmd {
 
 	/*     * *********************Methode d'instance************************* */
 
-	/*
-		     * Non obligatoire permet de demander de ne pas supprimer les commandes même si elles ne sont pas dans la nouvelle configuration de l'équipement envoyé en JS
-		      public function dontRemoveCmd() {
-		      return true;
-		      }
-	*/
-
 	public function execute($_options = array()) {
-
+		$eqLogic = $this->getEqLogic();
+		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
+		$url .= '&' . $this->getConfiguration('actionCmd') . $this->getConfiguration('actionArgument');
+		if ($this->getConfiguration('actionArgument') == 'VA') {
+			if (strlen($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'))) == 1) {
+				$url .= '0' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+			} else {
+				$url .= $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+			}
+			$url .= '=' . $this->getConfiguration('actionOption' . $this->getConfiguration('actionArgument'));
+		} else if ($this->getConfiguration('actionArgument') == 'C') {
+			if (strlen($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'))) == 1) {
+				$url .= '0' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+			} else {
+				$url .= $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+			}
+			$url .= '=' . $this->getConfiguration('actionOption' . $this->getConfiguration('actionArgument'));
+		} else {
+			$url .= '=' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+		}
+		$request_http = new com_http($url);
+		$result = $request_http->exec();
+		if (strpos($result, '"Success"') === false) {
+			throw new Exception(__('Erreur sur l\'envoi de la commande : ' . $url, __FILE__));
+		}
 	}
 
 	/*     * **********************Getteur Setteur*************************** */

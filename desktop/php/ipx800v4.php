@@ -82,14 +82,21 @@ foreach (object::all() as $object) {
             <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="ip"/>
         </div>
     </div>
+     <div class="form-group">
+        <label class="col-sm-3 control-label">{{Clef API}}</label>
+        <div class="col-sm-3">
+            <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey"/>
+        </div>
+    </div>
 </fieldset>
 </form>
 
 <legend>{{Commandes}}</legend>
+<a class="btn btn-success btn-sm cmdAction" data-action="add"><i class="fa fa-plus-circle"></i> {{Commandes}}</a><br/><br/>
 <table id="table_cmd" class="table table-bordered table-condensed">
     <thead>
         <tr>
-            <th>{{Nom}}</th><th>{{Type}}</th><th>{{Action}}</th>
+            <th style="width:200px;">{{Nom}}</th><th style="width:50px;">{{Type}}</th><th>{{Options}}</th><th>{{Action}}</th>
         </tr>
     </thead>
     <tbody>
@@ -108,5 +115,5 @@ foreach (object::all() as $object) {
 </div>
 </div>
 
-<?php include_file('desktop', 'template', 'js', 'template');?>
+<?php include_file('desktop', 'ipx800v4', 'js', 'ipx800v4');?>
 <?php include_file('core', 'plugin.template', 'js');?>
