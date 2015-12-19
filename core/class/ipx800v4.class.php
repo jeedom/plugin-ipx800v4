@@ -140,14 +140,40 @@ class ipx800v4Cmd extends cmd {
 			} else {
 				$url .= $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 			}
-			$url .= '=' . $this->getConfiguration('actionOption' . $this->getConfiguration('actionArgument'));
+			$value = $this->getConfiguration('actionOption' . $this->getConfiguration('actionArgument'));
+			switch ($this->getSubType()) {
+				case 'slider':
+					$value = str_replace('#slider#', urlencode($_options['slider']), $value);
+					break;
+				case 'color':
+					$value = str_replace('#color#', urlencode($_options['color']), $value);
+					break;
+				case 'message':
+					$value = str_replace('#title#', urlencode($_options['title']), $value);
+					$value = str_replace('#message#', urlencode($_options['message']), $value);
+					break;
+			}
+			$url .= '=' . $value;
 		} else if ($this->getConfiguration('actionArgument') == 'C') {
 			if (strlen($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'))) == 1) {
 				$url .= '0' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 			} else {
 				$url .= $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 			}
-			$url .= '=' . $this->getConfiguration('actionOption' . $this->getConfiguration('actionArgument'));
+			$value = $this->getConfiguration('actionOption' . $this->getConfiguration('actionArgument'));
+			switch ($this->getSubType()) {
+				case 'slider':
+					$value = str_replace('#slider#', urlencode($_options['slider']), $value);
+					break;
+				case 'color':
+					$value = str_replace('#color#', urlencode($_options['color']), $value);
+					break;
+				case 'message':
+					$value = str_replace('#title#', urlencode($_options['title']), $value);
+					$value = str_replace('#message#', urlencode($_options['message']), $value);
+					break;
+			}
+			$url .= '=' . $value;
 		} else {
 			$url .= '=' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 		}

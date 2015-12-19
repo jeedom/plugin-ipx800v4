@@ -111,8 +111,8 @@
     tr += '<option value="VO">{{Sortie virtuelle}}</option>';
     tr += '<option value="PW">{{Watchdog}}</option>';
     tr += '<option value="ENO">{{EnOcean}}</option>';
-    tr += '<option value="A">{{Analogique}}</option>';
-    tr += '<option value="VA">{{Analogique virtuelle}}</option>';
+    tr += '<option value="A">{{Entrée analogique}}</option>';
+    tr += '<option value="VA">{{Entrée analogique virtuelle}}</option>';
     tr += '<option value="C">{{Compteur}}</option>';
     tr += '</select>';
     tr += '</div>';
