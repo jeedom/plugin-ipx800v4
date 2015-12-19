@@ -49,6 +49,23 @@ class ipx800v4 extends eqLogic {
 		$cron->run();
 	}
 
+	public static function deamon_stop() {
+		$cron = cron::byClassAndFunction('ipx800v4', 'pull');
+		if (!is_object($cron)) {
+			throw new Exception(__('Tâche cron introuvable', __FILE__));
+		}
+		$cron->halt();
+	}
+
+	public static function deamon_changeAutoMode($_mode) {
+		$cron = cron::byClassAndFunction('ipx800v4', 'pull');
+		if (!is_object($cron)) {
+			throw new Exception(__('Tâche cron introuvable', __FILE__));
+		}
+		$cron->setEnable($_mode);
+		$cron->save();
+	}
+
 	public static function pull() {
 		$cache = array();
 		foreach (ipx800v4::byType('ipx800v4') as $ipx800v4) {

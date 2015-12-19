@@ -9,5 +9,6 @@
     <installation>Aucune</installation>
     <require>2.0</require>
     <category>automation protocol</category>
+    <hasOwnDeamon>1</hasOwnDeamon>
 </info>
 
