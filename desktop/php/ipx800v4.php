@@ -27,12 +27,12 @@ foreach ($eqLogics as $eqLogic) {
 
     <div class="eqLogicThumbnailContainer">
       <div class="cursor eqLogicAction" data-action="add" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >
-         <center>
-            <i class="fa fa-plus-circle" style="font-size : 7em;color:#94ca02;"></i>
-        </center>
-        <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#94ca02"><center>{{Ajouter}}</center></span>
-    </div>
-    <?php
+       <center>
+        <i class="fa fa-plus-circle" style="font-size : 7em;color:#94ca02;"></i>
+    </center>
+    <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#94ca02"><center>{{Ajouter}}</center></span>
+</div>
+<?php
 foreach ($eqLogics as $eqLogic) {
 	echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >';
 	echo "<center>";
@@ -50,14 +50,14 @@ foreach ($eqLogics as $eqLogic) {
         <fieldset>
             <legend><i class="fa fa-arrow-circle-left eqLogicAction cursor" data-action="returnToThumbnailDisplay"></i> {{Général}}  <i class='fa fa-cogs eqLogicAction pull-right cursor expertModeVisible' data-action='configure'></i></legend>
             <div class="form-group">
-                <label class="col-sm-3 control-label">{{Nom de l'équipement IPX800}}</label>
+                <label class="col-sm-2 control-label">{{Nom de l'équipement IPX800}}</label>
                 <div class="col-sm-3">
                     <input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
                     <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement IPX800}}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label" >{{Objet parent}}</label>
+                <label class="col-sm-2 control-label" >{{Objet parent}}</label>
                 <div class="col-sm-3">
                     <select id="sel_object" class="eqLogicAttr form-control" data-l1key="object_id">
                         <option value="">{{Aucun}}</option>
@@ -70,24 +70,36 @@ foreach (object::all() as $object) {
                </div>
            </div>
            <div class="form-group">
-            <label class="col-sm-3 control-label" >{{Activer}}</label>
+            <label class="col-sm-2 control-label" >{{Activer}}</label>
             <div class="col-sm-9">
-               <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Activer}}" data-l1key="isEnable" checked/>
-               <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Visible}}" data-l1key="isVisible" checked/>
-           </div>
-       </div>
-       <div class="form-group">
-        <label class="col-sm-3 control-label">{{IP}}</label>
-        <div class="col-sm-3">
-            <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="ip"/>
-        </div>
-    </div>
+             <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Activer}}" data-l1key="isEnable" checked/>
+             <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Visible}}" data-l1key="isVisible" checked/>
+         </div>
+     </div>
      <div class="form-group">
-        <label class="col-sm-3 control-label">{{Clef API}}</label>
-        <div class="col-sm-3">
-            <input type="password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey"/>
-        </div>
+     <label class="col-sm-2 control-label">{{Catégorie}}</label>
+      <div class="col-sm-9">
+        <?php
+foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
+	echo '<label class="checkbox-inline">';
+	echo '<input type="checkbox" class="eqLogicAttr" data-l1key="category" data-l2key="' . $key . '" />' . $value['name'];
+	echo '</label>';
+}
+?>
     </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">{{IP}}</label>
+    <div class="col-sm-3">
+        <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="ip"/>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">{{Clef API}}</label>
+    <div class="col-sm-3">
+        <input type="password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey"/>
+    </div>
+</div>
 </fieldset>
 </form>
 
@@ -96,7 +108,7 @@ foreach (object::all() as $object) {
 <table id="table_cmd" class="table table-bordered table-condensed">
     <thead>
         <tr>
-            <th style="width:200px;">{{Nom}}</th><th style="width:50px;">{{Type}}</th><th>{{Options}}</th><th>{{Action}}</th>
+            <th>{{Nom}}</th><th style="width:50px;">{{Type}}</th><th>{{Configuration}}</th><th>{{Paramètres}}</th><th>{{Options}}</th><th>{{Action}}</th>
         </tr>
     </thead>
     <tbody>
