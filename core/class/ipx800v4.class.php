@@ -165,12 +165,21 @@ class ipx800v4Cmd extends cmd {
 			$value = $this->getConfiguration('actionOption' . $this->getConfiguration('actionArgument'));
 			switch ($this->getSubType()) {
 				case 'slider':
+					if (trim($value) == '') {
+						$value = '#slider#';
+					}
 					$value = str_replace('#slider#', urlencode($_options['slider']), $value);
 					break;
 				case 'color':
+					if (trim($value) == '') {
+						$value = '#color#';
+					}
 					$value = str_replace('#color#', urlencode($_options['color']), $value);
 					break;
 				case 'message':
+					if (trim($value) == '') {
+						$value = '#title# #message#';
+					}
 					$value = str_replace('#title#', urlencode($_options['title']), $value);
 					$value = str_replace('#message#', urlencode($_options['message']), $value);
 					break;
@@ -185,12 +194,21 @@ class ipx800v4Cmd extends cmd {
 			$value = $this->getConfiguration('actionOption' . $this->getConfiguration('actionArgument'));
 			switch ($this->getSubType()) {
 				case 'slider':
+					if (trim($value) == '') {
+						$value = '#slider#';
+					}
 					$value = str_replace('#slider#', urlencode($_options['slider']), $value);
 					break;
 				case 'color':
+					if (trim($value) == '') {
+						$value = '#color#';
+					}
 					$value = str_replace('#color#', urlencode($_options['color']), $value);
 					break;
 				case 'message':
+					if (trim($value) == '') {
+						$value = '#title# #message#';
+					}
 					$value = str_replace('#title#', urlencode($_options['title']), $value);
 					$value = str_replace('#message#', urlencode($_options['message']), $value);
 					break;
