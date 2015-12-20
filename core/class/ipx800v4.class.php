@@ -82,7 +82,7 @@ class ipx800v4 extends eqLogic {
 				$key = $cmd->getConfiguration('infoType') . $cmd->getConfiguration('infoParameter' . $cmd->getConfiguration('infoType'));
 				if (isset($data[$key])) {
 					$value = $data[$key];
-					if ($value !== $cmd->execCmd(null, 2)) {
+					if ($cmd->formatValue($value) !== $cmd->execCmd(null, 2)) {
 						$cmd->setCollectDate('');
 						$cmd->event($value);
 					}
@@ -200,10 +200,7 @@ class ipx800v4Cmd extends cmd {
 			$url .= '=' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 		}
 		$request_http = new com_http($url);
-		$result = $request_http->exec();
-		if (strpos($result, '"Success"') === false) {
-			throw new Exception(__('Erreur sur l\'envoi de la commande : ' . $url, __FILE__));
-		}
+		$request_http->exec();
 		ipx800v4::pull($eqLogic->getId());
 	}
 
