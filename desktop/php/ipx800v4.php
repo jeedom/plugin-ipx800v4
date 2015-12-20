@@ -85,7 +85,7 @@ foreach (object::all() as $object) {
      <div class="form-group">
         <label class="col-sm-3 control-label">{{Clef API}}</label>
         <div class="col-sm-3">
-            <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey"/>
+            <input type="password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey"/>
         </div>
     </div>
 </fieldset>
