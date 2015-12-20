@@ -66,9 +66,14 @@ class ipx800v4 extends eqLogic {
 		$cron->save();
 	}
 
-	public static function pull() {
+	public static function pull($_eqLogic_id = null) {
 		$cache = array();
-		foreach (ipx800v4::byType('ipx800v4') as $ipx800v4) {
+		if ($_eqLogic_id == null) {
+			$eqLogics = ipx800v4::byType('ipx800v4');
+		} else {
+			$eqLogics = array(self::byId($_eqLogic_id));
+		}
+		foreach ($eqLogics as $ipx800v4) {
 			if (!isset($cache[$ipx800v4->getConfiguration('ip')])) {
 				$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getValue();
 			}
@@ -199,6 +204,7 @@ class ipx800v4Cmd extends cmd {
 		if (strpos($result, '"Success"') === false) {
 			throw new Exception(__('Erreur sur l\'envoi de la commande : ' . $url, __FILE__));
 		}
+		ipx800v4::pull($eqLogic->getId());
 	}
 
 	/*     * **********************Getteur Setteur*************************** */

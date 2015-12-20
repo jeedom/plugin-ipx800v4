@@ -26,7 +26,7 @@ function ipx800v4_install() {
 		$cron->setFunction('pull');
 		$cron->setEnable(1);
 		$cron->setDeamon(1);
-		$cron->setDeamonSleepTime(5);
+		$cron->setDeamonSleepTime(1);
 		$cron->setSchedule('* * * * *');
 		$cron->setTimeout(1440);
 		$cron->save();
@@ -42,7 +42,7 @@ function ipx800v4_update() {
 	$cron->setFunction('pull');
 	$cron->setEnable(1);
 	$cron->setDeamon(1);
-	$cron->setDeamonSleepTime(5);
+	$cron->setDeamonSleepTime(1);
 	$cron->setTimeout(1440);
 	$cron->setSchedule('* * * * *');
 	$cron->save();
