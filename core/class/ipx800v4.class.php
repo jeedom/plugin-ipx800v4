@@ -148,10 +148,6 @@ class ipx800v4Cmd extends cmd {
 
 	/*     * *********************Methode d'instance************************* */
 
-	public function preSave() {
-		$this->setEventOnly(1);
-	}
-
 	public function execute($_options = array()) {
 		$eqLogic = $this->getEqLogic();
 		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
