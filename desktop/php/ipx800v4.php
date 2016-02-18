@@ -22,17 +22,24 @@ foreach ($eqLogics as $eqLogic) {
    </div>
 
    <div class="col-lg-10 col-md-9 col-sm-8 eqLogicThumbnailDisplay" style="border-left: solid 1px #EEE; padding-left: 25px;">
-    <legend>{{Mes templates}}
-    </legend>
-
-    <div class="eqLogicThumbnailContainer">
-      <div class="cursor eqLogicAction" data-action="add" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >
-       <center>
-        <i class="fa fa-plus-circle" style="font-size : 7em;color:#94ca02;"></i>
-    </center>
-    <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#94ca02"><center>{{Ajouter}}</center></span>
-</div>
-<?php
+       <legend><i class="fa fa-cog"></i>  {{Gestion}}</legend>
+       <div class="eqLogicThumbnailContainer">
+          <div class="cursor eqLogicAction" data-action="add" style="background-color : #ffffff; height : 120px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >
+             <center>
+                <i class="fa fa-plus-circle" style="font-size : 5em;color:#94ca02;"></i>
+            </center>
+            <span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#94ca02"><center>{{Ajouter}}</center></span>
+        </div>
+        <div class="cursor eqLogicAction" data-action="gotoPluginConf" style="background-color : #ffffff; height : 120px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;">
+            <center>
+              <i class="fa fa-wrench" style="font-size : 5em;color:#767676;"></i>
+          </center>
+          <span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#767676"><center>{{Configuration}}</center></span>
+      </div>
+  </div>
+  <legend><i class="fa fa-table"></i> {{Mes ipx800}}</legend>
+  <div class="eqLogicThumbnailContainer">
+    <?php
 foreach ($eqLogics as $eqLogic) {
 	echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >';
 	echo "<center>";
@@ -72,23 +79,23 @@ foreach (object::all() as $object) {
            <div class="form-group">
             <label class="col-sm-2 control-label" >{{Activer}}</label>
             <div class="col-sm-9">
-             <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Activer}}" data-l1key="isEnable" checked/>
-             <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Visible}}" data-l1key="isVisible" checked/>
-         </div>
-     </div>
-     <div class="form-group">
-     <label class="col-sm-2 control-label">{{Catégorie}}</label>
-      <div class="col-sm-9">
-        <?php
+               <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Activer}}" data-l1key="isEnable" checked/>
+               <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Visible}}" data-l1key="isVisible" checked/>
+           </div>
+       </div>
+       <div class="form-group">
+           <label class="col-sm-2 control-label">{{Catégorie}}</label>
+           <div class="col-sm-9">
+            <?php
 foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
 	echo '<label class="checkbox-inline">';
 	echo '<input type="checkbox" class="eqLogicAttr" data-l1key="category" data-l2key="' . $key . '" />' . $value['name'];
 	echo '</label>';
 }
 ?>
-    </div>
-</div>
-<div class="form-group">
+       </div>
+   </div>
+   <div class="form-group">
     <label class="col-sm-2 control-label">{{IP}}</label>
     <div class="col-sm-3">
         <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="ip"/>
