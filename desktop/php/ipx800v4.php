@@ -107,6 +107,12 @@ foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
         <input type="password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey"/>
     </div>
 </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">{{Liste des extentions (séparé par des ,)}}</label>
+    <div class="col-sm-3">
+        <input type="password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="extension"/>
+    </div>
+</div>
 </fieldset>
 </form>
 

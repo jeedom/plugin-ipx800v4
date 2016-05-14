@@ -135,6 +135,29 @@ class ipx800v4 extends eqLogic {
 		} catch (Exception $e) {
 
 		}
+		if ($this->getConfiguration('extension') != '') {
+			if (strpos($this->getConfiguration('extension'), ',') === false) {
+				$extensions = array($this->getConfiguration('extension'));
+			} else {
+				$extensions = explode(',', $this->getConfiguration('extension'));
+			}
+			foreach ($extensions as $extension) {
+				if (!is_numeric($extension)) {
+					continue;
+				}
+				$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=X' . $extension;
+				$request_http = new com_http($url);
+				try {
+					$result = $request_http->exec();
+					if (is_json($result)) {
+						$return = array_merge($return, json_decode($result, true));
+					}
+				} catch (Exception $e) {
+
+				}
+			}
+		}
+
 		return $return;
 	}
 
