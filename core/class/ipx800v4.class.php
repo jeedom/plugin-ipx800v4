@@ -36,7 +36,7 @@ class ipx800v4 extends eqLogic {
 		return $return;
 	}
 
-	public static function deamon_start($_debug = false) {
+	public static function deamon_start() {
 		self::deamon_stop();
 		$deamon_info = self::deamon_info();
 		if ($deamon_info['launchable'] != 'ok') {
