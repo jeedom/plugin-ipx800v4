@@ -22,6 +22,8 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class ipx800v4 extends eqLogic {
 	/*     * *************************Attributs****************************** */
 
+	private static $_eqLogics = null;
+
 	/*     * ***********************Methode static*************************** */
 
 	public static function deamon_info() {
@@ -68,12 +70,13 @@ class ipx800v4 extends eqLogic {
 
 	public static function pull($_eqLogic_id = null) {
 		$cache = array();
-		if ($_eqLogic_id == null) {
-			$eqLogics = ipx800v4::byType('ipx800v4');
-		} else {
-			$eqLogics = array(self::byId($_eqLogic_id));
+		if (self::$_eqLogics == null) {
+			self::$_eqLogics = self::byType('ipx800v4');
 		}
 		foreach ($eqLogics as $ipx800v4) {
+			if ($_eqLogic_id != null && $_eqLogic_id != $ipx800v4->getId()) {
+				continue;
+			}
 			if (!isset($cache[$ipx800v4->getConfiguration('ip')])) {
 				$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getValue();
 			}
