@@ -96,6 +96,10 @@ class ipx800v4 extends eqLogic {
 
 	/*     * *********************Méthodes d'instance************************* */
 
+	public static function postSave() {
+		self::deamon_start();
+	}
+
 	public function getIPXinfo() {
 		$return = array();
 		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=all';
