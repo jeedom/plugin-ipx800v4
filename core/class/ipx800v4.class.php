@@ -73,19 +73,19 @@ class ipx800v4 extends eqLogic {
 		if (self::$_eqLogics == null) {
 			self::$_eqLogics = self::byType('ipx800v4');
 		}
-		foreach ($eqLogics as $ipx800v4) {
+		foreach (self::$_eqLogics as $ipx800v4) {
 			if ($_eqLogic_id != null && $_eqLogic_id != $ipx800v4->getId()) {
 				continue;
 			}
 			if (!isset($cache[$ipx800v4->getConfiguration('ip')])) {
-				$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getValue();
+				$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getIPXinfo();
 			}
 			$data = $cache[$ipx800v4->getConfiguration('ip')];
 			foreach ($ipx800v4->getCmd('info') as $cmd) {
 				$key = $cmd->getConfiguration('infoType') . $cmd->getConfiguration('infoParameter' . $cmd->getConfiguration('infoType'));
 				if (isset($data[$key])) {
 					$value = $data[$key];
-					if ($cmd->formatValue($value) !== $cmd->execCmd(null, 2)) {
+					if ($cmd->formatValue($value) !== $cmd->execCmd()) {
 						$cmd->setCollectDate('');
 						$cmd->event($value);
 					}
@@ -96,9 +96,20 @@ class ipx800v4 extends eqLogic {
 
 	/*     * *********************Méthodes d'instance************************* */
 
-	public function getValue() {
+	public function getIPXinfo() {
 		$return = array();
 		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=all';
+		$request_http = new com_http($url);
+		try {
+			$result = $request_http->exec();
+			if (is_json($result)) {
+				$return = array_merge($return, json_decode($result, true));
+			}
+		} catch (Exception $e) {
+
+		}
+		$return = array();
+		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=R';
 		$request_http = new com_http($url);
 		try {
 			$result = $request_http->exec();
@@ -160,7 +171,6 @@ class ipx800v4 extends eqLogic {
 				}
 			}
 		}
-
 		return $return;
 	}
 
