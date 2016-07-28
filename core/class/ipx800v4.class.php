@@ -26,6 +26,14 @@ class ipx800v4 extends eqLogic {
 
 	/*     * ***********************Methode static*************************** */
 
+	public static function event() {
+		$cmd = ipx800v4Cmd::byId(init('id'));
+		if (!is_object($cmd) || $cmd->getEqType() != 'ipx800v4') {
+			throw new Exception(__('Commande ID virtuel inconnu, ou la commande n\'est pas de type virtuel : ', __FILE__) . init('id'));
+		}
+		$cmd->event(init('value'));
+	}
+
 	public static function deamon_info() {
 		$return = array();
 		$return['log'] = '';
@@ -102,7 +110,7 @@ class ipx800v4 extends eqLogic {
 
 	public function getIPXinfo() {
 		$return = array();
-		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=all';
+		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=R';
 		$request_http = new com_http($url);
 		try {
 			$result = $request_http->exec();
@@ -112,8 +120,17 @@ class ipx800v4 extends eqLogic {
 		} catch (Exception $e) {
 
 		}
-		$return = array();
-		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=R';
+		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=VI';
+		$request_http = new com_http($url);
+		try {
+			$result = $request_http->exec();
+			if (is_json($result)) {
+				$return = array_merge($return, json_decode($result, true));
+			}
+		} catch (Exception $e) {
+
+		}
+		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=VO';
 		$request_http = new com_http($url);
 		try {
 			$result = $request_http->exec();
