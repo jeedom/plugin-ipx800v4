@@ -123,6 +123,17 @@ class ipx800v4 extends eqLogic {
 		} catch (Exception $e) {
 
 		}
+		$return = array();
+		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=D';
+		$request_http = new com_http($url);
+		try {
+			$result = $request_http->exec();
+			if (is_json($result)) {
+				$return = array_merge($return, json_decode($result, true));
+			}
+		} catch (Exception $e) {
+
+		}
 		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=A';
 		$request_http = new com_http($url);
 		try {
