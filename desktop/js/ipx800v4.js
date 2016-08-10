@@ -143,16 +143,16 @@
     
     tr += '<select class="cmdAttr form-control infoParameter ENO" data-l1key="configuration" data-l2key="infoParameterENO">';
     for (i = 1; i < 25; i++) {
-        tr += '<option value="ENO SWITCH'+i+'">Switch '+i+'</option>';
+        tr += '<option value=" SWITCH'+i+'">Switch '+i+'</option>';
     }
     for (i = 1; i < 25; i++) {
-        tr += '<option value="ENO CONTACT'+i+'">Contact '+i+'</option>';
+        tr += '<option value=" CONTACT'+i+'">Contact '+i+'</option>';
     }
     for (i = 1; i < 9; i++) {
-        tr += '<option value="ENO WALL PLUG'+i+'">Wall plug '+i+'</option>';
+        tr += '<option value=" WALL PLUG'+i+'">Wall plug '+i+'</option>';
     }
     for (i = 1; i < 25; i++) {
-        tr += '<option value="ENO ANALOG'+i+'">Anologique '+i+'</option>';
+        tr += '<option value=" ANALOG'+i+'">Anologique '+i+'</option>';
     }
     tr += '</select>';
 
