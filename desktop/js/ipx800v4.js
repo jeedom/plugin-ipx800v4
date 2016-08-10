@@ -140,7 +140,22 @@
 
     tr += '<input class="cmdAttr form-control infoParameter D" data-l1key="configuration" data-l2key="infoParameterD" placeholder="{{Entrée digital de 1 à 56}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter PW" data-l1key="configuration" data-l2key="infoParameterPW" placeholder="{{Watchdog de 1 à 32}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control infoParameter ENO" data-l1key="configuration" data-l2key="infoParameterENO" placeholder="{{EnOcean de 1 à 48}}" style="display:none;" />';
+    
+    tr += '<select class="cmdAttr form-control infoParameter ENO" data-l1key="configuration" data-l2key="infoParameterENO">';
+    for (i = 1; i < 25; i++) {
+        tr += '<option value="ENO SWITCH'+i+'">Switch '+i+'</option>';
+    }
+    for (i = 1; i < 25; i++) {
+        tr += '<option value="ENO CONTACT'+i+'">Contact '+i+'</option>';
+    }
+    for (i = 1; i < 9; i++) {
+        tr += '<option value="ENO WALL PLUG'+i+'">Wall plug '+i+'</option>';
+    }
+    for (i = 1; i < 25; i++) {
+        tr += '<option value="ENO ANALOG'+i+'">Anologique '+i+'</option>';
+    }
+    tr += '</select>';
+
     tr += '<input class="cmdAttr form-control infoParameter A" data-l1key="configuration" data-l2key="infoParameterA" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
     tr += '</div>';
     tr += '</div>';
