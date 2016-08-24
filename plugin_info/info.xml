@@ -3,10 +3,8 @@
     <id>ipx800v4</id>
     <name>IPX 800 v4</name>
     <description>Plugin pour piloter l'IPX 800</description>
-    <icon>fa fa-keyboard-o</icon>
     <licence>AGPL</licence>
-    <author>Loïc Gevrey</author>
-    <installation>Aucune</installation>
+    <author>Loïc</author>
     <require>2.3</require>
     <category>automation protocol</category>
     <hasOwnDeamon>1</hasOwnDeamon>
