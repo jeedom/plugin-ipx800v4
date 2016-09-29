@@ -3,3 +3,7 @@
 Ce plugin permet de gérer un IPX 800 v4
 
 include::configuration.asciidoc[]
+
+'''
+
+include::changelog.asciidoc[]
