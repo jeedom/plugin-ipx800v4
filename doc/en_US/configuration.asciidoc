@@ -1,0 +1,96 @@
+== Configuration du plugin
+
+Après téléchargement du plugin, il vous suffit juste d'activer celui-ci, il n'y a aucune configuration à ce niveau.
+
+image::../images/ipx800v4-1.PNG[]
+
+[NOTE]
+Vous pouvez voir sur cette page l'état du démon qui surveille l'IPX800
+
+== Configuration of devices
+
+La configuration des équipements IPX800 est accessible à partir du menu plugin : 
+
+image::../images/ipx800v4-2.PNG[]
+
+Voilà à quoi ressemble la page du plugin IPX800 (ici avec déjà 1 équipement) : 
+
+image::../images/ipx800v4-3.PNG[]
+
+[TIP]
+Comme à beaucoup d'endroits sur Jeedom, placer la souris tout à gauche permet de faire apparaître un menu d'accès rapide (vous pouvez, à partir de votre profil, le laisser toujours visible).
+
+Une fois que vous cliquez sur l'un d'eux, vous obtenez : 
+
+image::../images/ipx800v4-4.PNG[]
+
+Vous retrouvez ici toute la configuration de votre équipement : 
+
+* *Nom de l'équipement IPX800* : nom de votre équipement IPX800,
+* *Objet parent* : indique l'objet parent auquel appartient l'équipement,
+* *Activer* : permet de rendre votre équipement actif,
+* *Visible* : rend votre équipement visible sur le dashboard,
+* *Catégorie* : les catégories de l'équipement (il peut appartenir à plusieurs catégories),
+* *IP* : L'ip de l'IPX800,
+* *Clef API* : clef api de l'IPX800 (par default la clef API est apikey)
+
+
+En-dessous vous retrouvez la liste des commandes : 
+
+image::../images/ipx800v4-5.PNG[]
+
+Le plugin par defaut ne creer rien, ca sera à vous de le faire en fonction de votre configuration, mais vous serez guider.
+
+== Action
+
+Vous avez 3 types d'action : 
+
+* *On* : permet de mettre à 1 une sortie (ou entrée virtuelle), ou d'affecter une valeur à une entrée analogique (ou compteur)
+* *Off* : permet de mettre à 0 une sortie (ou entrée virtuelle)
+* *Bascule* : permet d'inverser l'état d'une sortie (ou entrée virtuelle)
+
+Vous avez 5 types d'actionneurs : 
+
+* *Relais*
+* *Sortie virtuelle*
+* *Entrée virtuelle*
+* *Entrée analogique virtuelle*
+* *Compteur*
+
+[NOTE]
+Certain type d'actionneur peuvent etre masqué en fonction du type d'action
+
+Ensuite en fonction du type d'action et de l'actionneur vous avez plusieurs paramètres qui peuvent être : 
+
+* numéro du relai
+* numéro de la sortie virtuelle
+* numéro de l'entrée virtuelle
+* numéro de l'entrée analogique et valeur à affecter (laisser vide si vous voulez choisir avec le curseul)
+* numéro du compteur et opération (ex +200 ou -100)
+
+== Info
+
+Vous avez 9 types differents : 
+
+* Relais
+* Entrée digital
+* Entrée virtuelle
+* Sortie virtuelle
+* Watchdog
+* EnOcean
+* Entrée analogique
+* Entrée analogique virtuelle
+* Compteur
+
+Pour chaque type jeedom vous demandera le numéro de l'information voulue
+
+== Exemple : lumière du le relai 1
+
+Voici un exemple de la configuration des commandes qu'il faut mettre en place pour une lumiere sur le relai 1 : 
+
+image::../images/ipx800v4-6.PNG[]
+
+Les 2 premières commande sont le on et off du relai (donc de la lampe) et sont liée à la commande d'état du relai qui elle est masqué
+
+[IMPORTANT]
+Il ne faut pas oublier d'affecter le widget "light" aux commandes on et off.
