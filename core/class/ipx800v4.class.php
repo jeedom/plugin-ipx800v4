@@ -92,10 +92,7 @@ class ipx800v4 extends eqLogic {
 			foreach ($ipx800v4->getCmd('info') as $cmd) {
 				$key = $cmd->getConfiguration('infoType') . $cmd->getConfiguration('infoParameter' . $cmd->getConfiguration('infoType'));
 				if (isset($data[$key])) {
-					if ($cmd->formatValue($data[$key]) !== $cmd->execCmd()) {
-						$cmd->setCollectDate('');
-						$cmd->event($data[$key]);
-					}
+					$this->checkAndUpdateCmd($cmd, $data[$key]);
 				}
 			}
 		}
