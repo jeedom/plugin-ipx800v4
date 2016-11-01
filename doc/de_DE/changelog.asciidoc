@@ -1,0 +1,3 @@
+== Changelog
+
+- Correction de bugs sur la récuperération des informations des extensions
