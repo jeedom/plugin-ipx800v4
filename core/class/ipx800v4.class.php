@@ -186,6 +186,7 @@ class ipx800v4 extends eqLogic {
 		} catch (Exception $e) {
 
 		}
+
 		if ($this->getConfiguration('extension') != '') {
 			if (strpos($this->getConfiguration('extension'), ',') === false) {
 				$extensions = array($this->getConfiguration('extension'));
@@ -193,9 +194,6 @@ class ipx800v4 extends eqLogic {
 				$extensions = explode(',', $this->getConfiguration('extension'));
 			}
 			foreach ($extensions as $extension) {
-				if (!is_numeric($extension)) {
-					continue;
-				}
 				$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=X' . $extension;
 				$request_http = new com_http($url);
 				try {
