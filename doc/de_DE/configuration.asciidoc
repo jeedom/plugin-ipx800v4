@@ -1,4 +1,4 @@
-== Configuration du plugin
+== Plugin Konfiguration
 
 Après téléchargement du plugin, il vous suffit juste d'activer celui-ci, il n'y a aucune configuration à ce niveau.
 
