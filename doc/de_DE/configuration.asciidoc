@@ -7,9 +7,9 @@ image::../images/ipx800v4-1.PNG[]
 [NOTE]
 Vous pouvez voir sur cette page l'état du démon qui surveille l'IPX800
 
-== Configuration des équipements
+== Geräte Konfiguration
 
-La configuration des équipements IPX800 est accessible à partir du menu plugin : 
+Die Konfiguration von IPX800-Geräten ist in dem Plugin-Menü verfügbar : 
 
 image::../images/ipx800v4-2.PNG[]
 
@@ -24,7 +24,7 @@ Une fois que vous cliquez sur l'un d'eux, vous obtenez :
 
 image::../images/ipx800v4-4.PNG[]
 
-Vous retrouvez ici toute la configuration de votre équipement : 
+Hier finden sie die ganze Konfiguration Ihrer Geräte: 
 
 * *Nom de l'équipement IPX800* : nom de votre équipement IPX800,
 * *Objet parent* : indique l'objet parent auquel appartient l'équipement,
