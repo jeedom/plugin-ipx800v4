@@ -206,6 +206,7 @@ class ipx800v4 extends eqLogic {
 				}
 			}
 		}
+		log::add('ipx800v4', 'debug', 'IPX800 ' . $this->getConfiguration('ip') . ' info  : ' . json_encode($return));
 		return $return;
 	}
 
@@ -255,6 +256,7 @@ class ipx800v4Cmd extends cmd {
 		} else {
 			$url .= '=' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 		}
+		log::add('ipx800v4', 'info', 'Call url ' . $url);
 		$request_http = new com_http($url);
 		$request_http->exec();
 		ipx800v4::pull($eqLogic->getId());
