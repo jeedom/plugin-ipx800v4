@@ -145,7 +145,20 @@
     tr += '<input class="cmdAttr form-control infoParameter D" data-l1key="configuration" data-l2key="infoParameterD" placeholder="{{Entrée digital de 1 à 56}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter PW" data-l1key="configuration" data-l2key="infoParameterPW" placeholder="{{Watchdog de 1 à 32}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter VR" data-l1key="configuration" data-l2key="infoParameterVR" placeholder="{{Numéro de l\'extension et du volet, ex : 1-2}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control infoParameter VR" data-l1key="configuration" data-l2key="infoParameterTHL" placeholder="{{Numéro THL suivi de l\'information, ex 1-LUM, 1-TEMP, 1-HUM}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter THL" data-l1key="configuration" data-l2key="infoParameterTHL" placeholder="{{Numéro THL suivi de l\'information, ex 1-LUM, 1-TEMP, 1-HUM}}" style="display:none;" />';
+
+    tr += '<select class="cmdAttr form-control infoParameter THL" data-l1key="configuration" data-l2key="infoParameterTHL">';
+    for (i = 1; i < 8; i++) {
+        tr += '<option value="'+i+'-TEMP">{{Température}} '+i+'</option>';
+    }
+    for (i = 1; i < 8; i++) {
+        tr += '<option value="'+i+'-LUM">{{Luminosité}} '+i+'</option>';
+    }
+    for (i = 1; i < 8; i++) {
+        tr += '<option value="'+i+'-HUM">{{Humidité}} '+i+'</option>';
+    }
+    tr += '</select>';
+
     tr += '<select class="cmdAttr form-control infoParameter ENO" data-l1key="configuration" data-l2key="infoParameterENO">';
     for (i = 1; i < 25; i++) {
         tr += '<option value=" SWITCH'+i+'">Switch '+i+'</option>';
