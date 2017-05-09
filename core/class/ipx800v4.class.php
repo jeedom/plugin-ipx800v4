@@ -187,7 +187,7 @@ class ipx800v4 extends eqLogic {
 
 		}
 
-		if ($this->getConfiguration('extension') != '') {
+		if (trim($this->getConfiguration('extension')) != '') {
 			if (strpos($this->getConfiguration('extension'), ',') === false) {
 				$extensions = array($this->getConfiguration('extension'));
 			} else {
