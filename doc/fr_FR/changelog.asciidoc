@@ -4,3 +4,4 @@
 - Ajout de l'extension VR
 - Optimisation de la synchronisation avec l'ipx800
 - Support des modules THL
+- Ajout d'un moteur de template pour la génération des commandes
