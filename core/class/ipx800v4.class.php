@@ -98,6 +98,43 @@ class ipx800v4 extends eqLogic {
 		}
 	}
 
+	public static function listCmdTemplate($_template = '') {
+		$path = dirname(__FILE__) . '/../config/template';
+		if (isset($_template) && $_template != '') {
+			$files = ls($path, $_template . '.json', false, array('files', 'quiet'));
+			if (count($files) == 1) {
+				try {
+					$content = file_get_contents($path . '/' . $files[0]);
+					if (is_json($content)) {
+						$deviceConfiguration = json_decode($content, true);
+						return $deviceConfiguration[$_template];
+					}
+				} catch (Exception $e) {
+					return array();
+				}
+			}
+		}
+		$files = ls($path, '*.json', false, array('files', 'quiet'));
+		$return = array();
+		foreach ($files as $file) {
+			try {
+				$content = file_get_contents($path . '/' . $file);
+				if (is_json($content)) {
+					$return = array_merge($return, json_decode($content, true));
+				}
+			} catch (Exception $e) {
+
+			}
+		}
+		if (isset($_template) && $_template != '') {
+			if (isset($return[$_template])) {
+				return $return[$_template];
+			}
+			return array();
+		}
+		return $return;
+	}
+
 	/*     * *********************Méthodes d'instance************************* */
 
 	public static function postSave() {
@@ -120,6 +157,76 @@ class ipx800v4 extends eqLogic {
 		}
 		log::add('ipx800v4', 'debug', 'IPX800 ' . $this->getConfiguration('ip') . ' info  : ' . json_encode($return));
 		return $return;
+	}
+
+	public function applyCmdTemplate($_config) {
+		if (!is_array($_config)) {
+			throw new Exception(__('La configuration d\'un template doit etre un tableau', __FILE__));
+		}
+		if (!isset($_config['template'])) {
+			throw new Exception(__('Aucun nom de template trouvé', __FILE__));
+		}
+		$template = self::listCmdTemplate($_config['template']);
+		if (!is_array($template) || count($template) < 1) {
+			throw new Exception(__('Template introuvable', __FILE__));
+		}
+		if (!isset($template['commands']) || count($template['commands']) < 1) {
+			throw new Exception(__('Aucune commandes trouvé dans le template', __FILE__));
+		}
+		$config = array();
+		foreach ($_config as $key => $value) {
+			$config['#' . $key . '#'] = $value;
+		}
+		$cmd_order = 0;
+		$cmds_template = json_decode(str_replace(array_keys($config), $config, json_encode($template['commands'])), true);
+		$link_cmds = array();
+		$link_actions = array();
+		foreach ($cmds_template as $command) {
+			$cmd = new ipx800v4Cmd();
+			$cmd->setOrder($cmd_order);
+			$cmd->setEqLogic_id($this->getId());
+			utils::a2o($cmd, $command);
+			try {
+				$cmd->save();
+			} catch (Exception $e) {
+
+			}
+
+			$cmd_order++;
+			if (isset($command['value'])) {
+				$link_cmds[$cmd->getId()] = $command['value'];
+			}
+			if (isset($command['configuration']) && isset($command['configuration']['updateCmdId'])) {
+				$link_actions[$cmd->getId()] = $command['configuration']['updateCmdId'];
+			}
+		}
+		if (count($link_cmds) > 0) {
+			foreach ($this->getCmd() as $eqLogic_cmd) {
+				foreach ($link_cmds as $cmd_id => $link_cmd) {
+					if ($link_cmd == $eqLogic_cmd->getName()) {
+						$cmd = cmd::byId($cmd_id);
+						if (is_object($cmd)) {
+							$cmd->setValue($eqLogic_cmd->getId());
+							$cmd->save();
+						}
+					}
+				}
+			}
+		}
+		if (count($link_actions) > 0) {
+			foreach ($this->getCmd() as $eqLogic_cmd) {
+				foreach ($link_actions as $cmd_id => $link_action) {
+					if ($link_action == $eqLogic_cmd->getName()) {
+						$cmd = cmd::byId($cmd_id);
+						if (is_object($cmd)) {
+							$cmd->setConfiguration('updateCmdId', $eqLogic_cmd->getId());
+							$cmd->save();
+						}
+					}
+				}
+			}
+		}
+		return;
 	}
 
 	/*     * **********************Getteur Setteur*************************** */

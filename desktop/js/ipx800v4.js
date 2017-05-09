@@ -22,9 +22,9 @@
         $(this).closest('.cmd').find('.actionType').show();
         $(this).closest('.cmd').find('.infoType').hide();
     }else{
-       $(this).closest('.cmd').find('.actionType').hide();
-       $(this).closest('.cmd').find('.infoType').show();
-   }
+     $(this).closest('.cmd').find('.actionType').hide();
+     $(this).closest('.cmd').find('.infoType').show();
+ }
 });
 
  $('#table_cmd').on('change','.cmdAttr[data-l1key=configuration][data-l2key=actionCmd]',function(){
@@ -43,6 +43,12 @@
  $('#table_cmd').on('change','.cmdAttr[data-l1key=configuration][data-l2key=infoType]',function(){
     $(this).closest('.cmd').find('.infoParameter').hide();
     $(this).closest('.cmd').find('.infoParameter.'+$(this).value()).show();
+});
+
+
+ $('.cmdAction[data-action=importFromTemplate]').on('click',function(){
+  $('#md_modal').dialog({title: "{{Template commande IPX800}}"});
+  $("#md_modal").load('index.php?v=d&plugin=ipx800v4&modal=cmd.template&eqLogic_id=' + $('.eqLogicAttr[data-l1key=id]').value()).dialog('open');
 });
 
  function addCmdToTable(_cmd) {
