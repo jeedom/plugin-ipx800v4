@@ -70,7 +70,7 @@ Ensuite en fonction du type d'action et de l'actionneur vous avez plusieurs para
 
 == Info
 
-Vous avez 9 types differents : 
+Vous avez 11 types differents : 
 
 * Relais
 * Entrée digital
@@ -81,6 +81,8 @@ Vous avez 9 types differents :
 * Entrée analogique
 * Entrée analogique virtuelle
 * Compteur
+* Volet roulant : option sous la forme 1-3 pour le volet 3 de l'extension VR 1
+* THL : sous la forme 1-TEMP pour la température du capteur 1, 3-HUM pour l'humidité du capteur 3 ou 2-LUM pour la luminosité du capteur 2
 
 Pour chaque type jeedom vous demandera le numéro de l'information voulue
 
