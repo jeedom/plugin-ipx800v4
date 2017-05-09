@@ -136,7 +136,7 @@ class ipx800v4Cmd extends cmd {
 		$eqLogic = $this->getEqLogic();
 		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
 		$url .= '&' . $this->getConfiguration('actionCmd') . $this->getConfiguration('actionArgument');
-		if ($this->getConfiguration('actionArgument') == 'VA' || $this->getConfiguration('actionArgument') == 'C' || $this->getConfiguration('actionArgument') == 'VR') {
+		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR'))) {
 			if (strlen($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'))) == 1) {
 				$url .= '0' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 			} else {
