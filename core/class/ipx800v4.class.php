@@ -116,46 +116,6 @@ class ipx800v4 extends eqLogic {
 		} catch (Exception $e) {
 
 		}
-		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=R';
-		$request_http = new com_http($url);
-		try {
-			$result = $request_http->exec();
-			if (is_json($result)) {
-				$return = array_merge($return, json_decode($result, true));
-			}
-		} catch (Exception $e) {
-
-		}
-		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=VI';
-		$request_http = new com_http($url);
-		try {
-			$result = $request_http->exec();
-			if (is_json($result)) {
-				$return = array_merge($return, json_decode($result, true));
-			}
-		} catch (Exception $e) {
-
-		}
-		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=VO';
-		$request_http = new com_http($url);
-		try {
-			$result = $request_http->exec();
-			if (is_json($result)) {
-				$return = array_merge($return, json_decode($result, true));
-			}
-		} catch (Exception $e) {
-
-		}
-		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=D';
-		$request_http = new com_http($url);
-		try {
-			$result = $request_http->exec();
-			if (is_json($result)) {
-				$return = array_merge($return, json_decode($result, true));
-			}
-		} catch (Exception $e) {
-
-		}
 		$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=A';
 		$request_http = new com_http($url);
 		try {
@@ -185,26 +145,6 @@ class ipx800v4 extends eqLogic {
 			}
 		} catch (Exception $e) {
 
-		}
-
-		if (trim($this->getConfiguration('extension')) != '') {
-			if (strpos($this->getConfiguration('extension'), ',') === false) {
-				$extensions = array($this->getConfiguration('extension'));
-			} else {
-				$extensions = explode(',', $this->getConfiguration('extension'));
-			}
-			foreach ($extensions as $extension) {
-				$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=X' . $extension;
-				$request_http = new com_http($url);
-				try {
-					$result = $request_http->exec();
-					if (is_json($result)) {
-						$return = array_merge($return, json_decode($result, true));
-					}
-				} catch (Exception $e) {
-
-				}
-			}
 		}
 		log::add('ipx800v4', 'debug', 'IPX800 ' . $this->getConfiguration('ip') . ' info  : ' . json_encode($return));
 		return $return;
