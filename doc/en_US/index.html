@@ -418,10 +418,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_configuration_du_plugin">1. Configuration du plugin</a></li>
 <li><a href="#_configuration_of_devices">2. Configuration of devices</a></li>
-<li><a href="#_action">3. Action</a></li>
-<li><a href="#_info">4. Info</a></li>
-<li><a href="#_exemple_lumière_du_le_relai_1">5. Exemple : lumière du le relai 1</a></li>
-<li><a href="#_changelog">6. Changelog</a></li>
+<li><a href="#_commande">3. Commande</a>
+<ul class="sectlevel2">
+<li><a href="#_action">3.1. Action</a></li>
+<li><a href="#_info">3.2. Info</a></li>
+</ul>
+</li>
+<li><a href="#_template">4. Template</a></li>
+<li><a href="#_changelog">5. Changelog</a></li>
 </ul>
 </div>
 </div>
@@ -438,11 +442,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>Après téléchargement du plugin, il vous suffit juste d&#8217;activer celui-ci, il n&#8217;y a aucune configuration à ce niveau.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ipx800v4-1.PNG" alt="ipx800v4 1">
-</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -462,40 +461,7 @@ Vous pouvez voir sur cette page l&#8217;état du démon qui surveille l&#8217;IP
 <h2 id="_configuration_of_devices">2. Configuration of devices</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>La configuration des équipements IPX800 est accessible à partir du menu plugin :</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ipx800v4-2.PNG" alt="ipx800v4 2">
-</div>
-</div>
-<div class="paragraph">
-<p>Voilà à quoi ressemble la page du plugin IPX800 (ici avec déjà 1 équipement) :</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ipx800v4-3.PNG" alt="ipx800v4 3">
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Comme à beaucoup d&#8217;endroits sur Jeedom, placer la souris tout à gauche permet de faire apparaître un menu d&#8217;accès rapide (vous pouvez, à partir de votre profil, le laisser toujours visible).
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Une fois que vous cliquez sur l&#8217;un d&#8217;eux, vous obtenez :</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ipx800v4-4.PNG" alt="ipx800v4 4">
-</div>
+<p>La configuration des équipements IPX800 est accessible à partir du menu plugin puis protocole domotique :</p>
 </div>
 <div class="paragraph">
 <p>Vous retrouvez ici toute la configuration de votre équipement :</p>
@@ -529,21 +495,15 @@ Comme à beaucoup d&#8217;endroits sur Jeedom, placer la souris tout à gauche p
 </ul>
 </div>
 <div class="paragraph">
-<p>En-dessous vous retrouvez la liste des commandes :</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ipx800v4-5.PNG" alt="ipx800v4 5">
-</div>
-</div>
-<div class="paragraph">
 <p>Le plugin par defaut ne creer rien, ca sera à vous de le faire en fonction de votre configuration, mais vous serez guider.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_action">3. Action</h2>
+<h2 id="_commande">3. Commande</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_action">3.1. Action</h3>
 <div class="paragraph">
 <p>Vous avez 3 types d&#8217;action :</p>
 </div>
@@ -617,10 +577,8 @@ Certain type d&#8217;actionneur peuvent etre masqué en fonction du type d&#8217
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_info">4. Info</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_info">3.2. Info</h3>
 <div class="paragraph">
 <p>Vous avez 11 types differents :</p>
 </div>
@@ -666,37 +624,18 @@ Certain type d&#8217;actionneur peuvent etre masqué en fonction du type d&#8217
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_exemple_lumière_du_le_relai_1">5. Exemple : lumière du le relai 1</h2>
+<h2 id="_template">4. Template</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Voici un exemple de la configuration des commandes qu&#8217;il faut mettre en place pour une lumiere sur le relai 1 :</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ipx800v4-6.PNG" alt="ipx800v4 6">
-</div>
-</div>
-<div class="paragraph">
-<p>Les 2 premières commande sont le on et off du relai (donc de la lampe) et sont liée à la commande d&#8217;état du relai qui elle est masqué</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-Il ne faut pas oublier d&#8217;affecter le widget "light" aux commandes on et off.
-</td>
-</tr>
-</table>
+<p>Pour vous aider il y a un template qui permet de creer certain type de commande d&#8217;un seul coup et plus rapidement.</p>
 </div>
 <hr>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_changelog">6. Changelog</h2>
+<h2 id="_changelog">5. Changelog</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>

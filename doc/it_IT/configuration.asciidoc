@@ -2,27 +2,12 @@
 
 Après téléchargement du plugin, il vous suffit juste d'activer celui-ci, il n'y a aucune configuration à ce niveau.
 
-image::../images/ipx800v4-1.PNG[]
-
 [NOTE]
 Vous pouvez voir sur cette page l'état du démon qui surveille l'IPX800
 
 == Configuration des équipements
 
-La configuration des équipements IPX800 est accessible à partir du menu plugin : 
-
-image::../images/ipx800v4-2.PNG[]
-
-Voilà à quoi ressemble la page du plugin IPX800 (ici avec déjà 1 équipement) : 
-
-image::../images/ipx800v4-3.PNG[]
-
-[TIP]
-Comme à beaucoup d'endroits sur Jeedom, placer la souris tout à gauche permet de faire apparaître un menu d'accès rapide (vous pouvez, à partir de votre profil, le laisser toujours visible).
-
-Une fois que vous cliquez sur l'un d'eux, vous obtenez : 
-
-image::../images/ipx800v4-4.PNG[]
+La configuration des équipements IPX800 est accessible à partir du menu plugin puis protocole domotique : 
 
 Vous retrouvez ici toute la configuration de votre équipement : 
 
@@ -35,13 +20,11 @@ Vous retrouvez ici toute la configuration de votre équipement :
 * *Clef API* : clef api de l'IPX800 (par default la clef API est apikey)
 * *Extension* : il faut ici indiquer les extensions présente sur l'ipx800 pour que jeedom puisse les interroger. Exemple pour enOcean il faut mettre ENO (si vous en avez plusieurs il faut les séparer par des ,). Toutes les extensions sont normalement supportée, pour le code de l'extension à mettre il faut se reporter à la documentation de celle-ci.
 
-En-dessous vous retrouvez la liste des commandes : 
-
-image::../images/ipx800v4-5.PNG[]
-
 Le plugin par defaut ne creer rien, ca sera à vous de le faire en fonction de votre configuration, mais vous serez guider.
 
-== Action
+== Commande
+
+=== Action
 
 Vous avez 3 types d'action : 
 
@@ -68,7 +51,7 @@ Ensuite en fonction du type d'action et de l'actionneur vous avez plusieurs para
 * numéro de l'entrée analogique et valeur à affecter (laisser vide si vous voulez choisir avec le curseul)
 * numéro du compteur et opération (ex +200 ou -100)
 
-== Info
+=== Info
 
 Vous avez 11 types differents : 
 
@@ -86,13 +69,6 @@ Vous avez 11 types differents :
 
 Pour chaque type jeedom vous demandera le numéro de l'information voulue
 
-== Exemple : lumière du le relai 1
+== Template
 
-Voici un exemple de la configuration des commandes qu'il faut mettre en place pour une lumiere sur le relai 1 : 
-
-image::../images/ipx800v4-6.PNG[]
-
-Les 2 premières commande sont le on et off du relai (donc de la lampe) et sont liée à la commande d'état du relai qui elle est masqué
-
-[IMPORTANT]
-Il ne faut pas oublier d'affecter le widget "light" aux commandes on et off.
+Pour vous aider il y a un template qui permet de creer certain type de commande d'un seul coup et plus rapidement. 
