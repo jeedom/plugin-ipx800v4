@@ -100,6 +100,7 @@
     tr += '<option value="VA" class="actionArgument Set">{{Entrée analogique virtuelle}}</option>';
     tr += '<option value="VR" class="actionArgument Set">{{Volet roulant}}</option>';
     tr += '<option value="C" class="actionArgument Set">{{Compteur}}</option>';
+    tr += '<option value="FP" class="actionArgument Set">{{Fil pilote}}</option>';
     tr += '</select>';
     tr += '</div>';
     tr += '</div>';
@@ -112,12 +113,14 @@
     tr += '<input class="cmdAttr form-control actionParameter VA" data-l1key="configuration" data-l2key="actionParameterVA" placeholder="{{Numéro de l\'entrée de 1 à 32}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter C" data-l1key="configuration" data-l2key="actionParameterC" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter VR" data-l1key="configuration" data-l2key="actionParameterVR" placeholder="{{Numéro de l\'extension et du volet, ex : 1-2}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter FP" data-l1key="configuration" data-l2key="actionParameterFP" placeholder="{{Numéro de la zone (00 à 16)}}" style="display:none;" />';
     tr += '</div>';
 
     tr += '<div class="col-xs-6">';
     tr += '<input class="cmdAttr form-control actionOption VA" data-l1key="configuration" data-l2key="actionOptionVA" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption C" data-l1key="configuration" data-l2key="actionOptionC" placeholder="{{Opération}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption VR" data-l1key="configuration" data-l2key="actionOptionVR" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption FP" data-l1key="configuration" data-l2key="actionOptionFP" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '</div>';
     tr += '</div>';
 
@@ -139,6 +142,7 @@
     tr += '<option value="C">{{Compteur}}</option>';
     tr += '<option value="VR">{{Volet roulant}}</option>';
     tr += '<option value="THL">{{THL}}</option>';
+    tr += '<option value="FP">{{Fil pilote}}</option>';
     tr += '</select>';
     tr += '</div>';
 
@@ -151,15 +155,23 @@
     tr += '<input class="cmdAttr form-control infoParameter D" data-l1key="configuration" data-l2key="infoParameterD" placeholder="{{Entrée digital de 1 à 56}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter PW" data-l1key="configuration" data-l2key="infoParameterPW" placeholder="{{Watchdog de 1 à 32}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter VR" data-l1key="configuration" data-l2key="infoParameterVR" placeholder="{{Numéro de l\'extension et du volet, ex : 1-2}}" style="display:none;" />';
+    
+    tr += '<select class="cmdAttr form-control infoParameter FP" data-l1key="configuration" data-l2key="infoParameterFP">';
+    for (i = 1; i < 5; i++) {
+        for (j = 1; j < 5; j++) {
+            tr += '<option value="'+i+' Zone '+j+'">{{Ext }} '+i+' {{Zone }}'+j+'</option>';
+        }
+    }
+    tr += '</select>';
 
     tr += '<select class="cmdAttr form-control infoParameter THL" data-l1key="configuration" data-l2key="infoParameterTHL">';
-    for (i = 1; i < 8; i++) {
+    for (i = 1; i < 9; i++) {
         tr += '<option value="'+i+'-TEMP">{{Température}} '+i+'</option>';
     }
-    for (i = 1; i < 8; i++) {
+    for (i = 1; i < 9; i++) {
         tr += '<option value="'+i+'-LUM">{{Luminosité}} '+i+'</option>';
     }
-    for (i = 1; i < 8; i++) {
+    for (i = 1; i < 9; i++) {
         tr += '<option value="'+i+'-HUM">{{Humidité}} '+i+'</option>';
     }
     tr += '</select>';
