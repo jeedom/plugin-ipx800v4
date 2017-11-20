@@ -98,6 +98,7 @@
     tr += '<option value="VO" class="actionArgument Set Clear Toggle">{{Sortie virtuelle}}</option>';
     tr += '<option value="VI" class="actionArgument Set Clear Toggle">{{Entrée virtuelle}}</option>';
     tr += '<option value="VA" class="actionArgument Set">{{Entrée analogique virtuelle}}</option>';
+    tr += '<option value="EnoPC" class="actionArgument Set Clear Toggle">{{EnOcean}}</option>';
     tr += '<option value="VR" class="actionArgument Set">{{Volet roulant}}</option>';
     tr += '<option value="C" class="actionArgument Set">{{Compteur}}</option>';
     tr += '<option value="FP" class="actionArgument Set">{{Fil pilote}}</option>';
@@ -112,8 +113,9 @@
     tr += '<input class="cmdAttr form-control actionParameter VI" data-l1key="configuration" data-l2key="actionParameterVI" placeholder="{{Numéro de l\'entrée de 1 à 128}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter VA" data-l1key="configuration" data-l2key="actionParameterVA" placeholder="{{Numéro de l\'entrée de 1 à 32}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter C" data-l1key="configuration" data-l2key="actionParameterC" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter VR" data-l1key="configuration" data-l2key="actionParameterVR" placeholder="{{Numéro de l\'extension et du volet, ex : 1-2}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter VR" data-l1key="configuration" data-l2key="actionParameterVR" placeholder="{{Numéro du volet, ex : 02}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter FP" data-l1key="configuration" data-l2key="actionParameterFP" placeholder="{{Numéro de la zone (00 à 16)}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter EnoPC" data-l1key="configuration" data-l2key="actionParameterEnoPC" placeholder="{{Numéro de l\'actionneur de 1 à 24}}" style="display:none;" />';
     tr += '</div>';
 
     tr += '<div class="col-xs-6">';
@@ -189,6 +191,9 @@
     for (i = 1; i < 25; i++) {
         tr += '<option value=" ANALOG'+i+'">Anologique '+i+'</option>';
     }
+    for (i = 1; i < 25; i++) {
+        tr += '<option value=" ACTIONNEUR'+i+'">Actionneur '+i+'</option>';
+    }
     tr += '</select>';
 
     tr += '<input class="cmdAttr form-control infoParameter A" data-l1key="configuration" data-l2key="infoParameterA" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
@@ -201,17 +206,17 @@
     tr += '<td>';
     tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label></span> ';
     tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Historiser}}</label></span> ';
-    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr expertModeVisible" data-l1key="display" data-l2key="invertBinary"/>{{Inverser}}</label></span> ';
+    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="display" data-l2key="invertBinary"/>{{Inverser}}</label></span> ';
     tr += '</td>';
     tr += '<td>';
     tr += '<input class="cmdAttr form-control input-sm" data-l1key="unite" placeholder="Unité" title="{{Unité}}">';
-    tr += '<input class="cmdAttr form-control input-sm expertModeVisible" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}}" style="margin-top : 5px;"> ';
-    tr += '<input class="cmdAttr form-control input-sm expertModeVisible" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}}" style="margin-top : 5px;">';
+    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}}" style="margin-top : 5px;"> ';
+    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}}" style="margin-top : 5px;">';
     tr += '</td>';
 
     tr += '<td>';
     if (is_numeric(_cmd.id)) {
-        tr += '<a class="btn btn-default btn-xs cmdAction expertModeVisible" data-action="configure"><i class="fa fa-cogs"></i></a> ';
+        tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure"><i class="fa fa-cogs"></i></a> ';
         tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i> {{Tester}}</a>';
     }
     tr += '<i class="fa fa-minus-circle pull-right cmdAction cursor" data-action="remove"></i>';

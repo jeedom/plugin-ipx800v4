@@ -25,7 +25,6 @@
 				"type": "action",
 				"subtype": "other",
 				"isVisible": 1,
-				"isHistorized": 0,
 				"value" : "Etat #RNUM#",
 				"configuration" : {
 					"actionArgument" : "R",
@@ -38,7 +37,6 @@
 				"type": "action",
 				"subtype": "other",
 				"isVisible": 1,
-				"isHistorized": 0,
 				"value" : "Etat #RNUM#",
 				"configuration" : {
 					"actionArgument" : "R",
