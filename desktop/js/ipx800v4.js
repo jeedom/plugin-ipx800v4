@@ -98,6 +98,7 @@
     tr += '<option value="VO" class="actionArgument Set Clear Toggle">{{Sortie virtuelle}}</option>';
     tr += '<option value="VI" class="actionArgument Set Clear Toggle">{{Entrée virtuelle}}</option>';
     tr += '<option value="VA" class="actionArgument Set">{{Entrée analogique virtuelle}}</option>';
+    tr += '<option value="EnoPC" class="actionArgument Set Clear Toggle">{{EnOcean}}</option>';
     tr += '<option value="VR" class="actionArgument Set">{{Volet roulant}}</option>';
     tr += '<option value="C" class="actionArgument Set">{{Compteur}}</option>';
     tr += '<option value="FP" class="actionArgument Set">{{Fil pilote}}</option>';
@@ -114,6 +115,7 @@
     tr += '<input class="cmdAttr form-control actionParameter C" data-l1key="configuration" data-l2key="actionParameterC" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter VR" data-l1key="configuration" data-l2key="actionParameterVR" placeholder="{{Numéro du volet, ex : 02}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter FP" data-l1key="configuration" data-l2key="actionParameterFP" placeholder="{{Numéro de la zone (00 à 16)}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter EnoPC" data-l1key="configuration" data-l2key="actionParameterEnoPC" placeholder="{{Numéro de l\'actionneur de 1 à 24}}" style="display:none;" />';
     tr += '</div>';
 
     tr += '<div class="col-xs-6">';
@@ -188,6 +190,9 @@
     }
     for (i = 1; i < 25; i++) {
         tr += '<option value=" ANALOG'+i+'">Anologique '+i+'</option>';
+    }
+    for (i = 1; i < 25; i++) {
+        tr += '<option value=" ACTIONNEUR'+i+'">Actionneur '+i+'</option>';
     }
     tr += '</select>';
 
