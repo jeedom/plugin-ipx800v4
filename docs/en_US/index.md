@@ -1,7 +1,6 @@
 Ce plugin permet de gérer un IPX 800 v4
 
-Configuration du plugin 
-=======================
+== Plugin configuration
 
 Après téléchargement du plugin, il vous suffit juste d’activer celui-ci,
 il n’y a aucune configuration à ce niveau.
@@ -16,16 +15,16 @@ Configuration des équipements
 La configuration des équipements IPX800 est accessible à partir du menu
 plugin puis protocole domotique :
 
-Vous retrouvez ici toute la configuration de votre équipement :
+You can find here the full configuration of your device :
 
 -   **Nom de l’équipement IPX800** : nom de votre équipement IPX800,
 
--   **Objet parent** : indique l’objet parent auquel appartient
-    l’équipement,
+-   **Parent Object** : means the parent object the equipment depend
+    equipment,
 
--   **Activer** : permet de rendre votre équipement actif,
+-   ** Enable **: to make your equipment active,
 
--   **Visible** : rend votre équipement visible sur le dashboard,
+-   ** Visible **: makes your equipment visible on the dashboard,
 
 -   **Catégorie** : les catégories de l’équipement (il peut appartenir à
     plusieurs catégories),
@@ -130,7 +129,7 @@ Template
 Pour vous aider il y a un template qui permet de creer certain type de
 commande d’un seul coup et plus rapidement.
 
-Changelog 
+Changelog
 =========
 
 -   Amélioration du support enOcean

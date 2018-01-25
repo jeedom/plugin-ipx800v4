@@ -16,7 +16,7 @@ Configuration des équipements
 La configuration des équipements IPX800 est accessible à partir du menu
 plugin puis protocole domotique :
 
-Vous retrouvez ici toute la configuration de votre équipement :
+Hier finden sie die ganze Konfiguration Ihrer Geräte:
 
 -   **Nom de l’équipement IPX800** : nom de votre équipement IPX800,
 

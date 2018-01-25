@@ -16,11 +16,11 @@ Configuration des équipements
 La configuration des équipements IPX800 est accessible à partir du menu
 plugin puis protocole domotique :
 
-Vous retrouvez ici toute la configuration de votre équipement :
+Aquí encontrará toda la configuración de su dispositivo:
 
 -   **Nom de l’équipement IPX800** : nom de votre équipement IPX800,
 
--   **Objet parent** : indique l’objet parent auquel appartient
+-   **Objeto padre** : especifica el objeto padre al que pertenece
     l’équipement,
 
 -   **Activer** : permet de rendre votre équipement actif,
