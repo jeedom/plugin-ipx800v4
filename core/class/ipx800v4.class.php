@@ -27,9 +27,18 @@ class ipx800v4 extends eqLogic {
 	/*     * ***********************Methode static*************************** */
 
 	public static function event() {
+		if (init('onvent') == 1) {
+			foreach (self::byType('ipx800v4') as $eqLogic) {
+				if ($eqLogic->getConfiguration('ip') != init('ip')) {
+					continue;
+				}
+				ipx800v4::pull($eqLogic->getId());
+			}
+			return;
+		}
 		$cmd = ipx800v4Cmd::byId(init('id'));
 		if (!is_object($cmd) || $cmd->getEqType() != 'ipx800v4') {
-			throw new Exception(__('Commande ID virtuel inconnu, ou la commande n\'est pas de type virtuel : ', __FILE__) . init('id'));
+			throw new Exception(__('Commande ID ipx800v4 inconnu, ou la commande n\'est pas de type ipx800v4 : ', __FILE__) . init('id'));
 		}
 		$cmd->event(init('value'));
 	}
@@ -56,6 +65,8 @@ class ipx800v4 extends eqLogic {
 		if (!is_object($cron)) {
 			throw new Exception(__('Tâche cron introuvable', __FILE__));
 		}
+		$cron->setDeamonSleepTime(config::byKey('api::frequency', 'ipx800v4', 1));
+		$cron->save();
 		$cron->run();
 	}
 
@@ -137,13 +148,27 @@ class ipx800v4 extends eqLogic {
 
 	/*     * *********************Méthodes d'instance************************* */
 
-	public static function postSave() {
+	public function postSave() {
+		$refresh = $this->getCmd(null, 'refresh');
+		if (!is_object($refresh)) {
+			$refresh = new ipx800v4Cmd();
+		}
+		$refresh->setName(__('Rafraîchir', __FILE__));
+		$refresh->setEqLogic_id($this->getId());
+		$refresh->setLogicalId('refresh');
+		$refresh->setType('action');
+		$refresh->setSubType('other');
+		$refresh->save();
 		self::deamon_start();
 	}
 
 	public function getIPXinfo() {
 		$return = array();
-		foreach (array('all', 'A', 'VA', 'C') as $get) {
+		$api = array();
+		foreach (array('all', 'A', 'VA', 'C', 'R', 'D', 'VI', 'VO', 'VA', 'PW', 'XTHL', 'VR', 'XENO', 'FP', 'G', 'T') as $get) {
+			if (config::byKey('api::' . $get, 'ipx800v4', 1) != 1) {
+				continue;
+			}
 			$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=' . $get;
 			$request_http = new com_http($url);
 			try {
@@ -240,6 +265,10 @@ class ipx800v4Cmd extends cmd {
 	/*     * *********************Methode d'instance************************* */
 
 	public function execute($_options = array()) {
+		if ($this->getLogicalId() == 'refresh') {
+			ipx800v4::pull($this->getEqLogic_Id());
+			return;
+		}
 		$eqLogic = $this->getEqLogic();
 		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
 		$url .= '&' . $this->getConfiguration('actionCmd') . $this->getConfiguration('actionArgument');

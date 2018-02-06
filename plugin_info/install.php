@@ -18,11 +18,11 @@
 
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
-function ipx800v4_install() {
-	$cron = cron::byClassAndFunction('ipx800v4', 'pull');
+function rt2_install() {
+	$cron = cron::byClassAndFunction('rt2', 'pull');
 	if (!is_object($cron)) {
 		$cron = new cron();
-		$cron->setClass('ipx800v4');
+		$cron->setClass('rt2');
 		$cron->setFunction('pull');
 		$cron->setEnable(1);
 		$cron->setDeamon(1);
@@ -33,12 +33,12 @@ function ipx800v4_install() {
 	}
 }
 
-function ipx800v4_update() {
-	$cron = cron::byClassAndFunction('ipx800v4', 'pull');
+function rt2_update() {
+	$cron = cron::byClassAndFunction('rt2', 'pull');
 	if (!is_object($cron)) {
 		$cron = new cron();
 	}
-	$cron->setClass('ipx800v4');
+	$cron->setClass('rt2');
 	$cron->setFunction('pull');
 	$cron->setEnable(1);
 	$cron->setDeamon(1);
@@ -47,13 +47,13 @@ function ipx800v4_update() {
 	$cron->setSchedule('* * * * *');
 	$cron->save();
 	$cron->stop();
-	foreach (ipx800v4::byType('ipx800v4') as $ipx800v4) {
-		$ipx800v4->save();
+	foreach (rt2::byType('rt2') as $rt2) {
+		$rt2->save();
 	}
 }
 
-function ipx800v4_remove() {
-	$cron = cron::byClassAndFunction('ipx800v4', 'pull');
+function rt2_remove() {
+	$cron = cron::byClassAndFunction('rt2', 'pull');
 	if (is_object($cron)) {
 		$cron->remove();
 	}

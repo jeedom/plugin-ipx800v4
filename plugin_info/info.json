@@ -6,7 +6,5 @@
 	"author" : "Loïc",
 	"require" : "2.4",
 	"category" : "automation protocol",
-        "hasOwnDeamon" : true,
-        "changelog" : "https://jeedom.github.io/plugin-ipx800v4/#language#/changelog",
-        "documentation" : "https://jeedom.github.io/plugin-ipx800v4/#language#/"
+	"hasOwnDeamon" : true
 }

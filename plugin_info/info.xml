@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+    <id>ipx800v4</id>
+    <name>IPX 800 v4</name>
+    <description>Plugin pour piloter l'IPX 800</description>
+    <licence>AGPL</licence>
+    <author>Loïc</author>
+    <require>2.3</require>
+    <category>automation protocol</category>
+    <hasOwnDeamon>1</hasOwnDeamon>
+</info>
+
