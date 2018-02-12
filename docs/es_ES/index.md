@@ -1,6 +1,6 @@
 Ce plugin permet de gérer un IPX 800 v4
 
-Configuration du plugin 
+configuración del plugin
 =======================
 
 Après téléchargement du plugin, il vous suffit juste d’activer celui-ci,
@@ -21,11 +21,11 @@ Aquí encontrará toda la configuración de su dispositivo:
 -   **Nom de l’équipement IPX800** : nom de votre équipement IPX800,
 
 -   **Objeto padre** : especifica el objeto padre al que pertenece
-    l’équipement,
+    equipos,
 
--   **Activer** : permet de rendre votre équipement actif,
+-   ** ** Activar: para que su equipo activo,
 
--   **Visible** : rend votre équipement visible sur le dashboard,
+-   ** ** visible hace que su equipo visible en el salpicadero,
 
 -   **Catégorie** : les catégories de l’équipement (il peut appartenir à
     plusieurs catégories),
