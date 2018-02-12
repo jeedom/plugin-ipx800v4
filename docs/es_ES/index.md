@@ -3,14 +3,14 @@ Ce plugin permet de gérer un IPX 800 v4
 configuración del plugin
 =======================
 
-Après téléchargement du plugin, il vous suffit juste d’activer celui-ci,
-il n’y a aucune configuration à ce niveau.
+Después de descargar el plugin, sólo hay que activarlo,
+no hay ninguna configuración a este nivel.
 
 > **Note**
 >
 > Vous pouvez voir sur cette page l’état du démon qui surveille l’IPX800
 
-Configuration des équipements 
+Configuración del dispositivo
 =============================
 
 La configuration des équipements IPX800 est accessible à partir du menu
@@ -27,7 +27,7 @@ Aquí encontrará toda la configuración de su dispositivo:
 
 -   ** ** visible hace que su equipo visible en el salpicadero,
 
--   **Catégorie** : les catégories de l’équipement (il peut appartenir à
+-   ** ** Categoría: categorías de equipos (que pueden pertenecer a
     plusieurs catégories),
 
 -   **IP** : L’ip de l’IPX800,
