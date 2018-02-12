@@ -130,7 +130,7 @@ Template
 Pour vous aider il y a un template qui permet de creer certain type de
 commande d’un seul coup et plus rapidement.
 
-Changelog 
+cambios
 =========
 
 -   Amélioration du support enOcean
