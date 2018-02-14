@@ -133,21 +133,3 @@ Template
 
 Pour vous aider il y a un template qui permet de creer certain type de
 commande d’un seul coup et plus rapidement.
-
-Changelog 
-=========
-
--   Amélioration du support enOcean
-
--   Correction de bugs sur la récuperération des informations des
-    extensions
-
--   Ajout de l’extension VR
-
--   Optimisation de la synchronisation avec l’ipx800
-
--   Support des modules THL
-
--   Ajout d’un moteur de template pour la génération des commandes
-
-
