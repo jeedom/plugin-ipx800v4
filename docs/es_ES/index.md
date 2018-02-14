@@ -1,16 +1,16 @@
 Ce plugin permet de gérer un IPX 800 v4
 
-Configuration du plugin 
+configuración del plugin
 =======================
 
-Après téléchargement du plugin, il vous suffit juste d’activer celui-ci,
-il n’y a aucune configuration à ce niveau.
+Después de descargar el plugin, sólo hay que activarlo,
+no hay ninguna configuración a este nivel.
 
 > **Note**
 >
 > Vous pouvez voir sur cette page l’état du démon qui surveille l’IPX800
 
-Configuration des équipements 
+Configuración del dispositivo
 =============================
 
 La configuration des équipements IPX800 est accessible à partir du menu
@@ -21,13 +21,13 @@ Aquí encontrará toda la configuración de su dispositivo:
 -   **Nom de l’équipement IPX800** : nom de votre équipement IPX800,
 
 -   **Objeto padre** : especifica el objeto padre al que pertenece
-    l’équipement,
+    equipos,
 
--   **Activer** : permet de rendre votre équipement actif,
+-   ** ** Activar: para que su equipo activo,
 
--   **Visible** : rend votre équipement visible sur le dashboard,
+-   ** ** visible hace que su equipo visible en el salpicadero,
 
--   **Catégorie** : les catégories de l’équipement (il peut appartenir à
+-   ** ** Categoría: categorías de equipos (que pueden pertenecer a
     plusieurs catégories),
 
 -   **IP** : L’ip de l’IPX800,
@@ -130,7 +130,7 @@ Template
 Pour vous aider il y a un template qui permet de creer certain type de
 commande d’un seul coup et plus rapidement.
 
-Changelog 
+cambios
 =========
 
 -   Amélioration du support enOcean

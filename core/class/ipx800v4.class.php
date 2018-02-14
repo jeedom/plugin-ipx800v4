@@ -96,6 +96,9 @@ class ipx800v4 extends eqLogic {
 			if ($_eqLogic_id != null && $_eqLogic_id != $ipx800v4->getId()) {
 				continue;
 			}
+			if ($ipx800v4->getIsEnable() == 0) {
+				continue;
+			}
 			if (!isset($cache[$ipx800v4->getConfiguration('ip')])) {
 				$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getIPXinfo();
 			}
