@@ -1,5 +1,4 @@
 <?php
-
 /* This file is part of Jeedom.
  *
  * Jeedom is free software: you can redistribute it and/or modify
@@ -15,14 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
-
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
-
-function rt2_install() {
-	$cron = cron::byClassAndFunction('rt2', 'pull');
+function ipx800v4_install() {
+	$cron = cron::byClassAndFunction('ipx800v4', 'pull');
 	if (!is_object($cron)) {
 		$cron = new cron();
-		$cron->setClass('rt2');
+		$cron->setClass('ipx800v4');
 		$cron->setFunction('pull');
 		$cron->setEnable(1);
 		$cron->setDeamon(1);
@@ -32,13 +29,12 @@ function rt2_install() {
 		$cron->save();
 	}
 }
-
-function rt2_update() {
-	$cron = cron::byClassAndFunction('rt2', 'pull');
+function ipx800v4_update() {
+	$cron = cron::byClassAndFunction('ipx800v4', 'pull');
 	if (!is_object($cron)) {
 		$cron = new cron();
 	}
-	$cron->setClass('rt2');
+	$cron->setClass('ipx800v4');
 	$cron->setFunction('pull');
 	$cron->setEnable(1);
 	$cron->setDeamon(1);
@@ -47,16 +43,14 @@ function rt2_update() {
 	$cron->setSchedule('* * * * *');
 	$cron->save();
 	$cron->stop();
-	foreach (rt2::byType('rt2') as $rt2) {
-		$rt2->save();
+	foreach (ipx800v4::byType('ipx800v4') as $ipx800v4) {
+		$ipx800v4->save();
 	}
 }
-
-function rt2_remove() {
-	$cron = cron::byClassAndFunction('rt2', 'pull');
+function ipx800v4_remove() {
+	$cron = cron::byClassAndFunction('ipx800v4', 'pull');
 	if (is_object($cron)) {
 		$cron->remove();
 	}
 }
-
 ?>
