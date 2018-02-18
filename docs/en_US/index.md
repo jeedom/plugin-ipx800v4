@@ -60,7 +60,7 @@ Vous avez 3 types d’action :
 -   **Bascule** : permet d’inverser l’état d’une sortie (ou
     entrée virtuelle)
 
-Vous avez 5 types d’actionneurs :
+Vous avez 6 types d’actionneurs :
 
 -   **Relais**
 
@@ -71,6 +71,8 @@ Vous avez 5 types d’actionneurs :
 -   **Entrée analogique virtuelle**
 
 -   **Compteur**
+
+-   **Fil pilote**
 
 > **Note**
 >
@@ -90,6 +92,8 @@ plusieurs paramètres qui peuvent être :
     vous voulez choisir avec le curseul)
 
 -   numéro du compteur et opération (ex +200 ou -100)
+
+-   numéro du fil pilote ainsi que valeur de la commande (0 confort, 1 eco, 2 hors gel, 3 arrêt, 4 confort-1, 5 confort-2)
 
 Info 
 ----
@@ -128,21 +132,3 @@ Template
 
 Pour vous aider il y a un template qui permet de creer certain type de
 commande d’un seul coup et plus rapidement.
-
-Changelog
-=========
-
--   Amélioration du support enOcean
-
--   Correction de bugs sur la récuperération des informations des
-    extensions
-
--   Ajout de l’extension VR
-
--   Optimisation de la synchronisation avec l’ipx800
-
--   Support des modules THL
-
--   Ajout d’un moteur de template pour la génération des commandes
-
-
