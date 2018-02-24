@@ -108,6 +108,7 @@
         tr += '<option value="VR" class="actionArgument Set">{{Volet roulant}}</option>';
         tr += '<option value="C" class="actionArgument Set">{{Compteur}}</option>';
         tr += '<option value="FP" class="actionArgument Set">{{Fil pilote}}</option>';
+        tr += '<option value="G" class="actionArgument Set">{{Dimmer}}</option>';
         tr += '</select>';
         tr += '</div>';
         tr += '</div>';
@@ -122,6 +123,7 @@
         tr += '<input class="cmdAttr form-control actionParameter VR" data-l1key="configuration" data-l2key="actionParameterVR" placeholder="{{Numéro du volet, ex : 02}}" style="display:none;" />';
         tr += '<input class="cmdAttr form-control actionParameter FP" data-l1key="configuration" data-l2key="actionParameterFP" placeholder="{{Numéro de la zone (00 à 16)}}" style="display:none;" />';
         tr += '<input class="cmdAttr form-control actionParameter EnoPC" data-l1key="configuration" data-l2key="actionParameterEnoPC" placeholder="{{Numéro de l\'actionneur de 1 à 24}}" style="display:none;" />';
+        tr += '<input class="cmdAttr form-control actionParameter G" data-l1key="configuration" data-l2key="actionParameterG" placeholder="{{Numéro de la voie de 1 à 24}}" style="display:none;" />';
         tr += '</div>';
 
         tr += '<div class="col-xs-6">';
@@ -129,6 +131,7 @@
         tr += '<input class="cmdAttr form-control actionOption C" data-l1key="configuration" data-l2key="actionOptionC" placeholder="{{Opération}}" style="display:none;" />';
         tr += '<input class="cmdAttr form-control actionOption VR" data-l1key="configuration" data-l2key="actionOptionVR" placeholder="{{Valeur}}" style="display:none;" />';
         tr += '<input class="cmdAttr form-control actionOption FP" data-l1key="configuration" data-l2key="actionOptionFP" placeholder="{{Valeur}}" style="display:none;" />';
+        tr += '<input class="cmdAttr form-control actionOption G" data-l1key="configuration" data-l2key="actionOptionG" placeholder="{{Valeur}}" style="display:none;" />';
         tr += '</div>';
         tr += '</div>';
 
@@ -151,6 +154,7 @@
         tr += '<option value="VR">{{Volet roulant}}</option>';
         tr += '<option value="THL">{{THL}}</option>';
         tr += '<option value="FP">{{Fil pilote}}</option>';
+        tr += '<option value="G">{{Dimmer}}</option>';
         tr += '</select>';
         tr += '</div>';
 
@@ -163,6 +167,7 @@
         tr += '<input class="cmdAttr form-control infoParameter D" data-l1key="configuration" data-l2key="infoParameterD" placeholder="{{Entrée digital de 1 à 56}}" style="display:none;" />';
         tr += '<input class="cmdAttr form-control infoParameter PW" data-l1key="configuration" data-l2key="infoParameterPW" placeholder="{{Watchdog de 1 à 32}}" style="display:none;" />';
         tr += '<input class="cmdAttr form-control infoParameter VR" data-l1key="configuration" data-l2key="infoParameterVR" placeholder="{{Numéro de l\'extension et du volet, ex : 1-2}}" style="display:none;" />';
+        tr += '<input class="cmdAttr form-control infoParameter G" data-l1key="configuration" data-l2key="infoParameterG" placeholder="{{Numéro de la voie (1 à 24)}}" style="display:none;" />';
 
         tr += '<select class="cmdAttr form-control infoParameter FP" data-l1key="configuration" data-l2key="infoParameterFP">';
         for (i = 1; i < 5; i++) {
