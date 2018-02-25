@@ -25,7 +25,7 @@ if (!isConnect()) {
 <form class="form-horizontal">
 	<fieldset>
     <div class="form-group useShare">
-      <label class="col-lg-4 control-label">{{Demande à faire au ipx800}}</label>
+      <label class="col-lg-4 control-label">{{Demande à faire aux ipx800v4}}</label>
       <div class="col-lg-8">
        <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::all" />{{All}}</label>
        <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::A" />{{A}}</label>
