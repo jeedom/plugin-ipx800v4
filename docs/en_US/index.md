@@ -2,8 +2,15 @@ Ce plugin permet de gérer un IPX 800 v4
 
 == Plugin configuration
 
-After downloading the plugin, you just have to activate it,
-there is no configuration at this level.
+Après téléchargement du plugin, il vous suffit juste d’activer celui-ci et de cocher les cases qui vous concerne pour les demandes aux IPX800v4 (exemple cocher X-Dimmer si vous avez un X-dimmer). Vous pouvez aussi choisir la fréquence des demandes pour alleger la charge sur les ipx800v4
+
+> **Important**
+>
+> Après chaque modidfication de la fréquence ou des demandes il faut relancer le demon pour que cela soit prise en compte
+
+> **Important**
+>
+> Pour alleger la charge il est recommander de décocher les demandes de type ALL et de cocher juste les API qui vous concerne (vous trouverez le détails dans la documentation API des IPX800v4)
 
 > **Note**
 >
