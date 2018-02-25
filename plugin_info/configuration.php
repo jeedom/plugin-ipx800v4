@@ -38,10 +38,10 @@ if (!isConnect()) {
        <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VA" />{{VA}}</label>
        <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::PW" />{{PW}}</label>
        <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::XTHL" />{{XTHL}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VR" />{{VR}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::XENO" />{{XENO}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::FP" />{{FP}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::G" />{{G}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VR" />{{Volet roulant}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::XENO" />{{EnOcean}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::FP" />{{Fil pilote}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::G" />{{X-Dimmer}}</label>
        <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::T" />{{T}}</label>
      </div>
    </div>
