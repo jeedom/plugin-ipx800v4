@@ -93,9 +93,6 @@ class ipx800v4 extends eqLogic {
 			self::$_eqLogics = self::byType('ipx800v4');
 		}
 		foreach (self::$_eqLogics as $ipx800v4) {
-			if ($ipx800v4->getConfiguration('ip') == 'ipx2.nous') {
-				continue;
-			}
 			if ($_eqLogic_id != null && $_eqLogic_id != $ipx800v4->getId()) {
 				continue;
 			}
