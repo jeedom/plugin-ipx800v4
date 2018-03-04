@@ -108,7 +108,11 @@ class ipx800v4 extends eqLogic {
 				if (isset($data[$key])) {
 					$value = $data[$key];
 					if (is_array($value) && isset($value['Valeur'])) {
-						$value = $value['Valeur'];
+						if (isset($value['Etat']) && $value['Etat'] == 'OFF') {
+							$value = 0;
+						} else {
+							$value = $value['Valeur'];
+						}
 					}
 					$ipx800v4->checkAndUpdateCmd($cmd, $value);
 				}
