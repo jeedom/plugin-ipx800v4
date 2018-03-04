@@ -18,6 +18,7 @@
 				"name": "Etat #RANUM#",
 				"type": "info",
 				"subtype": "numeric",
+				"generic_type" : "FLAP_STATE",
 				"isVisible": 0,
 				"isHistorized": 0,
 				"unite" : "%",
@@ -32,6 +33,7 @@
 				"name": "Position #RANUM#",
 				"type": "action",
 				"subtype": "slider",
+				"generic_type" : "FLAP_SLIDER",
 				"isVisible": 1,
 				"value" : "Etat #RANUM#",
 				"configuration" : {

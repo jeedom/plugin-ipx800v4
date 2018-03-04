@@ -13,6 +13,7 @@
 				"name": "Température #THLNUM#",
 				"type": "info",
 				"subtype": "numeric",
+				"generic_type" : "TEMPERATURE",
 				"isVisible": 1,
 				"isHistorized": 1,
 				"unite" : "°C",
@@ -25,6 +26,7 @@
 				"name": "Humidité #THLNUM#",
 				"type": "info",
 				"subtype": "numeric",
+				"generic_type" : "HUMIDITY",
 				"isVisible": 1,
 				"isHistorized": 1,
 				"unite" : "%",
@@ -37,6 +39,7 @@
 				"name": "Luminosité #THLNUM#",
 				"type": "info",
 				"subtype": "numeric",
+				"generic_type" : "BRIGHTNESS",
 				"isVisible": 1,
 				"isHistorized": 1,
 				"configuration" : {
