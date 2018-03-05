@@ -25,24 +25,23 @@ if (!isConnect()) {
 <form class="form-horizontal">
 	<fieldset>
     <div class="form-group useShare">
-      <label class="col-lg-4 control-label">{{Demande à faire au ipx800}}</label>
+      <label class="col-lg-4 control-label">{{Demande à faire aux ipx800v4}}</label>
       <div class="col-lg-8">
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::all" />{{All}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::A" />{{A}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VA" />{{VA}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::C" />{{C}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::R" />{{R}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::D" />{{D}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VI" />{{VI}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VO" />{{VO}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VA" />{{VA}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::PW" />{{PW}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::XTHL" />{{XTHL}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VR" />{{VR}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::XENO" />{{XENO}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::FP" />{{FP}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::G" />{{G}}</label>
-       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::T" />{{T}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::all" />{{[All] Tous}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::A" />{{[A] Entrée analogique}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::C" />{{[C] Compteurs}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::R" />{{[R] Sortie digital (relai)}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::D" />{{[D] Entrès digital}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VI" />{{[VI] Entrée virtuel}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VO" />{{[VO] Sortie virtuel}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VA" />{{[VA] Entrée analogique}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::PW" />{{[PW] Watchdog}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::XTHL" />{{[XTHL] Sonde THL}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VR" />{{[VR] Volet roulant}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::XENO" />{{[XENO] EnOcean}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::FP" />{{[FP] Fil pilote}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::G" />{{[G] X-Dimmer}}</label>
+       <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::T" />{{[T] Thermostat}}</label>
      </div>
    </div>
    <div class="form-group useShare">

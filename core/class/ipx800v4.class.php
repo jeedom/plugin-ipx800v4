@@ -28,11 +28,15 @@ class ipx800v4 extends eqLogic {
 
 	public static function event() {
 		if (init('onvent') == 1) {
-			foreach (self::byType('ipx800v4') as $eqLogic) {
-				if ($eqLogic->getConfiguration('ip') != init('ip')) {
+			$cache = array();
+			foreach (self::byType('ipx800v4') as $ipx800v4) {
+				if ($ipx800v4->getConfiguration('ip') != init('ip')) {
 					continue;
 				}
-				ipx800v4::pull($eqLogic->getId());
+				if (!isset($cache[$ipx800v4->getConfiguration('ip')])) {
+					$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getIPXinfo(array('R', 'D', 'PW', 'XENO'));
+				}
+				ipx800v4::pull($ipx800v4->getId(), $cache);
 			}
 			return;
 		}
@@ -87,10 +91,13 @@ class ipx800v4 extends eqLogic {
 		$cron->save();
 	}
 
-	public static function pull($_eqLogic_id = null) {
+	public static function pull($_eqLogic_id = null, $_cache = null) {
 		$cache = array();
 		if (self::$_eqLogics == null) {
 			self::$_eqLogics = self::byType('ipx800v4');
+		}
+		if ($_cache != null) {
+			$cache = $_cache;
 		}
 		foreach (self::$_eqLogics as $ipx800v4) {
 			if ($_eqLogic_id != null && $_eqLogic_id != $ipx800v4->getId()) {
@@ -102,11 +109,18 @@ class ipx800v4 extends eqLogic {
 			if (!isset($cache[$ipx800v4->getConfiguration('ip')])) {
 				$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getIPXinfo();
 			}
-			$data = $cache[$ipx800v4->getConfiguration('ip')];
 			foreach ($ipx800v4->getCmd('info') as $cmd) {
 				$key = $cmd->getConfiguration('infoType') . $cmd->getConfiguration('infoParameter' . $cmd->getConfiguration('infoType'));
-				if (isset($data[$key])) {
-					$ipx800v4->checkAndUpdateCmd($cmd, $data[$key]);
+				if (isset($cache[$ipx800v4->getConfiguration('ip')][$key])) {
+					$value = $cache[$ipx800v4->getConfiguration('ip')][$key];
+					if (is_array($value) && isset($value['Valeur'])) {
+						if (isset($value['Etat']) && $value['Etat'] == 'OFF') {
+							$value = 0;
+						} else {
+							$value = $value['Valeur'];
+						}
+					}
+					$ipx800v4->checkAndUpdateCmd($cmd, $value);
 				}
 			}
 		}
@@ -165,10 +179,16 @@ class ipx800v4 extends eqLogic {
 		self::deamon_start();
 	}
 
-	public function getIPXinfo() {
+	public function getIPXinfo($_onlyApi = null) {
 		$return = array();
 		$api = array();
-		foreach (array('all', 'A', 'VA', 'C', 'R', 'D', 'VI', 'VO', 'VA', 'PW', 'XTHL', 'VR', 'XENO', 'FP', 'G', 'T') as $get) {
+
+		if ($_onlyApi != null && is_array($_onlyApi)) {
+			$apiCallType = $_onlyApi;
+		} else {
+			$apiCallType = array('all', 'A', 'VA', 'C', 'R', 'D', 'VI', 'VO', 'VA', 'PW', 'XTHL', 'VR', 'XENO', 'FP', 'G', 'T');
+		}
+		foreach ($apiCallType as $get) {
 			if (config::byKey('api::' . $get, 'ipx800v4', 1) != 1) {
 				continue;
 			}
@@ -275,7 +295,7 @@ class ipx800v4Cmd extends cmd {
 		$eqLogic = $this->getEqLogic();
 		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
 		$url .= '&' . $this->getConfiguration('actionCmd') . $this->getConfiguration('actionArgument');
-		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'FP'))) {
+		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'FP', 'G'))) {
 			if (strlen($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'))) == 1) {
 				$url .= '0' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 			} else {

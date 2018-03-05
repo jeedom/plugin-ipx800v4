@@ -1,3 +1,6 @@
+# 05/03/2018
+
+- 	Ajout du X-dimmer (ne pas oublier sur la configuration du plugin de cocher G pour les demandes x-dimmer)
 
 #  18/02/2018
 
