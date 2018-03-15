@@ -42,13 +42,6 @@ Aquí encontrará toda la configuración de su dispositivo:
 -   **Clef API** : clef api de l’IPX800 (par default la clef API
     est apikey)
 
--   **Extension** : il faut ici indiquer les extensions présente sur
-    l’ipx800 pour que jeedom puisse les interroger. Exemple pour enOcean
-    il faut mettre ENO (si vous en avez plusieurs il faut les séparer
-    par des ,). Toutes les extensions sont normalement supportée, pour
-    le code de l’extension à mettre il faut se reporter à la
-    documentation de celle-ci.
-
 Le plugin par defaut ne creer rien, ca sera à vous de le faire en
 fonction de votre configuration, mais vous serez guider.
 
