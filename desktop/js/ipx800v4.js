@@ -190,7 +190,7 @@
         tr += '</select>';
 
         tr += '<select class="cmdAttr form-control infoParameter ENO" data-l1key="configuration" data-l2key="infoParameterENO">';
-        for (i = 1; i < 25; i++) {
+        for (i = 1; i < 97; i++) {
             tr += '<option value=" SWITCH'+i+'">Switch '+i+'</option>';
         }
         for (i = 1; i < 25; i++) {
@@ -199,7 +199,7 @@
         for (i = 1; i < 9; i++) {
             tr += '<option value=" WALL PLUG'+i+'">Wall plug '+i+'</option>';
         }
-        for (i = 1; i < 25; i++) {
+        for (i = 17; i < 41; i++) {
             tr += '<option value=" ANALOG'+i+'">Anologique '+i+'</option>';
         }
         for (i = 1; i < 25; i++) {
