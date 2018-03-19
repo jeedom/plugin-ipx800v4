@@ -1,3 +1,7 @@
+# 19/03/2018
+
+-   Correction des numéros pour les capteurs enOcean Analogique
+
 # 05/03/2018
 
 - 	Ajout du X-dimmer (ne pas oublier sur la configuration du plugin de cocher G pour les demandes x-dimmer)

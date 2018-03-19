@@ -1,6 +1,6 @@
 Ce plugin permet de gérer un IPX 800 v4
 
-configuración del plugin
+Plugin-Konfiguration
 =======================
 
 Après téléchargement du plugin, il vous suffit juste d’activer celui-ci et de cocher les cases qui vous concerne pour les demandes aux IPX800v4 (exemple cocher X-Dimmer si vous avez un X-dimmer). Vous pouvez aussi choisir la fréquence des demandes pour alleger la charge sur les ipx800v4
@@ -17,24 +17,24 @@ Après téléchargement du plugin, il vous suffit juste d’activer celui-ci et 
 >
 > Vous pouvez voir sur cette page l’état du démon qui surveille l’IPX800
 
-Configuración del dispositivo
+Gerätekonfiguration
 =============================
 
 La configuration des équipements IPX800 est accessible à partir du menu
 plugin puis protocole domotique :
 
-Aquí encontrará toda la configuración de su dispositivo:
+Sie werden hier alle die Konfiguration Ihrer Geräte finden:
 
 -   **Nom de l’équipement IPX800** : nom de votre équipement IPX800,
 
--   **Objeto padre** : especifica el objeto padre al que pertenece
-    equipos,
+-   **Übergeordnete Objekt** zeigt das übergeordnete Objekt gehört
+    Ausrüstung,
 
--   ** ** Activar: para que su equipo activo,
+-   **Aktivieren**: auf Ihre aktive Ausrüstung zu machen,
 
--   ** ** visible hace que su equipo visible en el salpicadero,
+-   Visible ** ** macht Ihr Gerät sichtbar auf dem Armaturenbrett,
 
--   ** ** Categoría: categorías de equipos (que pueden pertenecer a
+-   ** ** Kategorie: Gerätekategorien (es kann gehören
     plusieurs catégories),
 
 -   **IP** : L’ip de l’IPX800,
