@@ -178,13 +178,13 @@
         tr += '</select>';
 
         tr += '<select class="cmdAttr form-control infoParameter THL" data-l1key="configuration" data-l2key="infoParameterTHL">';
-        for (i = 1; i < 9; i++) {
+        for (i = 1; i < 15; i++) {
             tr += '<option value="'+i+'-TEMP">{{Température}} '+i+'</option>';
         }
-        for (i = 1; i < 9; i++) {
+        for (i = 1; i < 15; i++) {
             tr += '<option value="'+i+'-LUM">{{Luminosité}} '+i+'</option>';
         }
-        for (i = 1; i < 9; i++) {
+        for (i = 1; i < 15; i++) {
             tr += '<option value="'+i+'-HUM">{{Humidité}} '+i+'</option>';
         }
         tr += '</select>';

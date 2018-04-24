@@ -1,3 +1,7 @@
+# 24/04/2018
+
+-	Support des sondes THL 9 à 14
+
 # 19/03/2018
 
 -   Correction des numéros pour les capteurs enOcean Analogique
