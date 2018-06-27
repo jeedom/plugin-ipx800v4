@@ -92,7 +92,7 @@ class ipx800v4 extends eqLogic {
 	}
 
 	public static function cronDaily() {
-		if (config::byKey('autosave_ipx_config') == 1) {
+		if (config::byKey('autosave_ipx_config', 'ipx800v4') == 1) {
 			$eqLogics = self::byType('ipx800v4');
 			$alreadySave = array();
 			foreach ($eqLogics as $ipx800v4) {
@@ -195,7 +195,7 @@ class ipx800v4 extends eqLogic {
 		}
 		$url .= $this->getConfiguration('ip') . '/admin/download/config.gce';
 		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 50);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 60);
 		curl_setopt($ch, CURLOPT_FILE, fopen($filepath, 'w+'));
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		$errno = curl_exec($ch);
