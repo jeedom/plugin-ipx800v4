@@ -24,7 +24,7 @@ if (!isConnect()) {
 ?>
 <form class="form-horizontal">
 	<fieldset>
-    <div class="form-group useShare">
+    <div class="form-group">
       <label class="col-lg-4 control-label">{{Demande à faire aux ipx800v4}}</label>
       <div class="col-lg-8">
        <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::all" />{{[All] Tous}}</label>
@@ -44,13 +44,19 @@ if (!isConnect()) {
        <label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::T" />{{[T] Thermostat}}</label>
      </div>
    </div>
-   <div class="form-group useShare">
+   <div class="form-group">
     <label class="col-lg-4 control-label">{{Fréquence en secondes des interrogations}}</label>
     <div class="col-lg-8">
       <input type="text" class="configKey" data-l1key="api::frequency" />
     </div>
   </div>
-  <div class="form-group useShare">
+  <div class="form-group">
+    <label class="col-lg-4 control-label">{{Sauvegarder automatique la configuration des ipx800 tous les jours}}</label>
+    <div class="col-lg-8">
+      <input type="checkbox" class="configKey" data-l1key="autosave_ipx_config" />
+    </div>
+  </div>
+  <div class="form-group">
     <label class="col-lg-4 control-label">{{URL API}}</label>
     <div class="col-lg-8">
       <span><?php echo network::getNetworkAccess('internal') . '/core/api/jeeApi.php?type=ipx800v4&apikey=' . jeedom::getApiKey('ipx800v4') . '&onvent=1'; ?></span>

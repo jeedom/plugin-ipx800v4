@@ -92,22 +92,24 @@ class ipx800v4 extends eqLogic {
 	}
 
 	public static function cronDaily() {
-		$eqLogics = self::byType('ipx800v4');
-		$alreadySave = array();
-		foreach ($eqLogics as $ipx800v4) {
-			if ($ipx800v4->getConfiguration('ip') == '') {
-				continue;
+		if (config::byKey('autosave_ipx_config') == 1) {
+			$eqLogics = self::byType('ipx800v4');
+			$alreadySave = array();
+			foreach ($eqLogics as $ipx800v4) {
+				if ($ipx800v4->getConfiguration('ip') == '') {
+					continue;
+				}
+				if (isset($alreadySave[$ipx800v4->getConfiguration('ip')])) {
+					continue;
+				}
+				try {
+					$ipx800v4->saveIPXConfig();
+				} catch (Exception $e) {
+					log::add('ipx800v4', 'error', $e->getMessage());
+					continue;
+				}
+				$alreadySave[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getConfiguration('ip');
 			}
-			if (isset($alreadySave[$ipx800v4->getConfiguration('ip')])) {
-				continue;
-			}
-			try {
-				$ipx800v4->saveIPX();
-			} catch (Exception $e) {
-				log::add('ipx800v4', 'error', $e->getMessage());
-				continue;
-			}
-			$alreadySave[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getConfiguration('ip');
 		}
 	}
 
@@ -185,7 +187,7 @@ class ipx800v4 extends eqLogic {
 
 	/*     * *********************Méthodes d'instance************************* */
 
-	public function saveIPX() {
+	public function saveIPXConfig() {
 		$filepath = __DIR__ . '/../../data/' . $this->getConfiguration('ip') . '.gce';
 		$url = 'http://';
 		if ($this->getConfiguration('username') != '' && $this->getConfiguration('password') != '') {
