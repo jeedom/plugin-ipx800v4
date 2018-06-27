@@ -1,3 +1,5 @@
+- Ajout d'un systeme de sauvegarde automatique tout les jours des ipx800v4
+
 # 24/04/2018
 
 -	Support des sondes THL 9 à 14

@@ -91,6 +91,26 @@ class ipx800v4 extends eqLogic {
 		$cron->save();
 	}
 
+	public static function cronDaily() {
+		$eqLogics = self::byType('ipx800v4');
+		$alreadySave = array();
+		foreach ($eqLogics as $ipx800v4) {
+			if ($ipx800v4->getConfiguration('ip') == '') {
+				continue;
+			}
+			if (isset($alreadySave[$ipx800v4->getConfiguration('ip')])) {
+				continue;
+			}
+			try {
+				$ipx800v4->saveIPX();
+			} catch (Exception $e) {
+				log::add('ipx800v4', 'error', $e->getMessage());
+				continue;
+			}
+			$alreadySave[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getConfiguration('ip');
+		}
+	}
+
 	public static function pull($_eqLogic_id = null, $_cache = null) {
 		$cache = array();
 		if (self::$_eqLogics == null) {
@@ -164,6 +184,31 @@ class ipx800v4 extends eqLogic {
 	}
 
 	/*     * *********************Méthodes d'instance************************* */
+
+	public function saveIPX() {
+		$filepath = __DIR__ . '/../../data/' . $this->getConfiguration('ip') . '.gce';
+		$url = 'http://';
+		if ($this->getConfiguration('username') != '' && $this->getConfiguration('password') != '') {
+			$url .= $this->getConfiguration('username') . ':' . $this->getConfiguration('password') . '@';
+		}
+		$url .= $this->getConfiguration('ip') . '/admin/download/config.gce';
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 50);
+		curl_setopt($ch, CURLOPT_FILE, fopen($filepath, 'w+'));
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		$errno = curl_exec($ch);
+		if (!$errno) {
+			$error_message = curl_strerror($errno);
+			curl_close($ch);
+			throw new Exception(__('Impossible de récuperer la sauvegarde de l\'ipx800 ', __FILE__) . $this->getConfiguration('ip') . ' : ' . $error_message);
+		}
+		curl_close($ch);
+		if (filesize($filepath) < 100) {
+			$content = file_get_contents($filepath);
+			unlink($filepath);
+			throw new Exception(__('Erreur taille du fichier inférieure à 100 octets pour ', __FILE__) . $this->getConfiguration('ip') . ' : ' . $content);
+		}
+	}
 
 	public function postSave() {
 		$refresh = $this->getCmd(null, 'refresh');
