@@ -45,11 +45,14 @@
     $(this).closest('.cmd').find('.infoParameter.'+$(this).value()).show();
 });
 
-
  $('.cmdAction[data-action=importFromTemplate]').on('click',function(){
   $('#md_modal').dialog({title: "{{Template commande IPX800}}"});
   $("#md_modal").load('index.php?v=d&plugin=ipx800v4&modal=cmd.template&eqLogic_id=' + $('.eqLogicAttr[data-l1key=id]').value()).dialog('open');
 });
+
+ $('#bt_downloadIpxBackup').on('click',function(){
+     window.open('core/php/downloadFile.php?pathfile=plugins/ipx800v4/data/'+$('.eqLogicAttr[data-l2key=ip]').value()+'.gce', "_blank", null);
+ });
 
  function addCmdToTable(_cmd) {
     if (!isset(_cmd)) {

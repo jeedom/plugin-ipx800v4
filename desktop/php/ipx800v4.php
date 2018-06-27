@@ -121,20 +121,30 @@ foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
       <input type="password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey"/>
     </div>
   </div>
-  <legend>{{Sauvegarde configuration IPX800}}</legend>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">{{Nom d'utilisateur admin}}</label>
-    <div class="col-sm-3">
-      <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="username"/>
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-2 control-label">{{Mot de passe}}</label>
-    <div class="col-sm-3">
-      <input type="password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="password"/>
-    </div>
-  </div>
 </fieldset>
+</form>
+<form class="form-horizontal">
+  <fieldset>
+    <legend>{{Sauvegarde configuration IPX800}}</legend>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">{{Nom d'utilisateur admin}}</label>
+      <div class="col-sm-3">
+        <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="username"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">{{Mot de passe}}</label>
+      <div class="col-sm-3">
+        <input type="password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="password"/>
+      </div>
+    </div>
+     <div class="form-group">
+      <label class="col-sm-2 control-label">{{Sauvegarde}}</label>
+      <div class="col-sm-3">
+        <a class="btn btn-default" id="bt_downloadIpxBackup"><i class="fa fa-download"></i> {{Télécharger}}</a>
+      </div>
+    </div>
+  </fieldset>
 </form>
 
 </div>
