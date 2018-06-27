@@ -51,7 +51,7 @@ if (!isConnect()) {
     </div>
   </div>
   <div class="form-group">
-    <label class="col-lg-4 control-label">{{Sauvegarder automatique la configuration des ipx800 tous les jours}}</label>
+    <label class="col-lg-4 control-label">{{Sauvegarder automatique la configuration des IPX800 tous les jours}}</label>
     <div class="col-lg-8">
       <input type="checkbox" class="configKey" data-l1key="autosave_ipx_config" />
     </div>
