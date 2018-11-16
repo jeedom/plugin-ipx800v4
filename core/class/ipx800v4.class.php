@@ -375,7 +375,6 @@ class ipx800v4Cmd extends cmd {
 		log::add('ipx800v4', 'info', 'Call url ' . $url);
 		$request_http = new com_http($url);
 		$request_http->exec();
-		ipx800v4::pull($eqLogic->getId());
 	}
 
 	/*     * **********************Getteur Setteur*************************** */
