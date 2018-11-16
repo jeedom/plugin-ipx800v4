@@ -29,7 +29,6 @@ class ipx800v4 extends eqLogic {
 	public static function event() {
 		if (init('onvent') == 1) {
 			$cache = array();
-			log::add('ipx800v4t', 'debug', print_r(self::searchConfiguration('"ip":"' . init('ip') . '"', 'ipx800v4'), true));
 			foreach (self::searchConfiguration('"ip":"' . init('ip') . '"', 'ipx800v4') as $ipx800v4) {
 				if (!isset($cache[$ipx800v4->getConfiguration('ip')])) {
 					$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getIPXinfo(array('R', 'D', 'PW', 'XENO'));
