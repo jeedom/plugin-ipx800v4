@@ -46,8 +46,8 @@ if (!isConnect()) {
    </div>
    <div class="form-group">
     <label class="col-lg-4 control-label">{{Fréquence en secondes des interrogations}}</label>
-    <div class="col-lg-8">
-      <input type="text" class="configKey" data-l1key="api::frequency" />
+    <div class="col-lg-1">
+      <input type="number" class="configKey form-control" data-l1key="api::frequency" />
     </div>
   </div>
   <div class="form-group">
