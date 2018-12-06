@@ -152,10 +152,8 @@ class ipx800v4 extends eqLogic {
 			if (count($files) == 1) {
 				try {
 					$content = file_get_contents($path . '/' . $files[0]);
-					if (is_json($content)) {
-						$deviceConfiguration = json_decode($content, true);
-						return $deviceConfiguration[$_template];
-					}
+					$deviceConfiguration = json_decode(is_json($content, array()), true);
+					return $deviceConfiguration[$_template];
 				} catch (Exception $e) {
 					return array();
 				}
@@ -166,9 +164,7 @@ class ipx800v4 extends eqLogic {
 		foreach ($files as $file) {
 			try {
 				$content = file_get_contents($path . '/' . $file);
-				if (is_json($content)) {
-					$return = array_merge($return, json_decode($content, true));
-				}
+				$return = array_merge($return, is_json($content, array()));
 			} catch (Exception $e) {
 
 			}
@@ -239,8 +235,7 @@ class ipx800v4 extends eqLogic {
 			$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=' . $get;
 			$request_http = new com_http($url);
 			try {
-				$result = $request_http->exec();
-				$return = array_merge($return, is_json($result, array()));
+				$return = array_merge($return, is_json($request_http->exec(), array()));
 			} catch (Exception $e) {
 
 			}
