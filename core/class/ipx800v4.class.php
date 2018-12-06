@@ -240,9 +240,7 @@ class ipx800v4 extends eqLogic {
 			$request_http = new com_http($url);
 			try {
 				$result = $request_http->exec();
-				if (is_json($result)) {
-					$return = array_merge($return, json_decode($result, true));
-				}
+				$return = array_merge($return, is_json($result, array()));
 			} catch (Exception $e) {
 
 			}
