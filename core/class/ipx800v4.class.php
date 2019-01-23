@@ -1,31 +1,31 @@
 <?php
 
 /* This file is part of Jeedom.
- *
- * Jeedom is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Jeedom is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
- */
+*
+* Jeedom is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Jeedom is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
+*/
 
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
 class ipx800v4 extends eqLogic {
 	/*     * *************************Attributs****************************** */
-
+	
 	private static $_eqLogics = null;
-
+	
 	/*     * ***********************Methode static*************************** */
-
+	
 	public static function event() {
 		if (init('onvent') == 1) {
 			$cache = array();
@@ -43,7 +43,7 @@ class ipx800v4 extends eqLogic {
 		}
 		$cmd->event(init('value'));
 	}
-
+	
 	public static function deamon_info() {
 		$return = array();
 		$return['log'] = '';
@@ -55,7 +55,7 @@ class ipx800v4 extends eqLogic {
 		$return['launchable'] = 'ok';
 		return $return;
 	}
-
+	
 	public static function deamon_start() {
 		self::deamon_stop();
 		$deamon_info = self::deamon_info();
@@ -70,7 +70,7 @@ class ipx800v4 extends eqLogic {
 		$cron->save();
 		$cron->run();
 	}
-
+	
 	public static function deamon_stop() {
 		$cron = cron::byClassAndFunction('ipx800v4', 'pull');
 		if (!is_object($cron)) {
@@ -78,7 +78,7 @@ class ipx800v4 extends eqLogic {
 		}
 		$cron->halt();
 	}
-
+	
 	public static function deamon_changeAutoMode($_mode) {
 		$cron = cron::byClassAndFunction('ipx800v4', 'pull');
 		if (!is_object($cron)) {
@@ -87,7 +87,7 @@ class ipx800v4 extends eqLogic {
 		$cron->setEnable($_mode);
 		$cron->save();
 	}
-
+	
 	public static function cronDaily() {
 		if (config::byKey('autosave_ipx_config', 'ipx800v4') == 1) {
 			$eqLogics = self::byType('ipx800v4');
@@ -109,7 +109,7 @@ class ipx800v4 extends eqLogic {
 			}
 		}
 	}
-
+	
 	public static function pull($_eqLogic_id = null, $_cache = null) {
 		$cache = array();
 		if (self::$_eqLogics == null) {
@@ -144,7 +144,7 @@ class ipx800v4 extends eqLogic {
 			}
 		}
 	}
-
+	
 	public static function listCmdTemplate($_template = '') {
 		$path = dirname(__FILE__) . '/../config/template';
 		if (isset($_template) && $_template != '') {
@@ -166,7 +166,7 @@ class ipx800v4 extends eqLogic {
 				$content = file_get_contents($path . '/' . $file);
 				$return = array_merge($return, is_json($content, array()));
 			} catch (Exception $e) {
-
+				
 			}
 		}
 		if (isset($_template) && $_template != '') {
@@ -177,9 +177,9 @@ class ipx800v4 extends eqLogic {
 		}
 		return $return;
 	}
-
+	
 	/*     * *********************Méthodes d'instance************************* */
-
+	
 	public function saveIPXConfig() {
 		$filepath = __DIR__ . '/../../data/' . $this->getConfiguration('ip') . '.gce';
 		$url = 'http://';
@@ -204,7 +204,7 @@ class ipx800v4 extends eqLogic {
 			throw new Exception(__('Erreur taille du fichier inférieure à 100 octets pour ', __FILE__) . $this->getConfiguration('ip') . ' : ' . $content);
 		}
 	}
-
+	
 	public function postSave() {
 		$refresh = $this->getCmd(null, 'refresh');
 		if (!is_object($refresh)) {
@@ -218,15 +218,15 @@ class ipx800v4 extends eqLogic {
 		$refresh->save();
 		self::deamon_start();
 	}
-
+	
 	public function getIPXinfo($_onlyApi = null) {
 		$return = array();
 		$api = array();
-
+		
 		if ($_onlyApi != null && is_array($_onlyApi)) {
 			$apiCallType = $_onlyApi;
 		} else {
-			$apiCallType = array('all', 'A', 'VA', 'C', 'R', 'D', 'VI', 'VO', 'VA', 'PW', 'XTHL', 'VR', 'XENO', 'FP', 'G', 'T');
+			$apiCallType = array('all', 'A', 'VA', 'C', 'R', 'D', 'VI', 'VO', 'VA', 'PW', 'XTHL', 'VR', 'XENO', 'FP', 'G', 'T','XPWM');
 		}
 		foreach ($apiCallType as $get) {
 			if (config::byKey('api::' . $get, 'ipx800v4', 1) != 1) {
@@ -237,13 +237,13 @@ class ipx800v4 extends eqLogic {
 			try {
 				$return = array_merge($return, is_json($request_http->exec(), array()));
 			} catch (Exception $e) {
-
+				
 			}
 		}
 		log::add('ipx800v4', 'debug', 'IPX800 ' . $this->getConfiguration('ip') . ' info  : ' . json_encode($return));
 		return $return;
 	}
-
+	
 	public function applyCmdTemplate($_config) {
 		if (!is_array($_config)) {
 			throw new Exception(__('La configuration d\'un template doit etre un tableau', __FILE__));
@@ -274,9 +274,9 @@ class ipx800v4 extends eqLogic {
 			try {
 				$cmd->save();
 			} catch (Exception $e) {
-
+				
 			}
-
+			
 			$cmd_order++;
 			if (isset($command['value'])) {
 				$link_cmds[$cmd->getId()] = $command['value'];
@@ -313,17 +313,17 @@ class ipx800v4 extends eqLogic {
 		}
 		return;
 	}
-
+	
 	/*     * **********************Getteur Setteur*************************** */
 }
 
 class ipx800v4Cmd extends cmd {
 	/*     * *************************Attributs****************************** */
-
+	
 	/*     * ***********************Methode static*************************** */
-
+	
 	/*     * *********************Methode d'instance************************* */
-
+	
 	public function execute($_options = array()) {
 		if ($this->getLogicalId() == 'refresh') {
 			ipx800v4::pull($this->getEqLogic_Id());
@@ -332,33 +332,38 @@ class ipx800v4Cmd extends cmd {
 		$eqLogic = $this->getEqLogic();
 		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
 		$url .= '&' . $this->getConfiguration('actionCmd') . $this->getConfiguration('actionArgument');
-		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'FP', 'G', 'T'))) {
-			if (strlen($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'))) == 1) {
-				$url .= '0' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
-			} else {
-				$url .= $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'FP', 'G', 'T','PWM'))) {
+			if($this->getConfiguration('actionArgument') == 'PWM'){
+				$url .= '='.$this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+				$url .= '&PWMValue';
+			}else{
+				if (strlen($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'))) == 1) {
+					$url .= '0' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+				} else {
+					$url .= $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+				}
 			}
 			$value = $this->getConfiguration('actionOption' . $this->getConfiguration('actionArgument'));
 			switch ($this->getSubType()) {
 				case 'slider':
-					if (trim($value) == '') {
-						$value = '#slider#';
-					}
-					$value = str_replace('#slider#', urlencode($_options['slider']), $value);
-					break;
+				if (trim($value) == '') {
+					$value = '#slider#';
+				}
+				$value = str_replace('#slider#', urlencode($_options['slider']), $value);
+				break;
 				case 'color':
-					if (trim($value) == '') {
-						$value = '#color#';
-					}
-					$value = str_replace('#color#', urlencode($_options['color']), $value);
-					break;
+				if (trim($value) == '') {
+					$value = '#color#';
+				}
+				$value = str_replace('#color#', urlencode($_options['color']), $value);
+				break;
 				case 'message':
-					if (trim($value) == '') {
-						$value = '#title# #message#';
-					}
-					$value = str_replace('#title#', urlencode($_options['title']), $value);
-					$value = str_replace('#message#', urlencode($_options['message']), $value);
-					break;
+				if (trim($value) == '') {
+					$value = '#title# #message#';
+				}
+				$value = str_replace('#title#', urlencode($_options['title']), $value);
+				$value = str_replace('#message#', urlencode($_options['message']), $value);
+				break;
 			}
 			$url .= '=' . $value;
 		} else {
@@ -368,7 +373,7 @@ class ipx800v4Cmd extends cmd {
 		$request_http = new com_http($url);
 		$request_http->exec();
 	}
-
+	
 	/*     * **********************Getteur Setteur*************************** */
 }
 
