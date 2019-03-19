@@ -13,13 +13,13 @@ $eqLogics = eqLogic::byType($plugin->getId());
 		<div class="eqLogicThumbnailContainer">
 			<div class="cursor eqLogicAction logoPrimary" data-action="add" style="background-color : #ffffff; height : 120px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >
 				<center>
-					<i class="fa fa-plus-circle"></i>
+					<i class="fas fa-plus-circle"></i>
 				</center>
 				<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#94ca02"><center>{{Ajouter}}</center></span>
 			</div>
 			<div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf" style="background-color : #ffffff; height : 120px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;">
 				<center>
-					<i class="fa fa-wrench"></i>
+					<i class="fas fa-wrench"></i>
 				</center>
 				<span ><center>{{Configuration}}</center></span>
 			</div>
@@ -136,7 +136,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 				
 			</div>
 			<div role="tabpanel" class="tab-pane" id="commandtab">
-				<a class="btn btn-success btn-sm cmdAction pull-right" data-action="add" style="margin-top:5px;"><i class="fa fa-plus-circle"></i> {{Commandes}}</a>
+				<a class="btn btn-success btn-sm cmdAction pull-right" data-action="add" style="margin-top:5px;"><i class="fas fa-plus-circle"></i> {{Commandes}}</a>
 				<a class="btn btn-default btn-sm cmdAction pull-right" data-action="importFromTemplate" style="margin-top:5px;"><i class="fa fa fa-file-o"></i> {{Templates}}</a>
 				<br/><br/>
 				<table id="table_cmd" class="table table-bordered table-condensed">
