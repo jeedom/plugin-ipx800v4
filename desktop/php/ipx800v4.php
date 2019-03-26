@@ -9,32 +9,29 @@ $eqLogics = eqLogic::byType($plugin->getId());
 
 <div class="row row-overflow">
 	<div class="col-xs-12 eqLogicThumbnailDisplay">
-		<legend><i class="fas fa-cog"></i>  {{Gestion}}</legend>
+		<legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
 		<div class="eqLogicThumbnailContainer">
-			<div class="cursor eqLogicAction logoPrimary" data-action="add"  >
-				<center>
-					<i class="fas fa-plus-circle"></i>
-				</center>
-				<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#94ca02"><center>{{Ajouter}}</center></span>
+			<div class="cursor eqLogicAction logoPrimary" data-action="add">
+				<i class="fas fa-plus-circle"></i>
+				<br/>
+				<span>{{Ajouter}}</span>
 			</div>
-			<div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf" >
-				<center>
-					<i class="fas fa-wrench"></i>
-				</center>
-				<span ><center>{{Configuration}}</center></span>
+			<div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf">
+				<i class="fas fa-wrench"></i>
+				<br/>
+				<span>{{Configuration}}</span>
 			</div>
 		</div>
 		<legend><i class="fas fa-table"></i> {{Mes ipx800}}</legend>
-		<input class="form-control" placeholder="{{Rechercher}}" id="in_searchEqlogic" />
+		<input class="form-control" placeholder="{{Rechercher}}" id="in_searchEqlogic"/>
 		<div class="eqLogicThumbnailContainer">
 			<?php
 			foreach ($eqLogics as $eqLogic) {
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
-				echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
-				echo "<center>";
+				echo '<div class="eqLogicDisplayCard cursor '.$opacity.' data-eqLogic_id="' . $eqLogic->getId() . '">';
 				echo '<img src="' . $plugin->getPathImgIcon() . '"/>';
-				echo "</center>";
-				echo '<span class="name"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
+				echo '<br/>';
+				echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
 				echo '</div>';
 			}
 			?>
