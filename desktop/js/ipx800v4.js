@@ -94,7 +94,7 @@ function addCmdToTable(_cmd) {
     
     tr += '<div class="row">';
     tr += '<div class="col-xs-6">';
-    tr += '<select class="cmdAttr form-control" data-l1key="configuration" data-l2key="actionCmd">';
+    tr += '<select class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="actionCmd">';
     tr += '<option value="Set">{{On/Valeur}}</option>';
     tr += '<option value="Clear">{{Off}}</option>';
     tr += '<option value="Toggle">{{Bascule}}</option>';
@@ -102,7 +102,7 @@ function addCmdToTable(_cmd) {
     tr += '</div>';
     
     tr += '<div class="col-xs-6">';
-    tr += '<select class="cmdAttr form-control" data-l1key="configuration" data-l2key="actionArgument">';
+    tr += '<select class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="actionArgument">';
     tr += '<option value="R" class="actionArgument Set Clear Toggle">{{Relais}}</option>';
     tr += '<option value="VO" class="actionArgument Set Clear Toggle">{{Sortie virtuelle}}</option>';
     tr += '<option value="VI" class="actionArgument Set Clear Toggle">{{Entrée virtuelle}}</option>';
@@ -120,27 +120,27 @@ function addCmdToTable(_cmd) {
     
     tr += '<div class="row" style="margin-top:5px;">';
     tr += '<div class="col-xs-6">';
-    tr += '<input class="cmdAttr form-control actionParameter R" data-l1key="configuration" data-l2key="actionParameterR" placeholder="{{Numéro du relai de 1 à 56}}" />';
-    tr += '<input class="cmdAttr form-control actionParameter VO" data-l1key="configuration" data-l2key="actionParameterVO" placeholder="{{Numéro de la sortie de 1 à 128}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter VI" data-l1key="configuration" data-l2key="actionParameterVI" placeholder="{{Numéro de l\'entrée de 1 à 128}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter VA" data-l1key="configuration" data-l2key="actionParameterVA" placeholder="{{Numéro de l\'entrée de 1 à 32}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter C" data-l1key="configuration" data-l2key="actionParameterC" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter VR" data-l1key="configuration" data-l2key="actionParameterVR" placeholder="{{Numéro du volet, ex : 02}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter FP" data-l1key="configuration" data-l2key="actionParameterFP" placeholder="{{Numéro de la zone (00 à 16)}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter EnoPC" data-l1key="configuration" data-l2key="actionParameterEnoPC" placeholder="{{Numéro de l\'actionneur de 1 à 24}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter G" data-l1key="configuration" data-l2key="actionParameterG" placeholder="{{Numéro de la voie de 1 à 24}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter PWM" data-l1key="configuration" data-l2key="actionParameterPWM" placeholder="{{Numéro du canal de 1 à 24}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter T" data-l1key="configuration" data-l2key="actionParameterThermo" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter R input-sm" data-l1key="configuration" data-l2key="actionParameterR" placeholder="{{Numéro du relai de 1 à 56}}" />';
+    tr += '<input class="cmdAttr form-control actionParameter VO input-sm" data-l1key="configuration" data-l2key="actionParameterVO" placeholder="{{Numéro de la sortie de 1 à 128}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter VI input-sm" data-l1key="configuration" data-l2key="actionParameterVI" placeholder="{{Numéro de l\'entrée de 1 à 128}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter VA input-sm" data-l1key="configuration" data-l2key="actionParameterVA" placeholder="{{Numéro de l\'entrée de 1 à 32}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter C input-sm" data-l1key="configuration" data-l2key="actionParameterC" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter VR input-sm" data-l1key="configuration" data-l2key="actionParameterVR" placeholder="{{Numéro du volet, ex : 02}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter FP input-sm" data-l1key="configuration" data-l2key="actionParameterFP" placeholder="{{Numéro de la zone (00 à 16)}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter EnoPC input-sm" data-l1key="configuration" data-l2key="actionParameterEnoPC" placeholder="{{Numéro de l\'actionneur de 1 à 24}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter G input-sm" data-l1key="configuration" data-l2key="actionParameterG" placeholder="{{Numéro de la voie de 1 à 24}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter PWM input-sm" data-l1key="configuration" data-l2key="actionParameterPWM" placeholder="{{Numéro du canal de 1 à 24}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter T input-sm" data-l1key="configuration" data-l2key="actionParameterThermo" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
     tr += '</div>';
     
     tr += '<div class="col-xs-6">';
-    tr += '<input class="cmdAttr form-control actionOption VA" data-l1key="configuration" data-l2key="actionOptionVA" placeholder="{{Valeur}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionOption C" data-l1key="configuration" data-l2key="actionOptionC" placeholder="{{Opération}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionOption VR" data-l1key="configuration" data-l2key="actionOptionVR" placeholder="{{Valeur}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionOption FP" data-l1key="configuration" data-l2key="actionOptionFP" placeholder="{{Valeur}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionOption G" data-l1key="configuration" data-l2key="actionOptionG" placeholder="{{Valeur}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionOption T" data-l1key="configuration" data-l2key="actionOptionThermo" placeholder="{{Valeur}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionOption PWM" data-l1key="configuration" data-l2key="actionOptionPWM" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption VA input-sm" data-l1key="configuration" data-l2key="actionOptionVA" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption C input-sm" data-l1key="configuration" data-l2key="actionOptionC" placeholder="{{Opération}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption VR input-sm" data-l1key="configuration" data-l2key="actionOptionVR" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption FP input-sm" data-l1key="configuration" data-l2key="actionOptionFP" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption G input-sm" data-l1key="configuration" data-l2key="actionOptionG" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption T input-sm" data-l1key="configuration" data-l2key="actionOptionThermo" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption PWM input-sm" data-l1key="configuration" data-l2key="actionOptionPWM" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '</div>';
     tr += '</div>';
     
@@ -150,7 +150,7 @@ function addCmdToTable(_cmd) {
     
     tr += '<div class="row">';
     tr += '<div class="col-xs-6">';
-    tr += '<select class="cmdAttr form-control" data-l1key="configuration" data-l2key="infoType">';
+    tr += '<select class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="infoType">';
     tr += '<option value="R">{{Relais}}</option>';
     tr += '<option value="D">{{Entrée digital}}</option>';
     tr += '<option value="VI">{{Entrée virtuelle}}</option>';
@@ -170,19 +170,19 @@ function addCmdToTable(_cmd) {
     tr += '</div>';
     
     tr += '<div class="col-xs-6">';
-    tr += '<input class="cmdAttr form-control infoParameter R" data-l1key="configuration" data-l2key="infoParameterR" placeholder="{{Numéro du relai de 1 à 56}}" />';
-    tr += '<input class="cmdAttr form-control infoParameter VO" data-l1key="configuration" data-l2key="infoParameterVO" placeholder="{{Numéro de la sortie de 1 à 128}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control infoParameter VI" data-l1key="configuration" data-l2key="infoParameterVI" placeholder="{{Numéro de l\'entrée de 1 à 128}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control infoParameter VA" data-l1key="configuration" data-l2key="infoParameterVA" placeholder="{{Numéro de l\'entrée de 1 à 32}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control infoParameter C" data-l1key="configuration" data-l2key="infoParameterC" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control infoParameter D" data-l1key="configuration" data-l2key="infoParameterD" placeholder="{{Entrée digital de 1 à 56}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control infoParameter PW" data-l1key="configuration" data-l2key="infoParameterPW" placeholder="{{Watchdog de 1 à 32}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control infoParameter VR" data-l1key="configuration" data-l2key="infoParameterVR" placeholder="{{Numéro de l\'extension et du volet, ex : 1-2}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control infoParameter PWM" data-l1key="configuration" data-l2key="infoParameterPWM" placeholder="{{Numéro du canal (1 à 24)}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control infoParameter G" data-l1key="configuration" data-l2key="infoParameterG" placeholder="{{Numéro de la voie (1 à 24)}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter R input-sm" data-l1key="configuration" data-l2key="infoParameterR" placeholder="{{Numéro du relai de 1 à 56}}" />';
+    tr += '<input class="cmdAttr form-control infoParameter VO input-sm" data-l1key="configuration" data-l2key="infoParameterVO" placeholder="{{Numéro de la sortie de 1 à 128}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter VI input-sm" data-l1key="configuration" data-l2key="infoParameterVI" placeholder="{{Numéro de l\'entrée de 1 à 128}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter VA input-sm" data-l1key="configuration" data-l2key="infoParameterVA" placeholder="{{Numéro de l\'entrée de 1 à 32}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter C input-sm" data-l1key="configuration" data-l2key="infoParameterC" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter D input-sm" data-l1key="configuration" data-l2key="infoParameterD" placeholder="{{Entrée digital de 1 à 56}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter PW input-sm" data-l1key="configuration" data-l2key="infoParameterPW" placeholder="{{Watchdog de 1 à 32}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter VR input-sm" data-l1key="configuration" data-l2key="infoParameterVR" placeholder="{{Numéro de l\'extension et du volet, ex : 1-2}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter PWM input-sm" data-l1key="configuration" data-l2key="infoParameterPWM" placeholder="{{Numéro du canal (1 à 24)}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter G input-sm" data-l1key="configuration" data-l2key="infoParameterG" placeholder="{{Numéro de la voie (1 à 24)}}" style="display:none;" />';
     
     
-    tr += '<select class="cmdAttr form-control infoParameter FP" data-l1key="configuration" data-l2key="infoParameterFP">';
+    tr += '<select class="cmdAttr form-control infoParameter FP input-sm" data-l1key="configuration" data-l2key="infoParameterFP">';
     for (i = 1; i < 5; i++) {
       for (j = 1; j < 5; j++) {
         tr += '<option value="'+i+' Zone '+j+'">{{Ext }} '+i+' {{Zone }}'+j+'</option>';
@@ -190,7 +190,7 @@ function addCmdToTable(_cmd) {
     }
     tr += '</select>';
     
-    tr += '<select class="cmdAttr form-control infoParameter THL" data-l1key="configuration" data-l2key="infoParameterTHL">';
+    tr += '<select class="cmdAttr form-control infoParameter THL input-sm" data-l1key="configuration" data-l2key="infoParameterTHL">';
     for (i = 1; i < 15; i++) {
       tr += '<option value="'+i+'-TEMP">{{Température}} '+i+'</option>';
     }
@@ -202,7 +202,7 @@ function addCmdToTable(_cmd) {
     }
     tr += '</select>';
     
-    tr += '<select class="cmdAttr form-control infoParameter ENO" data-l1key="configuration" data-l2key="infoParameterENO">';
+    tr += '<select class="cmdAttr form-control infoParameter ENO input-sm" data-l1key="configuration" data-l2key="infoParameterENO">';
     for (i = 1; i < 97; i++) {
       tr += '<option value=" SWITCH'+i+'">Switch '+i+'</option>';
     }
@@ -220,7 +220,7 @@ function addCmdToTable(_cmd) {
     }
     tr += '</select>';
     
-    tr += '<input class="cmdAttr form-control infoParameter A" data-l1key="configuration" data-l2key="infoParameterA" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter A input-sm" data-l1key="configuration" data-l2key="infoParameterA" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
     tr += '</div>';
     tr += '</div>';
     
@@ -229,18 +229,13 @@ function addCmdToTable(_cmd) {
   tr += '</td>';
   
   tr += '<td>';
+  tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}}" style="width:30%;display:inline-block;">';
+  tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}}" style="width:30%;display:inline-block;">';
+  tr += '<input class="cmdAttr form-control input-sm" data-l1key="unite" placeholder="Unité" title="{{Unité}}" style="width:30%;display:inline-block;margin-left:2px;">';
   tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label></span> ';
   tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Historiser}}</label></span> ';
   tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="display" data-l2key="invertBinary"/>{{Inverser}}</label></span> ';
   tr += '</td>';
-  tr += '<td>';
-  tr += '<input class="cmdAttr form-control input-sm" data-l1key="unite" placeholder="Unité" title="{{Unité}}">';
-  tr += '<span class="input-group">';
-  tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}}" style="width : 40%;display : inline-block;" /> ';
-  tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}}" style="width : 40%;display : inline-block;" />';
-  tr += '</span>';
-  tr += '</td>';
-  
   tr += '<td>';
   if (is_numeric(_cmd.id)) {
     tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure"><i class="fas fa-cogs"></i></a> ';
