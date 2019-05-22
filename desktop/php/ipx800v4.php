@@ -102,7 +102,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<div class="form-group">
 							<label class="col-sm-2 control-label">{{Clef API}}</label>
 							<div class="col-sm-3">
-								<input type="password" autocomplete="new-password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey"/>
+								<input type="password" autocomplete="new-password"  class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey"/>
 							</div>
 						</div>
 					</fieldset>
@@ -119,7 +119,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<div class="form-group">
 							<label class="col-sm-2 control-label">{{Mot de passe}}</label>
 							<div class="col-sm-3">
-								<input type="password" autocomplete="new-password"  class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="password"/>
+								<input type="password" autocomplete="new-password"   class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="password"/>
 							</div>
 						</div>
 						<div class="form-group">
