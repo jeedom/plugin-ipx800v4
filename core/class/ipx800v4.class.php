@@ -216,9 +216,6 @@ class ipx800v4 extends eqLogic {
 		$refresh->setType('action');
 		$refresh->setSubType('other');
 		$refresh->save();
-		if($this->getChanged()){
-			self::deamon_start();
-		}
 	}
 	
 	public function getIPXinfo($_onlyApi = null) {
