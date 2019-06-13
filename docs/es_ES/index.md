@@ -35,7 +35,7 @@ Aquí encontrará toda la configuración de su dispositivo:
 -   ** ** visible hace que su equipo visible en el salpicadero,
 
 -   ** ** Categoría: categorías de equipos (que pueden pertenecer a
-    plusieurs catégories),
+    varias categorías),
 
 -   **IP** : L’ip de l’IPX800,
 

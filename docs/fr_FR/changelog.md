@@ -1,3 +1,9 @@
+# 13/06/2019
+
+- Ajout d'un systeme de sauvegarde automatique tout les jours des ipx800v4
+- Support PWM en mono-couleur uniquement
+- Suppression du redemarrage du démon a chaque changement sur les équipements (il faut maintenant lorsque vous modifiez un équipement relance le démon manuellement)
+
 # 24/04/2018
 
 -	Support des sondes THL 9 à 14
