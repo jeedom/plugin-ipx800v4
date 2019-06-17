@@ -184,7 +184,7 @@ class ipx800v4 extends eqLogic {
 		$filepath = __DIR__ . '/../../data/' . $this->getConfiguration('ip') . '.gce';
 		$url = 'http://';
 		if ($this->getConfiguration('username') != '' && $this->getConfiguration('password') != '') {
-			$url .= $this->getConfiguration('username') . ':' . $this->getConfiguration('password') . '@';
+			$url .= urlencode($this->getConfiguration('username')) . ':' . urlencode($this->getConfiguration('password')) . '@';
 		}
 		$url .= $this->getConfiguration('ip') . '/admin/download/config.gce';
 		$ch = curl_init($url);
