@@ -97,7 +97,7 @@ $('#bt_cmdTemplateCreate').on('click',function(){
 				return;
 			}
 			$('#md_cmdTemplateAlert').showAlert({message: '{{Création réussie}}', level: 'success'});
-			$('#ul_eqLogic .li_eqLogic[data-eqLogic_id=<?php echo init('eqLogic_id'); ?>]').click();
+			$('.eqLogicDisplayCard[data-eqLogic_id=<?php echo init('eqLogic_id'); ?>]').click();
 		}
 	});
 });
