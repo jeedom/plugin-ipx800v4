@@ -125,6 +125,9 @@ class ipx800v4 extends eqLogic {
 			if ($ipx800v4->getIsEnable() == 0) {
 				continue;
 			}
+			if ($ipx800v4->getConfiguration('ip') == '') {
+				continue;
+			}
 			if (!isset($cache[$ipx800v4->getConfiguration('ip')])) {
 				$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getIPXinfo();
 			}
@@ -152,7 +155,8 @@ class ipx800v4 extends eqLogic {
 			if (count($files) == 1) {
 				try {
 					$content = file_get_contents($path . '/' . $files[0]);
-					$deviceConfiguration = json_decode(is_json($content, array()), true);
+					
+					$deviceConfiguration = is_json($content, array(), true);
 					return $deviceConfiguration[$_template];
 				} catch (Exception $e) {
 					return array();
@@ -184,7 +188,7 @@ class ipx800v4 extends eqLogic {
 		$filepath = __DIR__ . '/../../data/' . $this->getConfiguration('ip') . '.gce';
 		$url = 'http://';
 		if ($this->getConfiguration('username') != '' && $this->getConfiguration('password') != '') {
-			$url .= $this->getConfiguration('username') . ':' . $this->getConfiguration('password') . '@';
+			$url .= urlencode($this->getConfiguration('username')) . ':' . urlencode($this->getConfiguration('password')) . '@';
 		}
 		$url .= $this->getConfiguration('ip') . '/admin/download/config.gce';
 		$ch = curl_init($url);

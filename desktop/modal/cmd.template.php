@@ -20,10 +20,10 @@ $templates = ipx800v4::listCmdTemplate();
 				<select class="form-control cmdTemplateAttr" data-l1key="templateName">
 					<option value="">{{Choisir}}</option>
 					<?php
-foreach ($templates as $key => $value) {
-	echo '<option value="' . $key . '">' . $value['name'] . '</option>';
-}
-?>
+					foreach ($templates as $key => $value) {
+						echo '<option value="' . $key . '">' . $value['name'] . '</option>';
+					}
+					?>
 				</select>
 			</div>
 			<div class="col-sm-3">
@@ -43,14 +43,14 @@ foreach ($templates as $id => $config) {
 		echo '<div class="col-sm-3">';
 		switch ($parameter['type']) {
 			case 'color':
-				echo '<input type="color" class="cmdTemplateAttr form-control" data-l1key="' . $parameter['key'] . '"/>';
-				break;
+			echo '<input type="color" class="cmdTemplateAttr form-control" data-l1key="' . $parameter['key'] . '"/>';
+			break;
 			case 'input':
-				echo '<input class="cmdTemplateAttr form-control" data-l1key="' . $parameter['key'] . '"/>';
-				break;
+			echo '<input class="cmdTemplateAttr form-control" data-l1key="' . $parameter['key'] . '"/>';
+			break;
 			case 'number':
-				echo '<input type="number" class="cmdTemplateAttr form-control" data-l1key="' . $parameter['key'] . '"/>';
-				break;
+			echo '<input type="number" class="cmdTemplateAttr form-control" data-l1key="' . $parameter['key'] . '"/>';
+			break;
 		}
 		echo '</div>';
 		if (isset($parameter['description'])) {
@@ -67,38 +67,38 @@ foreach ($templates as $id => $config) {
 
 
 <script>
-	$('.cmdTemplateAttr[data-l1key=templateName]').on('change',function(){
-		$('.templateForm').hide();
-		$('.templateForm.'+$(this).value()).show();
-	});
+$('.cmdTemplateAttr[data-l1key=templateName]').on('change',function(){
+	$('.templateForm').hide();
+	$('.templateForm.'+$(this).value()).show();
+});
 
-	$('#bt_cmdTemplateCreate').on('click',function(){
-		if($('.cmdTemplateAttr[data-l1key=templateName]').value() == ''){
-			$('#md_cmdTemplateAlert').showAlert({message: '{{Vous devez choisir un template}}', level: 'danger'});
-			return;
-		}
-		var config  = $('.templateForm.'+$('.cmdTemplateAttr[data-l1key=templateName]').value()).getValues('.cmdTemplateAttr')[0];
-		config.template = $('.cmdTemplateAttr[data-l1key=templateName]').value();
-		$.ajax({
-			type: "POST",
-			url: "plugins/ipx800v4/core/ajax/ipx800v4.ajax.php",
-			data: {
-				action: "createFromTemplate",
-				eqLogic_id : <?php echo init('eqLogic_id'); ?>,
-				config : json_encode(config)
-			},
-			dataType: 'json',
-			error: function (request, status, error) {
-				handleAjaxError(request, status, error,$('#md_cmdTemplateAlert'));
-			},
-			success: function (data) {
-				if (data.state != 'ok') {
-					$('#md_cmdTemplateAlert').showAlert({message: data.result, level: 'danger'});
-				}
-				$('#md_cmdTemplateAlert').showAlert({message: '{{Création réussie}}', level: 'success'});
-				$('#ul_eqLogic .li_eqLogic[data-eqLogic_id=<?php echo init('eqLogic_id'); ?>]').click();
+$('#bt_cmdTemplateCreate').on('click',function(){
+	if($('.cmdTemplateAttr[data-l1key=templateName]').value() == ''){
+		$('#md_cmdTemplateAlert').showAlert({message: '{{Vous devez choisir un template}}', level: 'danger'});
+		return;
+	}
+	var config  = $('.templateForm.'+$('.cmdTemplateAttr[data-l1key=templateName]').value()).getValues('.cmdTemplateAttr')[0];
+	config.template = $('.cmdTemplateAttr[data-l1key=templateName]').value();
+	$.ajax({
+		type: "POST",
+		url: "plugins/ipx800v4/core/ajax/ipx800v4.ajax.php",
+		data: {
+			action: "createFromTemplate",
+			eqLogic_id : <?php echo init('eqLogic_id'); ?>,
+			config : json_encode(config)
+		},
+		dataType: 'json',
+		error: function (request, status, error) {
+			handleAjaxError(request, status, error,$('#md_cmdTemplateAlert'));
+		},
+		success: function (data) {
+			if (data.state != 'ok') {
+				$('#md_cmdTemplateAlert').showAlert({message: data.result, level: 'danger'});
+				return;
 			}
-		});
+			$('#md_cmdTemplateAlert').showAlert({message: '{{Création réussie}}', level: 'success'});
+			$('.eqLogicDisplayCard[data-eqLogic_id=<?php echo init('eqLogic_id'); ?>]').click();
+		}
 	});
+});
 </script>
-

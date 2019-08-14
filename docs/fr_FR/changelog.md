@@ -1,3 +1,8 @@
+# 14/08/2019
+
+- Correction de bug sur les templates
+- Compatible php 7.3
+
 # 13/06/2019
 
 - Ajout d'un systeme de sauvegarde automatique tout les jours des ipx800v4
