@@ -155,7 +155,8 @@ class ipx800v4 extends eqLogic {
 			if (count($files) == 1) {
 				try {
 					$content = file_get_contents($path . '/' . $files[0]);
-					$deviceConfiguration = json_decode(is_json($content, array()), true);
+					
+					$deviceConfiguration = is_json($content, array(), true);
 					return $deviceConfiguration[$_template];
 				} catch (Exception $e) {
 					return array();
