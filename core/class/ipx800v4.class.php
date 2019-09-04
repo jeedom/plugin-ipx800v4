@@ -108,7 +108,12 @@ class ipx800v4 extends eqLogic {
 				$alreadySave[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getConfiguration('ip');
 			}
 		}
-		self::deamon_start();
+		try {
+			$plugin = plugin::byId(__CLASS__);
+			$plugin::deamon_start(true);
+		} catch (\Exception $e) {
+			
+		}
 	}
 	
 	public static function pull($_eqLogic_id = null, $_cache = null) {
