@@ -124,7 +124,7 @@ class ipx800v4 extends eqLogic {
 		if ($_cache != null) {
 			$cache = $_cache;
 		}
-		foreach (self::$_eqLogics as $ipx800v4) {
+		foreach (self::$_eqLogics as &$ipx800v4) {
 			if ($_eqLogic_id != null && $_eqLogic_id != $ipx800v4->getId()) {
 				continue;
 			}
