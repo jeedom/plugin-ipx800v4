@@ -148,7 +148,7 @@ class ipx800v4 extends eqLogic {
 							$value = $value['Valeur'];
 						}
 					}
-					$ipx800v4->checkAndUpdateCmd($cmd, $value);
+					$ipx800v4->checkAndUpdateCmd($cmd, $value,false);
 				}
 			}
 		}
