@@ -34,7 +34,7 @@ if (!isConnect()) {
 				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::D" />{{[D] Entrès digital}}</label>
 				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VI" />{{[VI] Entrée virtuel}}</label>
 				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VO" />{{[VO] Sortie virtuel}}</label>
-				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VA" />{{[VA] Entrée analogique}}</label>
+				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VA" />{{[VA] Entrée analogique virtuelle}}</label>
 				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::PW" />{{[PW] Watchdog}}</label>
 				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::XTHL" />{{[XTHL] Sonde THL}}</label>
 				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::VR" />{{[VR] Volet roulant}}</label>
