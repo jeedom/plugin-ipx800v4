@@ -108,6 +108,12 @@ class ipx800v4 extends eqLogic {
 				$alreadySave[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getConfiguration('ip');
 			}
 		}
+		try {
+			$plugin = plugin::byId(__CLASS__);
+			$plugin->deamon_start(true);
+		} catch (\Exception $e) {
+			
+		}
 	}
 	
 	public static function pull($_eqLogic_id = null, $_cache = null) {
@@ -118,7 +124,7 @@ class ipx800v4 extends eqLogic {
 		if ($_cache != null) {
 			$cache = $_cache;
 		}
-		foreach (self::$_eqLogics as $ipx800v4) {
+		foreach (self::$_eqLogics as &$ipx800v4) {
 			if ($_eqLogic_id != null && $_eqLogic_id != $ipx800v4->getId()) {
 				continue;
 			}
@@ -142,7 +148,7 @@ class ipx800v4 extends eqLogic {
 							$value = $value['Valeur'];
 						}
 					}
-					$ipx800v4->checkAndUpdateCmd($cmd, $value);
+					$ipx800v4->checkAndUpdateCmd($cmd, $value,false);
 				}
 			}
 		}
