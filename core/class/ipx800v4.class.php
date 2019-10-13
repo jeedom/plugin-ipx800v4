@@ -109,6 +109,7 @@ class ipx800v4 extends eqLogic {
 			}
 		}
 		try {
+			sleep(10);
 			$plugin = plugin::byId(__CLASS__);
 			$plugin->deamon_start(true);
 		} catch (\Exception $e) {
