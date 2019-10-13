@@ -109,7 +109,9 @@ class ipx800v4 extends eqLogic {
 			}
 		}
 		try {
-			sleep(10);
+			if(date('i') == 0 && date('s') < 10){
+				sleep(10);
+			}
 			$plugin = plugin::byId(__CLASS__);
 			$plugin->deamon_start(true);
 		} catch (\Exception $e) {
