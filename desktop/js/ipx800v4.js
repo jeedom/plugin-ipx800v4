@@ -180,7 +180,7 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control infoParameter VR input-sm" data-l1key="configuration" data-l2key="infoParameterVR" placeholder="{{Numéro de l\'extension et du volet, ex : 1-2}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter PWM input-sm" data-l1key="configuration" data-l2key="infoParameterPWM" placeholder="{{Numéro du canal (1 à 24)}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter G input-sm" data-l1key="configuration" data-l2key="infoParameterG" placeholder="{{Numéro de la voie (1 à 24)}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control infoParameter G input-sm" data-l1key="configuration" data-l2key="infoParameterT" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter T input-sm" data-l1key="configuration" data-l2key="infoParameterT" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
     
     tr += '<select class="cmdAttr form-control infoParameter FP input-sm" data-l1key="configuration" data-l2key="infoParameterFP">';
     for (i = 1; i < 5; i++) {
