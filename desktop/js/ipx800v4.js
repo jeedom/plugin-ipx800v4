@@ -130,7 +130,7 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control actionParameter EnoPC input-sm" data-l1key="configuration" data-l2key="actionParameterEnoPC" placeholder="{{Numéro de l\'actionneur de 1 à 24}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter G input-sm" data-l1key="configuration" data-l2key="actionParameterG" placeholder="{{Numéro de la voie de 1 à 24}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter PWM input-sm" data-l1key="configuration" data-l2key="actionParameterPWM" placeholder="{{Numéro du canal de 1 à 24}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter T input-sm" data-l1key="configuration" data-l2key="actionParameterThermo" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter T input-sm" data-l1key="configuration" data-l2key="actionParameterT" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
     tr += '</div>';
     
     tr += '<div class="col-xs-6">';
@@ -139,7 +139,7 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control actionOption VR input-sm" data-l1key="configuration" data-l2key="actionOptionVR" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption FP input-sm" data-l1key="configuration" data-l2key="actionOptionFP" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption G input-sm" data-l1key="configuration" data-l2key="actionOptionG" placeholder="{{Valeur}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionOption T input-sm" data-l1key="configuration" data-l2key="actionOptionThermo" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption T input-sm" data-l1key="configuration" data-l2key="actionOptionT" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption PWM input-sm" data-l1key="configuration" data-l2key="actionOptionPWM" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '</div>';
     tr += '</div>';
@@ -180,7 +180,7 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control infoParameter VR input-sm" data-l1key="configuration" data-l2key="infoParameterVR" placeholder="{{Numéro de l\'extension et du volet, ex : 1-2}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter PWM input-sm" data-l1key="configuration" data-l2key="infoParameterPWM" placeholder="{{Numéro du canal (1 à 24)}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter G input-sm" data-l1key="configuration" data-l2key="infoParameterG" placeholder="{{Numéro de la voie (1 à 24)}}" style="display:none;" />';
-    
+    tr += '<input class="cmdAttr form-control infoParameter G input-sm" data-l1key="configuration" data-l2key="infoParameterT" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
     
     tr += '<select class="cmdAttr form-control infoParameter FP input-sm" data-l1key="configuration" data-l2key="infoParameterFP">';
     for (i = 1; i < 5; i++) {
