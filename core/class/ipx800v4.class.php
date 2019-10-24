@@ -90,9 +90,8 @@ class ipx800v4 extends eqLogic {
 	
 	public static function cronDaily() {
 		if (config::byKey('autosave_ipx_config', 'ipx800v4') == 1) {
-			$eqLogics = self::byType('ipx800v4');
 			$alreadySave = array();
-			foreach ($eqLogics as $ipx800v4) {
+			foreach (self::byType('ipx800v4',true) as $ipx800v4) {
 				if ($ipx800v4->getConfiguration('ip') == '') {
 					continue;
 				}
@@ -109,6 +108,9 @@ class ipx800v4 extends eqLogic {
 			}
 		}
 		try {
+			if(date('i') == 0 && date('s') < 10){
+				sleep(10);
+			}
 			$plugin = plugin::byId(__CLASS__);
 			$plugin->deamon_start(true);
 		} catch (\Exception $e) {
@@ -119,16 +121,13 @@ class ipx800v4 extends eqLogic {
 	public static function pull($_eqLogic_id = null, $_cache = null) {
 		$cache = array();
 		if (self::$_eqLogics == null) {
-			self::$_eqLogics = self::byType('ipx800v4');
+			self::$_eqLogics = self::byType('ipx800v4',true);
 		}
 		if ($_cache != null) {
 			$cache = $_cache;
 		}
 		foreach (self::$_eqLogics as &$ipx800v4) {
 			if ($_eqLogic_id != null && $_eqLogic_id != $ipx800v4->getId()) {
-				continue;
-			}
-			if ($ipx800v4->getIsEnable() == 0) {
 				continue;
 			}
 			if ($ipx800v4->getConfiguration('ip') == '') {

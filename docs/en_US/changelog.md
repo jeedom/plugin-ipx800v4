@@ -1,3 +1,7 @@
+# 18/09/2019
+
+- Optimisations
+
 # 14/08/2019
 
 - Correction de bug sur les templates
