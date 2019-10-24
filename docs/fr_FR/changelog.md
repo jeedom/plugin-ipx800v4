@@ -1,3 +1,5 @@
+- Correction bug thermostat
+
 # 18/09/2019
 
 - Optimisations
