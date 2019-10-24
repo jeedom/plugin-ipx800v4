@@ -257,6 +257,7 @@ function addCmdToTable(_cmd) {
       tr.find('.cmdAttr[data-l1key=value]').append(result);
       tr.setValues(_cmd, '.cmdAttr');
       jeedom.cmd.changeType(tr, init(_cmd.subType));
+      tr.find('.cmdAttr[data-l1key=configuration][data-l2key=infoType]').trigger('change')
     }
   });
 }
