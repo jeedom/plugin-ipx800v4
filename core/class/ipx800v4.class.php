@@ -344,7 +344,10 @@ class ipx800v4Cmd extends cmd {
 			if($this->getConfiguration('actionArgument') == 'PWM'){
 				$url .= '='.$this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 				$url .= '&PWMValue';
-			}else{
+			}elseif($this->getConfiguration('actionArgument') == 'T'){
+				$url .= '='.$this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+				$url .= '&Cons';
+			}else{{
 				if (strlen($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'))) == 1) {
 					$url .= '0' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 				} else {
