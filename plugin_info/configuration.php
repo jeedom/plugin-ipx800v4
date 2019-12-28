@@ -60,7 +60,7 @@ if (!isConnect()) {
 		<div class="form-group">
 			<label class="col-lg-4 control-label">{{URL API}}</label>
 			<div class="col-lg-8">
-				<span><?php echo network::getNetworkAccess('internal') . '/core/api/jeeApi.php?type=ipx800v4&apikey=' . jeedom::getApiKey('ipx800v4') . '&onvent=1'; ?></span>
+				<span><?php echo network::getNetworkAccess('internal') . '/core/api/jeeApi.php?type=ipx800v4&apikey=' . jeedom::getApiKey('ipx800v4') . '&onvent=1&ip=#IP_IPX#'; ?></span>
 			</div>
 		</div>
 	</fieldset>
