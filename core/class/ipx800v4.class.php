@@ -346,6 +346,7 @@ class ipx800v4Cmd extends cmd {
 				$url .= '&PWMValue';
 			}elseif($this->getConfiguration('actionArgument') == 'T'){
 				$url .= '='.$this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+				$url .= '&Hys='.$this->getConfiguration('actionOptionT_hys');
 				$url .= '&Cons';
 			}else{
 				if (strlen($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'))) == 1) {

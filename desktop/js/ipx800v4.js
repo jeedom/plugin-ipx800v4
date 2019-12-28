@@ -140,6 +140,7 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control actionOption FP input-sm" data-l1key="configuration" data-l2key="actionOptionFP" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption G input-sm" data-l1key="configuration" data-l2key="actionOptionG" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption T input-sm" data-l1key="configuration" data-l2key="actionOptionT" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption T input-sm" data-l1key="configuration" data-l2key="actionOptionT_hys" placeholder="{{Valeur hysteresis}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption PWM input-sm" data-l1key="configuration" data-l2key="actionOptionPWM" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '</div>';
     tr += '</div>';
