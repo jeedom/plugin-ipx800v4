@@ -113,7 +113,7 @@ function addCmdToTable(_cmd) {
     tr += '<option value="FP" class="actionArgument Set">{{Fil pilote}}</option>';
     tr += '<option value="G" class="actionArgument Set">{{Dimmer}}</option>';
     tr += '<option value="PWM" class="actionArgument Set">{{PWM}}</option>';
-    tr += '<option value="T" class="actionArgument Set">{{Thermostat}}</option>';
+    tr += '<option value="Thermo" class="actionArgument Set">{{Thermostat}}</option>';
     tr += '</select>';
     tr += '</div>';
     tr += '</div>';
@@ -130,7 +130,7 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control actionParameter EnoPC input-sm" data-l1key="configuration" data-l2key="actionParameterEnoPC" placeholder="{{Numéro de l\'actionneur de 1 à 24}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter G input-sm" data-l1key="configuration" data-l2key="actionParameterG" placeholder="{{Numéro de la voie de 1 à 24}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter PWM input-sm" data-l1key="configuration" data-l2key="actionParameterPWM" placeholder="{{Numéro du canal de 1 à 24}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionParameter T input-sm" data-l1key="configuration" data-l2key="actionParameterT" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter Thermo input-sm" data-l1key="configuration" data-l2key="actionParameterThermo" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
     tr += '</div>';
     
     tr += '<div class="col-xs-6">';
@@ -139,8 +139,8 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control actionOption VR input-sm" data-l1key="configuration" data-l2key="actionOptionVR" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption FP input-sm" data-l1key="configuration" data-l2key="actionOptionFP" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption G input-sm" data-l1key="configuration" data-l2key="actionOptionG" placeholder="{{Valeur}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionOption T input-sm" data-l1key="configuration" data-l2key="actionOptionT" placeholder="{{Valeur}}" style="display:none;" />';
-    tr += '<input class="cmdAttr form-control actionOption T input-sm" data-l1key="configuration" data-l2key="actionOptionT_hys" placeholder="{{Valeur hysteresis}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption Thermo input-sm" data-l1key="configuration" data-l2key="actionOptionThermo" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption Thermo input-sm" data-l1key="configuration" data-l2key="actionOptionThermo_hys" placeholder="{{Valeur hysteresis}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption PWM input-sm" data-l1key="configuration" data-l2key="actionOptionPWM" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '</div>';
     tr += '</div>';

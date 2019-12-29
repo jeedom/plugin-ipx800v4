@@ -340,13 +340,13 @@ class ipx800v4Cmd extends cmd {
 		$eqLogic = $this->getEqLogic();
 		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
 		$url .= '&' . $this->getConfiguration('actionCmd') . $this->getConfiguration('actionArgument');
-		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'FP', 'G', 'T','PWM'))) {
+		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'FP', 'G', 'Thermo','PWM'))) {
 			if($this->getConfiguration('actionArgument') == 'PWM'){
 				$url .= '='.$this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 				$url .= '&PWMValue';
-			}elseif($this->getConfiguration('actionArgument') == 'T'){
+			}elseif($this->getConfiguration('actionArgument') == 'Thermo'){
 				$url .= '='.$this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
-				$url .= '&Hys='.$this->getConfiguration('actionOptionT_hys');
+				$url .= '&Hys='.$this->getConfiguration('actionOptionThermo_hys');
 				$url .= '&Cons';
 			}else{
 				if (strlen($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'))) == 1) {
