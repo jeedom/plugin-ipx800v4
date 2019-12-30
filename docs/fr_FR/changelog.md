@@ -1,3 +1,8 @@
+# 30/12/2019
+
+- Correction bug thermostat
+- Correciton d'une erreur dans l'url d'event à donner à l'ipx800
+
 # 18/09/2019
 
 - Optimisations
