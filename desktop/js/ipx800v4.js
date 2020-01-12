@@ -205,19 +205,19 @@ function addCmdToTable(_cmd) {
     
     tr += '<select class="cmdAttr form-control infoParameter ENO input-sm" data-l1key="configuration" data-l2key="infoParameterENO">';
     for (i = 1; i < 97; i++) {
-      tr += '<option value=" SWITCH'+i+'">Switch '+i+'</option>';
+      tr += '<option value=" SWITCH'+i+'">{{Switch}} '+i+'</option>';
     }
     for (i = 1; i < 25; i++) {
-      tr += '<option value=" CONTACT'+i+'">Contact '+i+'</option>';
+      tr += '<option value=" CONTACT'+i+'">{{Contact}} '+i+'</option>';
     }
     for (i = 1; i < 9; i++) {
-      tr += '<option value=" WALL PLUG'+i+'">Wall plug '+i+'</option>';
+      tr += '<option value=" WALL PLUG'+i+'">{{Wall plug}} '+i+'</option>';
     }
     for (i = 17; i < 41; i++) {
-      tr += '<option value=" ANALOG'+i+'">Anologique '+i+'</option>';
+      tr += '<option value=" ANALOG'+i+'">{{Anologique}} '+i+'</option>';
     }
     for (i = 1; i < 25; i++) {
-      tr += '<option value=" ACTIONNEUR'+i+'">Actionneur '+i+'</option>';
+      tr += '<option value=" ACTIONNEUR'+i+'">{{Actionneur}} '+i+'</option>';
     }
     tr += '</select>';
     
