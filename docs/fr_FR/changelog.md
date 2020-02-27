@@ -1,3 +1,5 @@
+- Ajout du support de l'extension 0-10v
+
 # 30/12/2019
 
 - Correction bug thermostat
