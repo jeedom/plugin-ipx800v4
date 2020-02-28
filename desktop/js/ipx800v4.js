@@ -114,7 +114,7 @@ function addCmdToTable(_cmd) {
     tr += '<option value="G" class="actionArgument Set">{{Dimmer}}</option>';
     tr += '<option value="PWM" class="actionArgument Set">{{PWM}}</option>';
     tr += '<option value="Thermo" class="actionArgument Set">{{Thermostat}}</option>';
-    tr += '<option value="010v" class="actionArgument Set">{{010V}}</option>';
+    tr += '<option value="010V" class="actionArgument Set">{{010V}}</option>';
     tr += '</select>';
     tr += '</div>';
     tr += '</div>';
