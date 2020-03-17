@@ -13,7 +13,7 @@ After downloading the plugin, you just need to activate it and check the boxes t
 >
 > To lighten the load, it is recommended to uncheck ALL type requests and just check the APIs that concern you (you will find details in the API documentation for IPX800v4)
 
-> **Note**
+> **NOTE**
 >
 > You can see on this page the status of the daemon monitoring the IPX800
 
@@ -25,19 +25,19 @@ plugin then home automation protocol :
 
 Here you find all the configuration of your equipment :
 
--   **Name of the equipment IPX800** : name of your IPX800 equipment,
+-   **Name of the equipment IPX800** : nom de votre équipement IPX800,
 
 -   **Parent object** : indicates the parent object to which belongs
     equipment,
 
--   **Activate** : makes your equipment active,
+-   **Activate** : permet de rendre votre équipement actif,
 
 -   **Visible** : makes your equipment visible on the dashboard,
 
 -   **Category** : equipment categories (it may belong to
-    several categories),
+    plusieurs catégories),
 
--   **IP** : The IPX800 ip,
+-   **IP** : L'ip de l'IPX800,
 
 -   **API key** : IPX800 API key (by default the API key
     is apikey)
@@ -45,7 +45,7 @@ Here you find all the configuration of your equipment :
 The default plugin does not create anything, it will be up to you to do so by
 depending on your configuration but you will be guide.
 
-Ordered 
+Command 
 ========
 
 Action 
@@ -56,9 +56,9 @@ You have 3 types of action :
 -   **We** : allows you to set an output (or virtual input) to 1, or
     assign a value to an analog input (or counter)
 
--   **off** : allows you to set an output (or virtual input) to 0
+-   **Off** : allows you to set an output (or virtual input) to 0
 
--   **rocker** : allows to reverse the state of an output (or
+-   **Toggle** : allows to reverse the state of an output (or
     virtual entrance)
 
 You have 6 types of actuators :
@@ -75,7 +75,7 @@ You have 6 types of actuators :
 
 -   **Pilot wire**
 
-> **Note**
+> **NOTE**
 >
 > Certain type of actuator can be hidden depending on the type
 > Action
@@ -128,7 +128,7 @@ You have 11 different types :
 
 For each type jeedom will ask you the number of the desired information
 
-template 
+Template 
 ========
 
 To help you there is a template that allows you to create certain types of

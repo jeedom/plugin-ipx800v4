@@ -1,19 +1,19 @@
 Este complemento le permite administrar un IPX 800 v4
 
-Configuración del complemento 
+Configuración del plugin 
 =======================
 
 Después de descargar el complemento, solo necesita activarlo y marcar las casillas que le interesan para las solicitudes de IPX800v4 (por ejemplo, marque X-Dimmer si tiene un X-dimmer). También puede elegir la frecuencia de las solicitudes para aligerar la carga en ipx800v4
 
-> **importante**
+> **Importante**
 >
 > Después de cada modificación de la frecuencia o solicitudes, debe reiniciar el daemon para que se tenga en cuenta
 
-> **importante**
+> **Importante**
 >
 > Para aligerar la carga, se recomienda desmarcar TODAS las solicitudes de tipo y simplemente verificar las API que le conciernen (encontrará detalles en la documentación de la API para IPX800v4)
 
-> **nota**
+> **Nota**
 >
 > Puede ver en esta página el estado del demonio que monitorea el IPX800
 
@@ -25,19 +25,19 @@ plugin luego protocolo de automatización del hogar :
 
 Aquí encontrarás toda la configuración de tu equipo :
 
--   **Nombre del equipo IPX800** : nombre de su equipo IPX800,
+-   **Nombre del equipo IPX800** : nom de votre équipement IPX800,
 
 -   **Objeto padre** : indica el objeto padre al que pertenece
-    equipos,
+    equipo,
 
--   **Activar** : activa su equipo,
+-   **Activar** : permet de rendre votre équipement actif,
 
--   **visible** : hace que su equipo sea visible en el tablero de instrumentos,
+-   **Visible** : hace que su equipo sea visible en el tablero,
 
--   **categoría** : categorías de equipos (puede pertenecer a
-    varias categorías),
+-   **Categoría** : categorías de equipos (puede pertenecer a
+    plusieurs catégories),
 
--   **IP** : La ip IPX800,
+-   **IP** : L'ip de l'IPX800,
 
 -   **Clave API** : Clave API IPX800 (por defecto la clave API
     es apikey)
@@ -45,25 +45,25 @@ Aquí encontrarás toda la configuración de tu equipo :
 El complemento predeterminado no crea nada, dependerá de usted hacerlo
 dependiendo de tu configuración pero serás guía.
 
-orden 
+Comando 
 ========
 
-acción 
+Acción 
 ------
 
 Tienes 3 tipos de acción :
 
--   **uno** : le permite establecer una salida (o entrada virtual) a 1, o
+-   **Uno** : le permite establecer una salida (o entrada virtual) a 1, o
     asignar un valor a una entrada analógica (o contador)
 
--   **apagado** : le permite establecer una salida (o entrada virtual) a 0
+-   **Apagado** : le permite establecer una salida (o entrada virtual) a 0
 
--   **mecedora** : permite invertir el estado de una salida (o
+-   **Alternar** : permite invertir el estado de una salida (o
     entrada virtual)
 
 Tienes 6 tipos de actuadores :
 
--   **retransmitir**
+-   **Relé**
 
 -   **Salida virtual**
 
@@ -71,11 +71,11 @@ Tienes 6 tipos de actuadores :
 
 -   **Entrada analógica virtual**
 
--   **contador**
+-   **Contador**
 
 -   **Cable piloto**
 
-> **nota**
+> **Nota**
 >
 > Cierto tipo de actuador puede ocultarse dependiendo del tipo
 > acción
@@ -96,12 +96,12 @@ varios parámetros que pueden ser :
 
 -   número de cable piloto y valor de pedido (0 confort, 1 eco, 2 sin escarcha, 3 apagado, 4 confort-1, 5 confort-2)
 
-información 
+Información 
 ----
 
 Tienes 11 tipos diferentes :
 
--   retransmitir
+-   Relé
 
 -   Entrada digital
 
@@ -109,7 +109,7 @@ Tienes 11 tipos diferentes :
 
 -   Salida virtual
 
--   perro guardián
+-   Perro guardián
 
 -   EnOcean
 
@@ -117,7 +117,7 @@ Tienes 11 tipos diferentes :
 
 -   Entrada analógica virtual
 
--   contador
+-   Contador
 
 -   Persiana enrollable : opción en el formulario 1-3 para la parte 3 de
     extensión VR 1
@@ -128,7 +128,7 @@ Tienes 11 tipos diferentes :
 
 Para cada tipo, jeedom le preguntará el número de la información deseada.
 
-plantilla 
+Plantilla 
 ========
 
 Para ayudarlo, hay una plantilla que le permite crear ciertos tipos de
