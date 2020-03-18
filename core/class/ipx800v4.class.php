@@ -137,9 +137,9 @@ class ipx800v4 extends eqLogic {
 				$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getIPXinfo();
 			}
 			foreach ($ipx800v4->getCmd('info') as $cmd) {
-				if($cmd->getConfiguration('infoType') == '010V'){
-					$ext = 'X-010V N°'.$cmd->getConfiguration('infoParameter010VExt');
-					$channel = 'ch'.$cmd->getConfiguration('infoParameter010V');
+				if($cmd->getConfiguration('infoType') == '010v'){
+					$key = 'X-010V N°'.$cmd->getConfiguration('infoParameter010vVExt');
+					$channel = 'ch'.$cmd->getConfiguration('infoParameter010v');
 					if (isset($cache[$ipx800v4->getConfiguration('ip')][$key]) && isset($cache[$ipx800v4->getConfiguration('ip')][$key][$channel])) {
 						$ipx800v4->checkAndUpdateCmd($cmd, $cache[$ipx800v4->getConfiguration('ip')][$key][$channel],false);
 					}
@@ -348,11 +348,11 @@ class ipx800v4Cmd extends cmd {
 		$eqLogic = $this->getEqLogic();
 		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
 		$url .= '&' . $this->getConfiguration('actionCmd') . $this->getConfiguration('actionArgument');
-		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'FP', 'G', 'Thermo','PWM','010V'))) {
+		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'FP', 'G', 'Thermo','PWM','010v'))) {
 			if($this->getConfiguration('actionArgument') == 'PWM'){
 				$url .= '='.$this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 				$url .= '&PWMValue';
-			}elseif($this->getConfiguration('actionArgument') == '010V'){
+			}elseif($this->getConfiguration('actionArgument') == '010v'){
 				$url .= '='.$this->getConfiguration('actionParameter010vExt');
 				$url .= '&010vCha='.$this->getConfiguration('actionParameter010v');
 				$url .= '&010vValue';
