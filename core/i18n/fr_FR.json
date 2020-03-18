@@ -1,5 +1,5 @@
 {
-    "plugin_info\/configuration.php": {
+    "plugins\/ipx800v4\/plugin_info\/configuration.php": {
         "Demande à faire aux ipx800v4": "Demande à faire aux ipx800v4",
         "[All] Tous": "[All] Tous",
         "[A] Entrée analogique": "[A] Entrée analogique",
@@ -22,7 +22,7 @@
         "Sauvegarder automatique la configuration des IPX800 tous les jours": "Sauvegarder automatique la configuration des IPX800 tous les jours",
         "URL API": "URL API"
     },
-    "desktop\/modal\/cmd.template.php": {
+    "plugins\/ipx800v4\/desktop\/modal\/cmd.template.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Equipement introuvable": "Equipement introuvable",
         "Equipement pas de type ipx800v4": "Equipement pas de type ipx800v4",
@@ -32,7 +32,39 @@
         "Vous devez choisir un template": "Vous devez choisir un template",
         "Création réussie": "Création réussie"
     },
-    "desktop\/js\/ipx800v4.js": {
+    "plugins\/ipx800v4\/desktop\/php\/ipx800v4.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Gestion": "Gestion",
+        "Ajouter": "Ajouter",
+        "Configuration": "Configuration",
+        "Mes ipx800": "Mes ipx800",
+        "Rechercher": "Rechercher",
+        "Configuration avancée": "Configuration avancée",
+        "Dupliquer": "Dupliquer",
+        "Sauvegarder": "Sauvegarder",
+        "Supprimer": "Supprimer",
+        "Equipement": "Equipement",
+        "Commandes": "Commandes",
+        "Nom de l'équipement IPX800": "Nom de l'équipement IPX800",
+        "Objet parent": "Objet parent",
+        "Aucun": "Aucun",
+        "Activer": "Activer",
+        "Visible": "Visible",
+        "Catégorie": "Catégorie",
+        "IP": "IP",
+        "Clef API": "Clef API",
+        "Sauvegarde configuration IPX800": "Sauvegarde configuration IPX800",
+        "Nom d'utilisateur admin": "Nom d'utilisateur admin",
+        "Mot de passe": "Mot de passe",
+        "Sauvegarde": "Sauvegarde",
+        "Télécharger": "Télécharger",
+        "Templates": "Templates",
+        "Nom": "Nom",
+        "Type": "Type",
+        "Paramètres": "Paramètres",
+        "Action": "Action"
+    },
+    "plugins\/ipx800v4\/desktop\/js\/ipx800v4.js": {
         "Template commande IPX800": "Template commande IPX800",
         "La valeur de la commande vaut par défaut la commande": "La valeur de la commande vaut par défaut la commande",
         "On\/Valeur": "On\/Valeur",
@@ -95,46 +127,14 @@
         "Inverser": "Inverser",
         "Tester": "Tester"
     },
-    "desktop\/php\/ipx800v4.php": {
-        "401 - Accès non autorisé": "401 - Accès non autorisé",
-        "Gestion": "Gestion",
-        "Ajouter": "Ajouter",
-        "Configuration": "Configuration",
-        "Mes ipx800": "Mes ipx800",
-        "Rechercher": "Rechercher",
-        "Configuration avancée": "Configuration avancée",
-        "Dupliquer": "Dupliquer",
-        "Sauvegarder": "Sauvegarder",
-        "Supprimer": "Supprimer",
-        "Equipement": "Equipement",
-        "Commandes": "Commandes",
-        "Nom de l'équipement IPX800": "Nom de l'équipement IPX800",
-        "Objet parent": "Objet parent",
-        "Aucun": "Aucun",
-        "Activer": "Activer",
-        "Visible": "Visible",
-        "Catégorie": "Catégorie",
-        "IP": "IP",
-        "Clef API": "Clef API",
-        "Sauvegarde configuration IPX800": "Sauvegarde configuration IPX800",
-        "Nom d'utilisateur admin": "Nom d'utilisateur admin",
-        "Mot de passe": "Mot de passe",
-        "Sauvegarde": "Sauvegarde",
-        "Télécharger": "Télécharger",
-        "Templates": "Templates",
-        "Nom": "Nom",
-        "Type": "Type",
-        "Paramètres": "Paramètres",
-        "Action": "Action"
-    },
-    "core\/ajax\/ipx800v4.ajax.php": {
+    "plugins\/ipx800v4\/core\/ajax\/ipx800v4.ajax.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Aucune méthode correspondante à : ": "Aucune méthode correspondante à : ",
         "Equipement introuvable": "Equipement introuvable",
         "Equipement pas de type ipx800v4": "Equipement pas de type ipx800v4"
     },
-    "core\/class\/ipx800v4.class.php": {
-        "Commande ID ipx800v4 inconnu": "Commande ID ipx800v4 inconnu",
+    "plugins\/ipx800v4\/core\/class\/ipx800v4.class.php": {
+        "Commande ID ipx800v4 inconnu, ou la commande n\\'est pas de type ipx800v4 : ": "Commande ID ipx800v4 inconnu, ou la commande n\\'est pas de type ipx800v4 : ",
         "Veuillez vérifier la configuration": "Veuillez vérifier la configuration",
         "Tâche cron introuvable": "Tâche cron introuvable",
         "Impossible de récuperer la sauvegarde de l\\'ipx800 ": "Impossible de récuperer la sauvegarde de l\\'ipx800 ",
