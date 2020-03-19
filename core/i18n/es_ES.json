@@ -81,7 +81,7 @@
         "Dimmer": "Dimmer",
         "PWM": "PWM",
         "Thermostat": "Termostato",
-        "010V": "010V",
+        "010v": "010v",
         "Numéro du relai de 1 à 56": "Número de relé del 1 al 56",
         "Numéro de la sortie de 1 à 128": "Número de salida de 1 a 128",
         "Numéro de l\\'entrée de 1 à 128": "Número de entrada del 1 al 128",
