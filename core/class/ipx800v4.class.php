@@ -138,7 +138,7 @@ class ipx800v4 extends eqLogic {
 			}
 			foreach ($ipx800v4->getCmd('info') as $cmd) {
 				if($cmd->getConfiguration('infoType') == '010v'){
-					$key = 'X-010V N°'.$cmd->getConfiguration('infoParameter010vVExt');
+					$key = 'X-010V N\u00b0'.$cmd->getConfiguration('infoParameter010vVExt');
 					$channel = 'ch'.$cmd->getConfiguration('infoParameter010v');
 					if (isset($cache[$ipx800v4->getConfiguration('ip')][$key]) && isset($cache[$ipx800v4->getConfiguration('ip')][$key][$channel])) {
 						$ipx800v4->checkAndUpdateCmd($cmd, $cache[$ipx800v4->getConfiguration('ip')][$key][$channel],false);
