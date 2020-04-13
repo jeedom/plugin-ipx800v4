@@ -25,19 +25,19 @@ Plugin dann Hausautomationsprotokoll :
 
 Hier finden Sie die gesamte Konfiguration Ihrer Geräte :
 
--   **Name des Geräts IPX800** : nom de votre équipement IPX800,
+-   **Name des Geräts IPX800** : ,
 
 -   **Übergeordnetes Objekt** : gibt das übergeordnete Objekt an, zu dem es gehört
     Ausrüstung,
 
--   **Aktivieren** : permet de rendre votre équipement actif,
+-   **Aktivieren** : macht Ihre Ausrüstung aktiv,
 
 -   **Sichtbar** : macht Ihre Ausrüstung auf dem Armaturenbrett sichtbar,
 
 -   **Kategorie** : Gerätekategorien (es kann gehören
-    plusieurs catégories),
+    mehrere Kategorien),
 
--   **IP** : L'ip de l'IPX800,
+-   **IP** : ,
 
 -   **API-Schlüssel** : IPX800-API-Schlüssel (standardmäßig der API-Schlüssel
     ist apikey)
@@ -122,7 +122,7 @@ Sie haben 11 verschiedene Typen :
 -   Rollladen : Option in der Form 1-3 für Teil 3 von
     Erweiterung VR 1
 
--   THL : in der Form 1-TEMP für die Temperatur des Sensors 1,3-HUM
+-    : in der Form 1-TEMP für die Temperatur des Sensors 1,3-HUM
     für Sensorfeuchtigkeit 3 oder 2-LUM für Sensorhelligkeit
     2
 

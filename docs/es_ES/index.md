@@ -25,19 +25,19 @@ plugin luego protocolo de automatización del hogar :
 
 Aquí encontrarás toda la configuración de tu equipo :
 
--   **Nombre del equipo IPX800** : nom de votre équipement IPX800,
+-   **Nombre del equipo IPX800** : ,
 
 -   **Objeto padre** : indica el objeto padre al que pertenece
     equipo,
 
--   **Activar** : permet de rendre votre équipement actif,
+-   **Activar** : activa su equipo,
 
 -   **Visible** : hace que su equipo sea visible en el tablero,
 
 -   **Categoría** : categorías de equipos (puede pertenecer a
-    plusieurs catégories),
+    categorías múltiples),
 
--   **IP** : L'ip de l'IPX800,
+-   **IP** : ,
 
 -   **Clave API** : Clave API IPX800 (por defecto la clave API
     es apikey)
@@ -122,7 +122,7 @@ Tienes 11 tipos diferentes :
 -   Persiana enrollable : opción en el formulario 1-3 para la parte 3 de
     extensión VR 1
 
--   THL : en forma 1-TEMP para la temperatura del sensor 1, 3-HUM
+-    : en forma 1-TEMP para la temperatura del sensor 1, 3-HUM
     para sensor de humedad 3 o 2-LUM para brillo del sensor
     2
 

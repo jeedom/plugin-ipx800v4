@@ -2,7 +2,7 @@
 
 # 12/30/2019
 
-- Correction bug thermostat
+- 
 - Correction of an error in the event url to give to the ipx800
 
 # 09/18/2019
@@ -39,7 +39,7 @@
 -   Improved enOcean support
 
 -   Correction of bugs on the recovery of information from
-    extensions
+    
 
 -   Addition of VR extension
 

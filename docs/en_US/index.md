@@ -25,19 +25,19 @@ plugin then home automation protocol :
 
 Here you find all the configuration of your equipment :
 
--   **Name of the equipment IPX800** : nom de votre équipement IPX800,
+-   **Name of the equipment IPX800** : ,
 
 -   **Parent object** : indicates the parent object to which belongs
     equipment,
 
--   **Activate** : permet de rendre votre équipement actif,
+-   **Activate** : makes your equipment active,
 
 -   **Visible** : makes your equipment visible on the dashboard,
 
 -   **Category** : equipment categories (it may belong to
-    plusieurs catégories),
+    multiple categories),
 
--   **IP** : L'ip de l'IPX800,
+-   **IP** : ,
 
 -   **API key** : IPX800 API key (by default the API key
     is apikey)
@@ -109,7 +109,7 @@ You have 11 different types :
 
 -   Virtual output
 
--   Watchdog
+-   
 
 -   EnOcean
 
@@ -122,7 +122,7 @@ You have 11 different types :
 -   Roller shutter : option in the form 1-3 for part 3 of
     extension VR 1
 
--   THL : in the form 1-TEMP for the temperature of the sensor 1, 3-HUM
+-    : in the form 1-TEMP for the temperature of the sensor 1, 3-HUM
     for sensor humidity 3 or 2-LUM for sensor brightness
     2
 

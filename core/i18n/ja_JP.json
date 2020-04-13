@@ -119,8 +119,8 @@
         "Wall plug": "",
         "Anologique": "",
         "Actionneur": "",
-        "Min": "",
-        "Max": "",
+        "Min": "低いです",
+        "Max": "マックス",
         "Unité": "団結",
         "Afficher": "ディスプレイ",
         "Historiser": "Historicize",
@@ -134,7 +134,9 @@
         "Equipement pas de type ipx800v4": ""
     },
     "plugins\/ipx800v4\/core\/class\/ipx800v4.class.php": {
-        "Commande ID ipx800v4 inconnu, ou la commande n\\'est pas de type ipx800v4 : ": "",
+        "Il y a un problème dans les données des ": "",
+        "Il y a un problème dans les données ": "",
+        "Commande ID ipx800v4 inconnue, ou la commande n\\'est pas de type ipx800v4 : ": "",
         "Veuillez vérifier la configuration": "",
         "Tâche cron introuvable": "",
         "Impossible de récuperer la sauvegarde de l\\'ipx800 ": "",
