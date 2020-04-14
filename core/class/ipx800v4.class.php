@@ -67,7 +67,7 @@ class ipx800v4 extends eqLogic {
 					}
 				}
 			}elseif(preg_match(self::DATA_UNITAIRE_REGEX, $typeData,$matches) && array_key_exists($matches[1],self::TYPE_DATA)){ //si le typeData correspond à un typeData de valeur unitaire
-				if(!intval($matches[2])<=self::TYPE_DATA[$matches[1]][3] || !in_array($getData,self::TYPE_DATA[$matches[1]][1])){
+				if(intval($matches[2])>self::TYPE_DATA[$matches[1]][3] || !in_array($getData,self::TYPE_DATA[$matches[1]][1])){
 					throw new Exception(__('Il y a un problème dans les données ', __FILE__) . self::TYPE_DATA[$matches[1]][2] . $matches[0] . ', valeur reçue: ' . $getData);
 				}
 				//Si le numéro de l'entrée est cohérent et que la valeur renvoyée est autorisée
