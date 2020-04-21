@@ -109,7 +109,7 @@ You have 11 different types :
 
 -   Virtual output
 
--   
+-   Watchdog
 
 -   EnOcean
 
@@ -122,7 +122,7 @@ You have 11 different types :
 -   Roller shutter : option in the form 1-3 for part 3 of
     extension VR 1
 
--    : in the form 1-TEMP for the temperature of the sensor 1, 3-HUM
+-   THL : in the form 1-TEMP for the temperature of the sensor 1, 3-HUM
     for sensor humidity 3 or 2-LUM for sensor brightness
     2
 
