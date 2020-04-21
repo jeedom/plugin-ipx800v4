@@ -60,9 +60,8 @@ class ipx800v4 extends eqLogic {
 				foreach($ipx800v4_list as &$ipx800v4){ //pour tous les eqLogics trouvés précédemment
 					foreach ($ipx800v4->getCmd('info') as $cmd) { //si la commande est de type info et est une entrée digitale, on met à jour
 						$index=$cmd->getConfiguration(self::TYPE_DATA[$typeData][0]);
-						if($index != ''){
-							$tmp_index = $index -1;
-							$ipx800v4->checkAndUpdateCmd($cmd, $getData[$tmp_index],false);
+						if($index != '' && is_numeric($index)){
+							$ipx800v4->checkAndUpdateCmd($cmd, $getData[$index -1],false);
 						}
 					}
 				}
