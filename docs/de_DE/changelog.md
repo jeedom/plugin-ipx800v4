@@ -7,7 +7,7 @@
 
 # 2019.09.18
 
-- Optimierungen
+- Optimisations
 
 # 2019.08.14
 
@@ -39,7 +39,7 @@
 -   Verbesserte enOcean-Unterstützung
 
 -   Korrektur von Fehlern bei der Wiederherstellung von Informationen aus
-    Erweiterungen
+    extensions
 
 -   Hinzufügung einer VR-Erweiterung
 

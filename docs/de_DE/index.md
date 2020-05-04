@@ -5,15 +5,15 @@ Plugin Konfiguration
 
 Nachdem Sie das Plugin heruntergeladen haben, müssen Sie es nur aktivieren und die Kontrollkästchen aktivieren, die Sie für Anfragen an IPX800v4 betreffen (Beispiel: Überprüfen Sie X-Dimmer, wenn Sie einen X-Dimmer haben).. Sie können auch die Häufigkeit der Anforderungen auswählen, um die Belastung von ipx800v4 zu verringern
 
-> **Wichtig**
+> **Important**
 >
 > Nach jeder Änderung der Häufigkeit oder der Anforderungen müssen Sie den Dämon neu starten, damit er berücksichtigt wird
 
-> **Wichtig**
+> **Important**
 >
 > Um die Last zu verringern, wird empfohlen, ALLE Typanforderungen zu deaktivieren und nur die APIs zu überprüfen, die Sie betreffen (Details finden Sie in der API-Dokumentation für IPX800v4).
 
-> **Notiz**
+> **Note**
 >
 > Auf dieser Seite sehen Sie den Status des Dämons, der den IPX800 überwacht
 
@@ -25,19 +25,19 @@ Plugin dann Hausautomationsprotokoll :
 
 Hier finden Sie die gesamte Konfiguration Ihrer Geräte :
 
--   **Name des Geräts IPX800** : ,
+-   **Name des Geräts IPX800** : Name Ihres IPX800-Geräts,
 
 -   **Übergeordnetes Objekt** : gibt das übergeordnete Objekt an, zu dem es gehört
     Ausrüstung,
 
--   **Aktivieren** : macht Ihre Ausrüstung aktiv,
+-   **Activer** : macht Ihre Ausrüstung aktiv,
 
--   **Sichtbar** : macht Ihre Ausrüstung auf dem Armaturenbrett sichtbar,
+-   **Visible** : macht Ihre Ausrüstung auf dem Armaturenbrett sichtbar,
 
 -   **Kategorie** : Gerätekategorien (es kann gehören
     mehrere Kategorien),
 
--   **IP** : ,
+-   **IP** : Die IPX800 IP,
 
 -   **API-Schlüssel** : IPX800-API-Schlüssel (standardmäßig der API-Schlüssel
     ist apikey)
@@ -53,12 +53,12 @@ Aktion
 
 Sie haben 3 Arten von Aktionen :
 
--   **Ein** : Mit dieser Option können Sie einen Ausgang (oder einen virtuellen Eingang) auf 1 oder 1 setzen
+-   **On** : Mit dieser Option können Sie einen Ausgang (oder einen virtuellen Eingang) auf 1 oder 1 setzen
     Weisen Sie einem Analogeingang (oder Zähler) einen Wert zu.
 
--   **Aus** : Mit dieser Option können Sie einen Ausgang (oder einen virtuellen Eingang) auf 0 setzen
+-   **Off** : Mit dieser Option können Sie einen Ausgang (oder einen virtuellen Eingang) auf 0 setzen
 
--   **Umschalten** : ermöglicht das Umkehren des Status eines Ausgangs (oder
+-   **Bascule** : ermöglicht das Umkehren des Status eines Ausgangs (oder
     virtueller Eingang)
 
 Sie haben 6 Arten von Aktuatoren :
@@ -71,14 +71,14 @@ Sie haben 6 Arten von Aktuatoren :
 
 -   **Virtueller Analogeingang**
 
--   **Zähler**
+-   **Compteur**
 
 -   **Pilotdraht**
 
-> **Notiz**
+> **Note**
 >
 > Bestimmte Aktuatortypen können je nach Typ ausgeblendet werden
-> Aktion
+> d'action
 
 Dann abhängig von der Art der Aktion und dem Aktuator, den Sie haben
 mehrere Parameter, die sein können :
@@ -109,7 +109,7 @@ Sie haben 11 verschiedene Typen :
 
 -   Virtuelle Ausgabe
 
--   Wachhund
+-   Watchdog
 
 -   EnOcean
 
@@ -117,12 +117,12 @@ Sie haben 11 verschiedene Typen :
 
 -   Virtueller Analogeingang
 
--   Zähler
+-   Compteur
 
 -   Rollladen : Option in der Form 1-3 für Teil 3 von
     Erweiterung VR 1
 
--    : in der Form 1-TEMP für die Temperatur des Sensors 1,3-HUM
+-   THL : in der Form 1-TEMP für die Temperatur des Sensors 1,3-HUM
     für Sensorfeuchtigkeit 3 oder 2-LUM für Sensorhelligkeit
     2
 

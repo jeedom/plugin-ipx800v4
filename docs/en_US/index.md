@@ -13,7 +13,7 @@ After downloading the plugin, you just need to activate it and check the boxes t
 >
 > To lighten the load, it is recommended to uncheck ALL type requests and just check the APIs that concern you (you will find details in the API documentation for IPX800v4)
 
-> **NOTE**
+> **Note**
 >
 > You can see on this page the status of the daemon monitoring the IPX800
 
@@ -25,19 +25,19 @@ plugin then home automation protocol :
 
 Here you find all the configuration of your equipment :
 
--   **Name of the equipment IPX800** : ,
+-   **Name of the equipment IPX800** : IPX800 Equipment Name,
 
 -   **Parent object** : indicates the parent object to which belongs
     equipment,
 
--   **Activate** : makes your equipment active,
+-   **Activer** : makes your equipment active,
 
 -   **Visible** : makes your equipment visible on the dashboard,
 
 -   **Category** : equipment categories (it may belong to
     multiple categories),
 
--   **IP** : ,
+-   **IP** : IPX800 Ip,
 
 -   **API key** : IPX800 API key (by default the API key
     is apikey)
@@ -53,17 +53,17 @@ Action
 
 You have 3 types of action :
 
--   **We** : allows you to set an output (or virtual input) to 1, or
+-   **On** : allows you to set an output (or virtual input) to 1, or
     assign a value to an analog input (or counter)
 
 -   **Off** : allows you to set an output (or virtual input) to 0
 
--   **Toggle** : allows to reverse the state of an output (or
+-   **Bascule** : allows to reverse the state of an output (or
     virtual entrance)
 
 You have 6 types of actuators :
 
--   **Relay**
+-   **Relais**
 
 -   **Virtual output**
 
@@ -71,14 +71,14 @@ You have 6 types of actuators :
 
 -   **Virtual analog input**
 
--   **Counter**
+-   **Compteur**
 
 -   **Pilot wire**
 
-> **NOTE**
+> **Note**
 >
 > Certain type of actuator can be hidden depending on the type
-> Action
+> d'action
 
 Then depending on the type of action and the actuator you have
 several parameters which can be :
@@ -101,7 +101,7 @@ Info
 
 You have 11 different types :
 
--   Relay
+-   Relais
 
 -   Digital input
 
@@ -117,7 +117,7 @@ You have 11 different types :
 
 -   Virtual analog input
 
--   Counter
+-   Compteur
 
 -   Roller shutter : option in the form 1-3 for part 3 of
     extension VR 1

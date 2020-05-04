@@ -5,15 +5,15 @@ Configuración del plugin
 
 Después de descargar el complemento, solo necesita activarlo y marcar las casillas que le interesan para las solicitudes de IPX800v4 (por ejemplo, marque X-Dimmer si tiene un X-dimmer). También puede elegir la frecuencia de las solicitudes para aligerar la carga en ipx800v4
 
-> **Importante**
+> **Important**
 >
 > Después de cada modificación de la frecuencia o solicitudes, debe reiniciar el daemon para que se tenga en cuenta
 
-> **Importante**
+> **Important**
 >
 > Para aligerar la carga, se recomienda desmarcar TODAS las solicitudes de tipo y simplemente verificar las API que le conciernen (encontrará detalles en la documentación de la API para IPX800v4)
 
-> **Nota**
+> **Note**
 >
 > Puede ver en esta página el estado del demonio que monitorea el IPX800
 
@@ -30,7 +30,7 @@ Aquí encontrarás toda la configuración de tu equipo :
 -   **Objeto padre** : indica el objeto padre al que pertenece
     equipo,
 
--   **Activar** : activa su equipo,
+-   **Activer** : activa su equipo,
 
 -   **Visible** : hace que su equipo sea visible en el tablero,
 
@@ -53,17 +53,17 @@ Acción
 
 Tienes 3 tipos de acción :
 
--   **Uno** : le permite establecer una salida (o entrada virtual) a 1, o
+-   **On** : le permite establecer una salida (o entrada virtual) a 1, o
     asignar un valor a una entrada analógica (o contador)
 
--   **Apagado** : le permite establecer una salida (o entrada virtual) a 0
+-   **Off** : le permite establecer una salida (o entrada virtual) a 0
 
--   **Alternar** : permite invertir el estado de una salida (o
+-   **Bascule** : permite invertir el estado de una salida (o
     entrada virtual)
 
 Tienes 6 tipos de actuadores :
 
--   **Relé**
+-   **Relais**
 
 -   **Salida virtual**
 
@@ -71,14 +71,14 @@ Tienes 6 tipos de actuadores :
 
 -   **Entrada analógica virtual**
 
--   **Contador**
+-   **Compteur**
 
 -   **Cable piloto**
 
-> **Nota**
+> **Note**
 >
 > Cierto tipo de actuador puede ocultarse dependiendo del tipo
-> acción
+> d'action
 
 Luego, dependiendo del tipo de acción y el actuador que tenga
 varios parámetros que pueden ser :
@@ -101,7 +101,7 @@ Información
 
 Tienes 11 tipos diferentes :
 
--   Relé
+-   Relais
 
 -   Entrada digital
 
@@ -109,7 +109,7 @@ Tienes 11 tipos diferentes :
 
 -   Salida virtual
 
--   Perro guardián
+-   Watchdog
 
 -   EnOcean
 
@@ -117,7 +117,7 @@ Tienes 11 tipos diferentes :
 
 -   Entrada analógica virtual
 
--   Contador
+-   Compteur
 
 -   Persiana enrollable : opción en el formulario 1-3 para la parte 3 de
     extensión VR 1
