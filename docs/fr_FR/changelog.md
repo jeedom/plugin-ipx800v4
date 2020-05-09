@@ -1,4 +1,7 @@
+# 09/05/2020
+
 - Ajout du support de l'extension 0-10v
+- optimisation
 
 # 30/12/2019
 
