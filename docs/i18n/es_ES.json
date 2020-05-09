@@ -1,5 +1,6 @@
 {
     "changelog.md": {
+        "09\/05\/2020": "05\/09\/2020",
         "Ajout du support de l'extension 0-10v": "Se agregó soporte para la extensión 0-10v",
         "30\/12\/2019": "12\/30\/2019",
         "Correction bug thermostat": "Error de corrección del termostato",
@@ -26,6 +27,11 @@
         "Optimisation de la synchronisation avec l'ipx800": "Optimización de la sincronización con el ipx800",
         "Support des modules THL": "Soporte para módulos THL",
         "Ajout d'un moteur de template pour la génération des commandes": "Adición de un motor de plantillas para la generación de pedidos.",
+        " optimisation.": " Optimización.",
+        " optimisation?": " Optimización?",
+        "optimisation ": "Optimización ",
+        "[optimisation": "[Optimización",
+        "optimisation]": "Optimización]",
         " Optimisations.": " Optimizaciones.",
         " Optimisations?": " Optimizaciones?",
         "Optimisations ": "Optimizaciones ",
