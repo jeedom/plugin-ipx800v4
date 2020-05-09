@@ -43,6 +43,7 @@ if (!isConnect()) {
 				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::G" />{{[G] X-Dimmer}}</label>
 				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::T" />{{[T] Thermostat}}</label>
 				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::XPWM" />{{[XPWM] PWM}}</label>
+				<label class="checkbox-inline"><input type="checkbox" class="configKey" data-l1key="api::X010V" />{{[X010V] 010V}}</label>
 			</div>
 		</div>
 		<div class="form-group">

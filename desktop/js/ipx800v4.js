@@ -114,6 +114,7 @@ function addCmdToTable(_cmd) {
     tr += '<option value="G" class="actionArgument Set">{{Dimmer}}</option>';
     tr += '<option value="PWM" class="actionArgument Set">{{PWM}}</option>';
     tr += '<option value="Thermo" class="actionArgument Set">{{Thermostat}}</option>';
+    tr += '<option value="010v" class="actionArgument Set">{{010v}}</option>';
     tr += '</select>';
     tr += '</div>';
     tr += '</div>';
@@ -131,6 +132,8 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control actionParameter G input-sm" data-l1key="configuration" data-l2key="actionParameterG" placeholder="{{Numéro de la voie de 1 à 24}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter PWM input-sm" data-l1key="configuration" data-l2key="actionParameterPWM" placeholder="{{Numéro du canal de 1 à 24}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter Thermo input-sm" data-l1key="configuration" data-l2key="actionParameterThermo" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter 010v input-sm" data-l1key="configuration" data-l2key="actionParameter010vExt" placeholder="{{Extension de 1 à 4}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter 010v input-sm" data-l1key="configuration" data-l2key="actionParameter010v" placeholder="{{Numéro du canal de 1 à 4}}" style="display:none;" />';
     tr += '</div>';
     
     tr += '<div class="col-xs-6">';
@@ -142,6 +145,7 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control actionOption Thermo input-sm" data-l1key="configuration" data-l2key="actionOptionThermo" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption Thermo input-sm" data-l1key="configuration" data-l2key="actionOptionThermo_hys" placeholder="{{Valeur hysteresis}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption PWM input-sm" data-l1key="configuration" data-l2key="actionOptionPWM" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption 010v input-sm" data-l1key="configuration" data-l2key="actionOption010v" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '</div>';
     tr += '</div>';
     
@@ -167,6 +171,7 @@ function addCmdToTable(_cmd) {
     tr += '<option value="G">{{Dimmer}}</option>';
     tr += '<option value="PWM">{{PWM}}</option>';
     tr += '<option value="T">{{Thermostat}}</option>';
+    tr += '<option value="010v">{{010v}}</option>';
     tr += '</select>';
     tr += '</div>';
     
@@ -180,6 +185,8 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control infoParameter PW input-sm" data-l1key="configuration" data-l2key="infoParameterPW" placeholder="{{Watchdog de 1 à 32}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter VR input-sm" data-l1key="configuration" data-l2key="infoParameterVR" placeholder="{{Numéro de l\'extension et du volet, ex : 1-2}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter PWM input-sm" data-l1key="configuration" data-l2key="infoParameterPWM" placeholder="{{Numéro du canal (1 à 24)}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter 010v input-sm" data-l1key="configuration" data-l2key="infoParameter010vExt" placeholder="{{Extension (1 à 4)}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control infoParameter 010v input-sm" data-l1key="configuration" data-l2key="infoParameter010v" placeholder="{{Numéro du canal (1 à 4)}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter G input-sm" data-l1key="configuration" data-l2key="infoParameterG" placeholder="{{Numéro de la voie (1 à 24)}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control infoParameter T input-sm" data-l1key="configuration" data-l2key="infoParameterT" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
     

@@ -1,5 +1,4 @@
 <?php
-
 /* This file is part of Jeedom.
 *
 * Jeedom is free software: you can redistribute it and/or modify
@@ -13,33 +12,77 @@
 * GNU General Public License for more details.
 *
 * You should have received a copy of the GNU General Public License
-* along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
+* along with Jeedom. If not, see .
 */
 
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
 class ipx800v4 extends eqLogic {
-	/*     * *************************Attributs****************************** */
+	/* * *************************Constante****************************** */
+	const TYPE_DATA = array(
+		'allD' => array('infoParameterD','/[0-1]{56}/','entrées digitales',56),
+		'allR' => array('infoParameterR','/[0-1]{56}/','relais',56),
+		'allVO' => array('infoParameterVO','/[0-1]{128}/','sorties virtuelles',128),
+		'D' => array('infoParameterD',array(0,1),'de l\'entrée digitale ',56),
+		'R' => array('infoParameterR',array(0,1),'du relais ',56),
+		'VO'=> array('infoParameterVO',array(0,1),'de la sortie virtuelle ',128)
+	);
+	const DATA_UNITAIRE_REGEX = '/^([A-Z]+)(\d{1,3})$/';
+	
+	/* * *************************Attributs****************************** */
 	
 	private static $_eqLogics = null;
 	
-	/*     * ***********************Methode static*************************** */
+	/* * ***********************Methode static*************************** */
 	
 	public static function event() {
-		if (init('onvent') == 1) {
+		if (init('onvent') == 1) { //D'origine dans la classe
 			$cache = array();
 			foreach (self::searchConfiguration('"ip":"' . init('ip') . '"', 'ipx800v4') as $ipx800v4) {
 				if (!isset($cache[$ipx800v4->getConfiguration('ip')])) {
-					$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getIPXinfo(array('R', 'D', 'PW', 'XENO'));
+					$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getIPXinfo(array('R', 'D'));
 				}
 				ipx800v4::pull($ipx800v4->getId(), $cache);
 			}
 			return;
 		}
+		
+		if(init('typeData')!=''){ //Si on a un typeData défini
+			$typeData = init('typeData');
+			$getData=init('data');
+			$ipx800v4_list = self::searchConfiguration('"ip":"' . init('ip',$_SERVER['REMOTE_ADDR']) . '"', 'ipx800v4'); //on récupère l'ensemble des eqLogics de type ipx800v4 qui ont pour adresse, l'adresse de l'IPX emetteur
+			if(array_key_exists($typeData,self::TYPE_DATA)){ //si le typeData est déclaré dans la constante de classe
+				if(!preg_match(self::TYPE_DATA[$typeData][1], $getData)){
+					throw new Exception(__('Il y a un problème dans les données des ', __FILE__) . self::TYPE_DATA[$typeData][2] . ', ' . strlen($getData) . ' valeur(s) reçue(s) sur ' . self::TYPE_DATA[$typeData][3] . ' valeurs attendues ('.$getData.')');
+				}
+				//on vérifie le format de la chaine de valeur reçue
+				foreach($ipx800v4_list as &$ipx800v4){ //pour tous les eqLogics trouvés précédemment
+					foreach ($ipx800v4->getCmd('info') as $cmd) { //si la commande est de type info et est une entrée digitale, on met à jour
+						$index=$cmd->getConfiguration(self::TYPE_DATA[$typeData][0]);
+						if($index != '' && is_numeric($index)){
+							$ipx800v4->checkAndUpdateCmd($cmd, $getData[$index -1],false);
+						}
+					}
+				}
+			}elseif(preg_match(self::DATA_UNITAIRE_REGEX, $typeData,$matches) && array_key_exists($matches[1],self::TYPE_DATA)){ //si le typeData correspond à un typeData de valeur unitaire
+				if(intval($matches[2])>self::TYPE_DATA[$matches[1]][3] || !in_array($getData,self::TYPE_DATA[$matches[1]][1])){
+					throw new Exception(__('Il y a un problème dans les données ', __FILE__) . self::TYPE_DATA[$matches[1]][2] . $matches[0] . ', valeur reçue: ' . $getData);
+				}
+				//Si le numéro de l'entrée est cohérent et que la valeur renvoyée est autorisée
+				foreach($ipx800v4_list as &$ipx800v4){ //pour tous les eqLogics trouvés précédemment
+					foreach ($ipx800v4->getCmd('info') as $cmd) { //si la commande est de type info et est une entrée digitale, on met à jour
+						if($cmd->getConfiguration(self::TYPE_DATA[$matches[1]][0]) == intval($matches[2])){
+							$ipx800v4->checkAndUpdateCmd($cmd, $getData,false);
+						}
+					}
+				}
+			}
+			return;
+		}
 		$cmd = ipx800v4Cmd::byId(init('id'));
 		if (!is_object($cmd) || $cmd->getEqType() != 'ipx800v4') {
-			throw new Exception(__('Commande ID ipx800v4 inconnu, ou la commande n\'est pas de type ipx800v4 : ', __FILE__) . init('id'));
+			throw new Exception(__('Commande ID ipx800v4 inconnue, ou la commande n\'est pas de type ipx800v4 : ', __FILE__) . init('id').', Valeur: '.init('value'));
 		}
 		$cmd->event(init('value'));
 	}
@@ -187,7 +230,7 @@ class ipx800v4 extends eqLogic {
 		return $return;
 	}
 	
-	/*     * *********************Méthodes d'instance************************* */
+	/* * *********************Méthodes d'instance************************* */
 	
 	public function saveIPXConfig() {
 		$filepath = __DIR__ . '/../../data/' . $this->getConfiguration('ip') . '.gce';
@@ -248,7 +291,7 @@ class ipx800v4 extends eqLogic {
 				
 			}
 		}
-		log::add('ipx800v4', 'debug', 'IPX800 ' . $this->getConfiguration('ip') . ' info  : ' . json_encode($return));
+		log::add('ipx800v4', 'debug', 'IPX800 ' . $this->getConfiguration('ip') . ' info : ' . json_encode($return));
 		return $return;
 	}
 	
@@ -322,15 +365,15 @@ class ipx800v4 extends eqLogic {
 		return;
 	}
 	
-	/*     * **********************Getteur Setteur*************************** */
+	/* * **********************Getteur Setteur*************************** */
 }
 
 class ipx800v4Cmd extends cmd {
-	/*     * *************************Attributs****************************** */
+	/* * *************************Attributs****************************** */
 	
-	/*     * ***********************Methode static*************************** */
+	/* * ***********************Methode static*************************** */
 	
-	/*     * *********************Methode d'instance************************* */
+	/* * *********************Methode d'instance************************* */
 	
 	public function execute($_options = array()) {
 		if ($this->getLogicalId() == 'refresh') {
@@ -387,7 +430,7 @@ class ipx800v4Cmd extends cmd {
 		usleep(10000);
 	}
 	
-	/*     * **********************Getteur Setteur*************************** */
+	/* * **********************Getteur Setteur*************************** */
 }
 
 ?>
