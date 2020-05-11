@@ -1,13 +1,20 @@
+>**IMPORTANT**
+>
+>As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text.
+
+# 05/09/2020
+
 - Added support for 0-10v extension
+- Optimisation
 
 # 12/30/2019
 
-- 
+- Thermostat bug fix
 - Correction of an error in the event url to give to the ipx800
 
 # 09/18/2019
 
-- Optimizations
+- Optimisations
 
 # 08/14/2019
 
@@ -39,7 +46,7 @@
 -   Improved enOcean support
 
 -   Correction of bugs on the recovery of information from
-    
+    extensions
 
 -   Addition of VR extension
 
