@@ -24,9 +24,11 @@ class ipx800v4 extends eqLogic {
 		'allD' => array('infoParameterD','/[0-1]{56}/','entrées digitales',56),
 		'allR' => array('infoParameterR','/[0-1]{56}/','relais',56),
 		'allVO' => array('infoParameterVO','/[0-1]{128}/','sorties virtuelles',128),
+		'allVI' => array('infoParameterVI','/[0-1]{128}/','entrée virtuelles',128),
 		'D' => array('infoParameterD',array(0,1),'de l\'entrée digitale ',56),
 		'R' => array('infoParameterR',array(0,1),'du relais ',56),
-		'VO'=> array('infoParameterVO',array(0,1),'de la sortie virtuelle ',128)
+		'VO'=> array('infoParameterVO',array(0,1),'de la sortie virtuelle ',128),
+		'VI'=> array('infoParameterVI',array(0,1),'de l\'entrée virtuelle ',128)
 	);
 	const DATA_UNITAIRE_REGEX = '/^([A-Z]+)(\d{1,3})$/';
 	
