@@ -50,7 +50,7 @@
         "extensions]": "extensões]"
     },
     "index.md": {
-        "IPX800v4": "IPX800v4",
+        "Plugin IPX800v4": "Plug-in IPX800v4",
         "Ce plugin permet de gérer un IPX 800 v4": "Este plug-in permite gerenciar um IPX 800 v4",
         "Configuration du plugin": "Configuração do plugin",
         "Après téléchargement du plugin, il vous suffit juste d'activer celui-ci et de cocher les cases qui vous concerne pour les demandes aux IPX800v4 (exemple cocher X-Dimmer si vous avez un X-dimmer)": "Após o download do plug-in, basta ativá-lo e marcar as caixas que lhe interessam para solicitações de IPX800v4 (por exemplo, verifique o X-Dimmer se você tiver um X-dimmer)",
