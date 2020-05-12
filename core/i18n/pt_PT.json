@@ -129,7 +129,7 @@
     },
     "plugins\/ipx800v4\/core\/ajax\/ipx800v4.ajax.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Aucune méthode correspondante à : ": "Aucune methode correspondante à : ",
+        "Aucune méthode correspondante à : ": "Aucune methode correspondante à :",
         "Equipement introuvable": "Equipamento não encontrado",
         "Equipement pas de type ipx800v4": "Equipamento não tipo ipx800v4"
     },

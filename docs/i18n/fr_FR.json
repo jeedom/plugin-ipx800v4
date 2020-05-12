@@ -1,5 +1,6 @@
 {
     "changelog.md": {
+        "Changelog IPX 800 v4": "Changelog IPX 800 v4",
         "IMPORTANT": "IMPORTANT",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte",
         "09\/05\/2020": "09\/05\/2020",
@@ -34,7 +35,7 @@
         "Ajout d'un moteur de template pour la génération des commandes": "Ajout d'un moteur de template pour la génération des commandes"
     },
     "index.md": {
-        "IPX800v4": "IPX800v4",
+        "Plugin IPX800v4": "Plugin IPX800v4",
         "Ce plugin permet de gérer un IPX 800 v4": "Ce plugin permet de gérer un IPX 800 v4",
         "Configuration du plugin": "Configuration du plugin",
         "Après téléchargement du plugin, il vous suffit juste d'activer celui-ci et de cocher les cases qui vous concerne pour les demandes aux IPX800v4 (exemple cocher X-Dimmer si vous avez un X-dimmer)": "Après téléchargement du plugin, il vous suffit juste d'activer celui-ci et de cocher les cases qui vous concerne pour les demandes aux IPX800v4 (exemple cocher X-Dimmer si vous avez un X-dimmer)",
