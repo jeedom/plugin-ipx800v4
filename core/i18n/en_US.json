@@ -145,6 +145,7 @@
         "La configuration d\\'un template doit etre un tableau": "The configuration of a template must be an array",
         "Aucun nom de template trouvé": "No template name found",
         "Template introuvable": "Template not found",
-        "Aucune commandes trouvé dans le template": "No commands found in the template"
+        "Aucune commandes trouvé dans le template": "No commands found in the template",
+        "Echec de l\\'éxecution de la commande : ": "Failed to execute command:"
     }
 }

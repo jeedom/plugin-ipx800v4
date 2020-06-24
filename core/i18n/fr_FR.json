@@ -145,6 +145,7 @@
         "La configuration d\\'un template doit etre un tableau": "La configuration d\\'un template doit etre un tableau",
         "Aucun nom de template trouvé": "Aucun nom de template trouvé",
         "Template introuvable": "Template introuvable",
-        "Aucune commandes trouvé dans le template": "Aucune commandes trouvé dans le template"
+        "Aucune commandes trouvé dans le template": "Aucune commandes trouvé dans le template",
+        "Echec de l\\'éxecution de la commande : ": "Echec de l\\'éxecution de la commande : "
     }
 }

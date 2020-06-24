@@ -145,6 +145,7 @@
         "La configuration d\\'un template doit etre un tableau": "Die Konfiguration einer Vorlage muss ein Array sein",
         "Aucun nom de template trouvé": "Kein Vorlagenname gefunden",
         "Template introuvable": "Vorlage nicht gefunden",
-        "Aucune commandes trouvé dans le template": "Keine Befehle in der Vorlage gefunden"
+        "Aucune commandes trouvé dans le template": "Keine Befehle in der Vorlage gefunden",
+        "Echec de l\\'éxecution de la commande : ": "Befehl konnte nicht ausgeführt werden:"
     }
 }
