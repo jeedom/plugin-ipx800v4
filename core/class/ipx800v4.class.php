@@ -440,7 +440,10 @@ class ipx800v4Cmd extends cmd {
 		}
 		log::add('ipx800v4', 'info', 'Call url ' . $url);
 		$request_http = new com_http($url);
-		$request_http->exec();
+		$result = is_json($request_http->exec());
+		if(isset($result['status']) && $result['status'] == 'Error'){
+			throw new \Exception(__('Echec de l\'éxecution de la commande : ',__FILE__).json_encode($result));
+		}
 		usleep(10000);
 	}
 	
