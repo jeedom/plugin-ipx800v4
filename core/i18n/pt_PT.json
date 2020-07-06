@@ -145,6 +145,7 @@
         "La configuration d\\'un template doit etre un tableau": "A configuração de um modelo deve ser uma matriz",
         "Aucun nom de template trouvé": "Nenhum nome de modelo encontrado",
         "Template introuvable": "Modelo não encontrado",
-        "Aucune commandes trouvé dans le template": "Nenhum comando encontrado no modelo"
+        "Aucune commandes trouvé dans le template": "Nenhum comando encontrado no modelo",
+        "Echec de l\\'éxecution de la commande : ": "Falha ao executar o comando:"
     }
 }

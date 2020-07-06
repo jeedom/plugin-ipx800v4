@@ -145,6 +145,7 @@
         "La configuration d\\'un template doit etre un tableau": "La configuración de una plantilla debe ser una matriz",
         "Aucun nom de template trouvé": "No se ha encontrado el nombre de la plantilla",
         "Template introuvable": "Plantilla no encontrada",
-        "Aucune commandes trouvé dans le template": "No se encontraron comandos en la plantilla"
+        "Aucune commandes trouvé dans le template": "No se encontraron comandos en la plantilla",
+        "Echec de l\\'éxecution de la commande : ": "Error al ejecutar el comando:"
     }
 }
