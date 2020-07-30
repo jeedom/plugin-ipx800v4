@@ -147,5 +147,8 @@
         "Template introuvable": "Plantilla no encontrada",
         "Aucune commandes trouvé dans le template": "No se encontraron comandos en la plantilla",
         "Echec de l\\'éxecution de la commande : ": "Error al ejecutar el comando:"
+    },
+    "info.json": {
+        "Plugin pour piloter l'IPX 800": "Complemento para controlar el IPX 800"
     }
 }
