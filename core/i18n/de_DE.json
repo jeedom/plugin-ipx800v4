@@ -147,5 +147,8 @@
         "Template introuvable": "Vorlage nicht gefunden",
         "Aucune commandes trouvé dans le template": "Keine Befehle in der Vorlage gefunden",
         "Echec de l\\'éxecution de la commande : ": "Befehl konnte nicht ausgeführt werden:"
+    },
+    "info.json": {
+        "Plugin pour piloter l'IPX 800": "Plugin zur Steuerung des IPX 800"
     }
 }

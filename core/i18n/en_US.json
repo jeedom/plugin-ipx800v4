@@ -147,5 +147,8 @@
         "Template introuvable": "Template not found",
         "Aucune commandes trouvé dans le template": "No commands found in the template",
         "Echec de l\\'éxecution de la commande : ": "Failed to execute command:"
+    },
+    "info.json": {
+        "Plugin pour piloter l'IPX 800": "Plugin to control the IPX 800"
     }
 }
