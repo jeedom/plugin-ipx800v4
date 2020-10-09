@@ -242,6 +242,18 @@ class ipx800v4 extends eqLogic {
 	
 	/* * *********************Méthodes d'instance************************* */
 	
+	public function decrypt(){
+		$this->setConfiguration('ip',utils::decrypt($this->getConfiguration('ip')));
+		$this->setConfiguration('password',utils::decrypt($this->getConfiguration('password')));
+		$this->setConfiguration('apikey',utils::decrypt($this->getConfiguration('apikey')));
+	}
+	
+	public function encrypt(){
+		$this->setConfiguration('ip',utils::encrypt($this->getConfiguration('ip')));
+		$this->setConfiguration('password',utils::encrypt($this->getConfiguration('password')));
+		$this->setConfiguration('apikey',utils::encrypt($this->getConfiguration('apikey')));
+	}
+	
 	public function saveIPXConfig() {
 		$filepath = __DIR__ . '/../../data/' . $this->getConfiguration('ip') . '.gce';
 		$url = 'http://';
