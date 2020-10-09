@@ -243,9 +243,7 @@ class ipx800v4 extends eqLogic {
 	/* * *********************Méthodes d'instance************************* */
 	
 	public function decrypt(){
-		$this->setConfiguration('ip',utils::decrypt($this->getConfiguration('ip')));
 		$this->setConfiguration('password',utils::decrypt($this->getConfiguration('password')));
-		$this->setConfiguration('username',utils::decrypt($this->getConfiguration('username')));
 		$this->setConfiguration('apikey',utils::decrypt($this->getConfiguration('apikey')));
 	}
 	
