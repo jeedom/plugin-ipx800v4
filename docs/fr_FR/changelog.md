@@ -4,6 +4,8 @@
 >
 >Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte
 
+- Support du pulseUP et pulseDOWN pour la gestion des lames des BSO
+
 # 06/07/2020
 
 - Correction d'un bug sur la lecture de la valeur de l'extension 0-10v
