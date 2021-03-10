@@ -76,6 +76,8 @@
         "Entrée analogique virtuelle": "Entrada analógica virtual",
         "EnOcean": "EnOcean",
         "Volet roulant": "Persiana enrollable",
+        "BSO impulsion haut": "Pulso BSO alto",
+        "BSO impulsion bas": "Pulso BSO bajo",
         "Compteur": "Contador",
         "Fil pilote": "Cable piloto",
         "Dimmer": "Dimmer",

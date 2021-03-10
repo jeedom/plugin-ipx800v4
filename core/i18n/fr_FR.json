@@ -76,6 +76,8 @@
         "Entrée analogique virtuelle": "Entrée analogique virtuelle",
         "EnOcean": "EnOcean",
         "Volet roulant": "Volet roulant",
+        "BSO impulsion haut": "BSO impulsion haut",
+        "BSO impulsion bas": "BSO impulsion bas",
         "Compteur": "Compteur",
         "Fil pilote": "Fil pilote",
         "Dimmer": "Dimmer",

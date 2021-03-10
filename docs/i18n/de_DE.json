@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog IPX 800 v4": "Changelog IPX 800 v4",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt",
+        "Support du pulseUP et pulseDOWN pour la gestion des lames des BSO": "PulseUP- und pulsDOWN-Unterstützung für das BSO-Blade-Management",
         "06\/07\/2020": "07\/06\/2020",
         "Correction d'un bug sur la lecture de la valeur de l'extension 0-10v": "Korrektur eines Fehlers beim Lesen des Werts der 0-10v-Erweiterung",
         "09\/05\/2020": "05\/09\/2020",
