@@ -15,7 +15,7 @@
 		],
 		"commands" : [
 			{
-				"name": "Etat #EXTZONE#",
+				"name": "Etat #ZONE#",
 				"type": "info",
 				"subtype": "string",
 				"isVisible": 1,
@@ -26,7 +26,7 @@
 				}
 			},
 			{
-				"name": "Mode confort",
+				"name": "#ZONE# Mode confort",
 				"type": "action",
 				"subtype": "other",
 				"isVisible": 1,
@@ -38,7 +38,7 @@
 				}
 			},
 			{
-				"name": "Mode eco",
+				"name": "#ZONE# Mode eco",
 				"type": "action",
 				"subtype": "other",
 				"isVisible": 1,
@@ -50,7 +50,7 @@
 				}
 			},
 			{
-				"name": "Mode Hors Gel",
+				"name": "#ZONE# Mode Hors Gel",
 				"type": "action",
 				"subtype": "other",
 				"isVisible": 1,
@@ -62,7 +62,7 @@
 				}
 			},
 			{
-				"name": "Mode stop",
+				"name": "#ZONE# Mode stop",
 				"type": "action",
 				"subtype": "other",
 				"isVisible": 1,
@@ -74,7 +74,7 @@
 				}
 			},
 			{
-				"name": "Mode confort -1",
+				"name": "#ZONE# Mode confort -1",
 				"type": "action",
 				"subtype": "other",
 				"isVisible": 1,
@@ -86,7 +86,7 @@
 				}
 			},
 			{
-				"name": "Mode confort -2",
+				"name": "#ZONE# Mode confort -2",
 				"type": "action",
 				"subtype": "other",
 				"isVisible": 1,
