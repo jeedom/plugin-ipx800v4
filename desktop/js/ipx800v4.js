@@ -109,6 +109,8 @@ function addCmdToTable(_cmd) {
     tr += '<option value="VA" class="actionArgument Set">{{Entrée analogique virtuelle}}</option>';
     tr += '<option value="EnoPC" class="actionArgument Set Clear Toggle">{{EnOcean}}</option>';
     tr += '<option value="VR" class="actionArgument Set">{{Volet roulant}}</option>';
+    tr += '<option value="PulseUP" class="actionArgument Set">{{BSO impulsion haut}}</option>';
+    tr += '<option value="PulseDOWN" class="actionArgument Set">{{BSO impulsion bas}}</option>';
     tr += '<option value="C" class="actionArgument Set">{{Compteur}}</option>';
     tr += '<option value="FP" class="actionArgument Set">{{Fil pilote}}</option>';
     tr += '<option value="G" class="actionArgument Set">{{Dimmer}}</option>';
@@ -127,6 +129,8 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control actionParameter VA input-sm" data-l1key="configuration" data-l2key="actionParameterVA" placeholder="{{Numéro de l\'entrée de 1 à 32}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter C input-sm" data-l1key="configuration" data-l2key="actionParameterC" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter VR input-sm" data-l1key="configuration" data-l2key="actionParameterVR" placeholder="{{Numéro du volet, ex : 02}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter PulseUP input-sm" data-l1key="configuration" data-l2key="actionParameterPulseUP" placeholder="{{Numéro du volet, ex : 02}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter PulseDOWN input-sm" data-l1key="configuration" data-l2key="actionParameterPulseDOWN" placeholder="{{Numéro du volet, ex : 02}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter FP input-sm" data-l1key="configuration" data-l2key="actionParameterFP" placeholder="{{Numéro de la zone (00 à 16)}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter EnoPC input-sm" data-l1key="configuration" data-l2key="actionParameterEnoPC" placeholder="{{Numéro de l\'actionneur de 1 à 24}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter G input-sm" data-l1key="configuration" data-l2key="actionParameterG" placeholder="{{Numéro de la voie de 1 à 24}}" style="display:none;" />';
@@ -140,6 +144,8 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control actionOption VA input-sm" data-l1key="configuration" data-l2key="actionOptionVA" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption C input-sm" data-l1key="configuration" data-l2key="actionOptionC" placeholder="{{Opération}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption VR input-sm" data-l1key="configuration" data-l2key="actionOptionVR" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption PulseUP input-sm" data-l1key="configuration" data-l2key="actionOptionPulseUP" placeholder="{{Valeur}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionOption PulseDOWN input-sm" data-l1key="configuration" data-l2key="actionOptionPulseDOWN" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption FP input-sm" data-l1key="configuration" data-l2key="actionOptionFP" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption G input-sm" data-l1key="configuration" data-l2key="actionOptionG" placeholder="{{Valeur}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionOption Thermo input-sm" data-l1key="configuration" data-l2key="actionOptionThermo" placeholder="{{Valeur}}" style="display:none;" />';

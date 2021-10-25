@@ -76,12 +76,14 @@
         "Entrée analogique virtuelle": "Entrada analógica virtual",
         "EnOcean": "EnOcean",
         "Volet roulant": "Persiana de enrolar",
+        "BSO impulsion haut": "BSO pulso alto",
+        "BSO impulsion bas": "BSO pulso baixo",
         "Compteur": "Contador",
         "Fil pilote": "Fio piloto",
         "Dimmer": "Dimmer",
         "PWM": "PWM",
         "Thermostat": "Termostato",
-        "010v": "010v",
+        "010v": "010V",
         "Numéro du relai de 1 à 56": "Número do relé de 1 a 56",
         "Numéro de la sortie de 1 à 128": "Número de saída de 1 a 128",
         "Numéro de l\\'entrée de 1 à 128": "Número da entrada de 1 a 128",
@@ -147,5 +149,8 @@
         "Template introuvable": "Modelo não encontrado",
         "Aucune commandes trouvé dans le template": "Nenhum comando encontrado no modelo",
         "Echec de l\\'éxecution de la commande : ": "Falha ao executar o comando:"
+    },
+    "info.json": {
+        "Plugin pour piloter l'IPX 800": "Plugin para controlar o IPX 800"
     }
 }

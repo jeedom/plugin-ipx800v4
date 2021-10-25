@@ -242,6 +242,16 @@ class ipx800v4 extends eqLogic {
 	
 	/* * *********************Méthodes d'instance************************* */
 	
+	public function decrypt(){
+		$this->setConfiguration('password',utils::decrypt($this->getConfiguration('password')));
+		$this->setConfiguration('apikey',utils::decrypt($this->getConfiguration('apikey')));
+	}
+	
+	public function encrypt(){
+		$this->setConfiguration('password',utils::encrypt($this->getConfiguration('password')));
+		$this->setConfiguration('apikey',utils::encrypt($this->getConfiguration('apikey')));
+	}
+	
 	public function saveIPXConfig() {
 		$filepath = __DIR__ . '/../../data/' . $this->getConfiguration('ip') . '.gce';
 		$url = 'http://';
@@ -393,7 +403,7 @@ class ipx800v4Cmd extends cmd {
 		$eqLogic = $this->getEqLogic();
 		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
 		$url .= '&' . $this->getConfiguration('actionCmd') . $this->getConfiguration('actionArgument');
-		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'FP', 'G', 'Thermo','PWM','010v'))) {
+		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR','PulseUP','PulseDOWN', 'FP', 'G', 'Thermo','PWM','010v'))) {
 			if($this->getConfiguration('actionArgument') == 'PWM'){
 				$url .= '='.$this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 				$url .= '&PWMValue';
