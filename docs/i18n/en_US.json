@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog IPX 800 v4": "Changelog IPX 800 v4",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text",
+        "07\/02\/2022": "02\/07\/2022",
+        "Mise à jour pour Jeedom 4.2": "Update for Jeedom 4.2",
         "25\/10\/2021": "25\/10\/2021",
         "Ajout de template": "Adding a template",
         "Support du pulseUP et pulseDOWN pour la gestion des lames des BSO": "PulseUP and pulseDOWN support for BSO blade management",
