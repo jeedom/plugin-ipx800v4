@@ -51,6 +51,7 @@ class ipx800v4 extends eqLogic {
 		}
 		
 		if(init('typeData')!=''){ //Si on a un typeData défini
+			log::add('ipx800v4','debug','Receveid data :'.print_r($_GET,true));
 			$typeData = init('typeData');
 			$getData=init('data');
 			$ipx800v4_list = self::searchConfiguration('"ip":"' . init('ip',$_SERVER['REMOTE_ADDR']) . '"', 'ipx800v4'); //on récupère l'ensemble des eqLogics de type ipx800v4 qui ont pour adresse, l'adresse de l'IPX emetteur
