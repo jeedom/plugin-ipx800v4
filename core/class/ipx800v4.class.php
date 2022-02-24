@@ -56,6 +56,7 @@ class ipx800v4 extends eqLogic {
 			$getData=init('data');
 			$ipx800v4_list = self::searchConfiguration('"ip":"' . init('ip',$_SERVER['REMOTE_ADDR']) . '"', 'ipx800v4'); //on récupère l'ensemble des eqLogics de type ipx800v4 qui ont pour adresse, l'adresse de l'IPX emetteur
 			if(array_key_exists($typeData,self::TYPE_DATA)){ //si le typeData est déclaré dans la constante de classe
+				log::add('ipx800v4','debug','Type data found :'.$typeData);
 				if(!preg_match(self::TYPE_DATA[$typeData][1], $getData)){
 					throw new Exception(__('Il y a un problème dans les données des ', __FILE__) . self::TYPE_DATA[$typeData][2] . ', ' . strlen($getData) . ' valeur(s) reçue(s) sur ' . self::TYPE_DATA[$typeData][3] . ' valeurs attendues ('.$getData.')');
 				}
@@ -72,6 +73,7 @@ class ipx800v4 extends eqLogic {
 				if(intval($matches[2])>self::TYPE_DATA[$matches[1]][3] || !in_array($getData,self::TYPE_DATA[$matches[1]][1])){
 					throw new Exception(__('Il y a un problème dans les données ', __FILE__) . self::TYPE_DATA[$matches[1]][2] . $matches[0] . ', valeur reçue: ' . $getData);
 				}
+				log::add('ipx800v4','debug','Type data not found, try unitaire regexp :'.print_r($matches,true));
 				//Si le numéro de l'entrée est cohérent et que la valeur renvoyée est autorisée
 				foreach($ipx800v4_list as &$ipx800v4){ //pour tous les eqLogics trouvés précédemment
 					foreach ($ipx800v4->getCmd('info') as $cmd) { //si la commande est de type info et est une entrée digitale, on met à jour
