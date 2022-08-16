@@ -62,6 +62,7 @@
         "Nom": "Name",
         "Type": "Type",
         "Paramètres": "Settings",
+        "Etat": "State",
         "Action": "Action"
     },
     "plugins\/ipx800v4\/desktop\/js\/ipx800v4.js": {
