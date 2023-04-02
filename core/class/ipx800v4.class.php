@@ -398,10 +398,10 @@ class ipx800v4Cmd extends cmd {
 		//$eqLogic = $this->getEqLogic();
 		$cmdValue = $this->getCmdValue();
 		$value =  $cmdValue->execCmd();
-		if ($this->getConfiguration('actionArgument') == 'VR') {
+		if ($this->getConfiguration('actionArgument') == 'VR' && $this->getSubType() == 'other') {
 			return ($this->getConfiguration('actionOptionVR') == $value);
 		}
-		return parent::alreadyInState();
+		return parent::alreadyInState($_options);
 	}
 
 	public function execute($_options = array()) {
