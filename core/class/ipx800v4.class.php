@@ -21,23 +21,23 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class ipx800v4 extends eqLogic {
 	/* * *************************Constante****************************** */
 	const TYPE_DATA = array(
-		'allD' => array('infoParameterD','/[0-1]{56}/','entrées digitales',56),
-		'allR' => array('infoParameterR','/[0-1]{56}/','relais',56),
-		'allVO' => array('infoParameterVO','/[0-1]{128}/','sorties virtuelles',128),
-		'allVI' => array('infoParameterVI','/[0-1]{128}/','entrée virtuelles',128),
-		'D' => array('infoParameterD',array(0,1),'de l\'entrée digitale ',56),
-		'R' => array('infoParameterR',array(0,1),'du relais ',56),
-		'VO'=> array('infoParameterVO',array(0,1),'de la sortie virtuelle ',128),
-		'VI'=> array('infoParameterVI',array(0,1),'de l\'entrée virtuelle ',128)
+		'allD' => array('infoParameterD', '/[0-1]{56}/', 'entrées digitales', 56),
+		'allR' => array('infoParameterR', '/[0-1]{56}/', 'relais', 56),
+		'allVO' => array('infoParameterVO', '/[0-1]{128}/', 'sorties virtuelles', 128),
+		'allVI' => array('infoParameterVI', '/[0-1]{128}/', 'entrée virtuelles', 128),
+		'D' => array('infoParameterD', array(0, 1), 'de l\'entrée digitale ', 56),
+		'R' => array('infoParameterR', array(0, 1), 'du relais ', 56),
+		'VO' => array('infoParameterVO', array(0, 1), 'de la sortie virtuelle ', 128),
+		'VI' => array('infoParameterVI', array(0, 1), 'de l\'entrée virtuelle ', 128)
 	);
 	const DATA_UNITAIRE_REGEX = '/^([A-Z]+)(\d{1,3})$/';
-	
+
 	/* * *************************Attributs****************************** */
-	
+
 	private static $_eqLogics = null;
-	
+
 	/* * ***********************Methode static*************************** */
-	
+
 	public static function event() {
 		if (init('onvent') == 1) { //D'origine dans la classe
 			$cache = array();
@@ -49,36 +49,36 @@ class ipx800v4 extends eqLogic {
 			}
 			return;
 		}
-		
-		if(init('typeData')!=''){ //Si on a un typeData défini
-			log::add('ipx800v4','debug','Receveid data :'.print_r($_GET,true));
+
+		if (init('typeData') != '') { //Si on a un typeData défini
+			log::add('ipx800v4', 'debug', 'Receveid data :' . print_r($_GET, true));
 			$typeData = init('typeData');
-			$getData=init('data');
-			$ipx800v4_list = self::searchConfiguration('"ip":"' . init('ip',$_SERVER['REMOTE_ADDR']) . '"', 'ipx800v4'); //on récupère l'ensemble des eqLogics de type ipx800v4 qui ont pour adresse, l'adresse de l'IPX emetteur
-			if(array_key_exists($typeData,self::TYPE_DATA)){ //si le typeData est déclaré dans la constante de classe
-				log::add('ipx800v4','debug','Type data found :'.$typeData);
-				if(!preg_match(self::TYPE_DATA[$typeData][1], $getData)){
-					throw new Exception(__('Il y a un problème dans les données des ', __FILE__) . self::TYPE_DATA[$typeData][2] . ', ' . strlen($getData) . ' valeur(s) reçue(s) sur ' . self::TYPE_DATA[$typeData][3] . ' valeurs attendues ('.$getData.')');
+			$getData = init('data');
+			$ipx800v4_list = self::searchConfiguration('"ip":"' . init('ip', $_SERVER['REMOTE_ADDR']) . '"', 'ipx800v4'); //on récupère l'ensemble des eqLogics de type ipx800v4 qui ont pour adresse, l'adresse de l'IPX emetteur
+			if (array_key_exists($typeData, self::TYPE_DATA)) { //si le typeData est déclaré dans la constante de classe
+				log::add('ipx800v4', 'debug', 'Type data found :' . $typeData);
+				if (!preg_match(self::TYPE_DATA[$typeData][1], $getData)) {
+					throw new Exception(__('Il y a un problème dans les données des ', __FILE__) . self::TYPE_DATA[$typeData][2] . ', ' . strlen($getData) . ' valeur(s) reçue(s) sur ' . self::TYPE_DATA[$typeData][3] . ' valeurs attendues (' . $getData . ')');
 				}
 				//on vérifie le format de la chaine de valeur reçue
-				foreach($ipx800v4_list as &$ipx800v4){ //pour tous les eqLogics trouvés précédemment
+				foreach ($ipx800v4_list as &$ipx800v4) { //pour tous les eqLogics trouvés précédemment
 					foreach ($ipx800v4->getCmd('info') as $cmd) { //si la commande est de type info et est une entrée digitale, on met à jour
-						$index=$cmd->getConfiguration(self::TYPE_DATA[$typeData][0]);
-						if($index != '' && is_numeric($index)){
-							$ipx800v4->checkAndUpdateCmd($cmd, $getData[$index -1],false);
+						$index = $cmd->getConfiguration(self::TYPE_DATA[$typeData][0]);
+						if ($index != '' && is_numeric($index)) {
+							$ipx800v4->checkAndUpdateCmd($cmd, $getData[$index - 1], false);
 						}
 					}
 				}
-			}elseif(preg_match(self::DATA_UNITAIRE_REGEX, $typeData,$matches) && array_key_exists($matches[1],self::TYPE_DATA)){ //si le typeData correspond à un typeData de valeur unitaire
-				if(intval($matches[2])>self::TYPE_DATA[$matches[1]][3] || !in_array($getData,self::TYPE_DATA[$matches[1]][1])){
+			} elseif (preg_match(self::DATA_UNITAIRE_REGEX, $typeData, $matches) && array_key_exists($matches[1], self::TYPE_DATA)) { //si le typeData correspond à un typeData de valeur unitaire
+				if (intval($matches[2]) > self::TYPE_DATA[$matches[1]][3] || !in_array($getData, self::TYPE_DATA[$matches[1]][1])) {
 					throw new Exception(__('Il y a un problème dans les données ', __FILE__) . self::TYPE_DATA[$matches[1]][2] . $matches[0] . ', valeur reçue: ' . $getData);
 				}
-				log::add('ipx800v4','debug','Type data not found, try unitaire regexp :'.print_r($matches,true));
+				log::add('ipx800v4', 'debug', 'Type data not found, try unitaire regexp :' . print_r($matches, true));
 				//Si le numéro de l'entrée est cohérent et que la valeur renvoyée est autorisée
-				foreach($ipx800v4_list as &$ipx800v4){ //pour tous les eqLogics trouvés précédemment
+				foreach ($ipx800v4_list as &$ipx800v4) { //pour tous les eqLogics trouvés précédemment
 					foreach ($ipx800v4->getCmd('info') as $cmd) { //si la commande est de type info et est une entrée digitale, on met à jour
-						if($cmd->getConfiguration(self::TYPE_DATA[$matches[1]][0]) == intval($matches[2])){
-							$ipx800v4->checkAndUpdateCmd($cmd, $getData,false);
+						if ($cmd->getConfiguration(self::TYPE_DATA[$matches[1]][0]) == intval($matches[2])) {
+							$ipx800v4->checkAndUpdateCmd($cmd, $getData, false);
 						}
 					}
 				}
@@ -87,11 +87,11 @@ class ipx800v4 extends eqLogic {
 		}
 		$cmd = ipx800v4Cmd::byId(init('id'));
 		if (!is_object($cmd) || $cmd->getEqType() != 'ipx800v4') {
-			throw new Exception(__('Commande ID ipx800v4 inconnue, ou la commande n\'est pas de type ipx800v4 : ', __FILE__) . init('id').', Valeur: '.init('value'));
+			throw new Exception(__('Commande ID ipx800v4 inconnue, ou la commande n\'est pas de type ipx800v4 : ', __FILE__) . init('id') . ', Valeur: ' . init('value'));
 		}
 		$cmd->event(init('value'));
 	}
-	
+
 	public static function deamon_info() {
 		$return = array();
 		$return['log'] = '';
@@ -103,7 +103,7 @@ class ipx800v4 extends eqLogic {
 		$return['launchable'] = 'ok';
 		return $return;
 	}
-	
+
 	public static function deamon_start() {
 		self::deamon_stop();
 		$deamon_info = self::deamon_info();
@@ -118,7 +118,7 @@ class ipx800v4 extends eqLogic {
 		$cron->save();
 		$cron->run();
 	}
-	
+
 	public static function deamon_stop() {
 		$cron = cron::byClassAndFunction('ipx800v4', 'pull');
 		if (!is_object($cron)) {
@@ -126,7 +126,7 @@ class ipx800v4 extends eqLogic {
 		}
 		$cron->halt();
 	}
-	
+
 	public static function deamon_changeAutoMode($_mode) {
 		$cron = cron::byClassAndFunction('ipx800v4', 'pull');
 		if (!is_object($cron)) {
@@ -135,11 +135,11 @@ class ipx800v4 extends eqLogic {
 		$cron->setEnable($_mode);
 		$cron->save();
 	}
-	
+
 	public static function cronDaily() {
 		if (config::byKey('autosave_ipx_config', 'ipx800v4') == 1) {
 			$alreadySave = array();
-			foreach (self::byType('ipx800v4',true) as $ipx800v4) {
+			foreach (self::byType('ipx800v4', true) as $ipx800v4) {
 				if ($ipx800v4->getConfiguration('ip') == '') {
 					continue;
 				}
@@ -156,20 +156,19 @@ class ipx800v4 extends eqLogic {
 			}
 		}
 		try {
-			if(date('i') == 0 && date('s') < 10){
+			if (date('i') == 0 && date('s') < 10) {
 				sleep(10);
 			}
 			$plugin = plugin::byId(__CLASS__);
 			$plugin->deamon_start(true);
 		} catch (\Exception $e) {
-			
 		}
 	}
-	
+
 	public static function pull($_eqLogic_id = null, $_cache = null) {
 		$cache = array();
 		if (self::$_eqLogics == null) {
-			self::$_eqLogics = self::byType('ipx800v4',true);
+			self::$_eqLogics = self::byType('ipx800v4', true);
 		}
 		if ($_cache != null) {
 			$cache = $_cache;
@@ -185,13 +184,13 @@ class ipx800v4 extends eqLogic {
 				$cache[$ipx800v4->getConfiguration('ip')] = $ipx800v4->getIPXinfo();
 			}
 			foreach ($ipx800v4->getCmd('info') as $cmd) {
-				if($cmd->getConfiguration('infoType') == '010v'){
-					$key = 'X-010V N°'.$cmd->getConfiguration('infoParameter010vExt');
-					$channel = 'ch'.$cmd->getConfiguration('infoParameter010v');
+				if ($cmd->getConfiguration('infoType') == '010v') {
+					$key = 'X-010V N°' . $cmd->getConfiguration('infoParameter010vExt');
+					$channel = 'ch' . $cmd->getConfiguration('infoParameter010v');
 					if (isset($cache[$ipx800v4->getConfiguration('ip')][$key]) && isset($cache[$ipx800v4->getConfiguration('ip')][$key][$channel])) {
-						$ipx800v4->checkAndUpdateCmd($cmd, $cache[$ipx800v4->getConfiguration('ip')][$key][$channel],false);
+						$ipx800v4->checkAndUpdateCmd($cmd, $cache[$ipx800v4->getConfiguration('ip')][$key][$channel], false);
 					}
-				}else{
+				} else {
 					$key = $cmd->getConfiguration('infoType') . $cmd->getConfiguration('infoParameter' . $cmd->getConfiguration('infoType'));
 					if (isset($cache[$ipx800v4->getConfiguration('ip')][$key])) {
 						$value = $cache[$ipx800v4->getConfiguration('ip')][$key];
@@ -202,13 +201,13 @@ class ipx800v4 extends eqLogic {
 								$value = $value['Valeur'];
 							}
 						}
-						$ipx800v4->checkAndUpdateCmd($cmd, $value,false);
+						$ipx800v4->checkAndUpdateCmd($cmd, $value, false);
 					}
 				}
 			}
 		}
 	}
-	
+
 	public static function listCmdTemplate($_template = '') {
 		$path = dirname(__FILE__) . '/../config/template';
 		if (isset($_template) && $_template != '') {
@@ -216,7 +215,7 @@ class ipx800v4 extends eqLogic {
 			if (count($files) == 1) {
 				try {
 					$content = file_get_contents($path . '/' . $files[0]);
-					
+
 					$deviceConfiguration = is_json($content, array(), true);
 					return $deviceConfiguration[$_template];
 				} catch (Exception $e) {
@@ -231,7 +230,6 @@ class ipx800v4 extends eqLogic {
 				$content = file_get_contents($path . '/' . $file);
 				$return = array_merge($return, is_json($content, array()));
 			} catch (Exception $e) {
-				
 			}
 		}
 		if (isset($_template) && $_template != '') {
@@ -242,19 +240,19 @@ class ipx800v4 extends eqLogic {
 		}
 		return $return;
 	}
-	
+
 	/* * *********************Méthodes d'instance************************* */
-	
-	public function decrypt(){
-		$this->setConfiguration('password',utils::decrypt($this->getConfiguration('password')));
-		$this->setConfiguration('apikey',utils::decrypt($this->getConfiguration('apikey')));
+
+	public function decrypt() {
+		$this->setConfiguration('password', utils::decrypt($this->getConfiguration('password')));
+		$this->setConfiguration('apikey', utils::decrypt($this->getConfiguration('apikey')));
 	}
-	
-	public function encrypt(){
-		$this->setConfiguration('password',utils::encrypt($this->getConfiguration('password')));
-		$this->setConfiguration('apikey',utils::encrypt($this->getConfiguration('apikey')));
+
+	public function encrypt() {
+		$this->setConfiguration('password', utils::encrypt($this->getConfiguration('password')));
+		$this->setConfiguration('apikey', utils::encrypt($this->getConfiguration('apikey')));
 	}
-	
+
 	public function saveIPXConfig() {
 		$filepath = __DIR__ . '/../../data/' . $this->getConfiguration('ip') . '.gce';
 		$url = 'http://';
@@ -279,7 +277,7 @@ class ipx800v4 extends eqLogic {
 			throw new Exception(__('Erreur taille du fichier inférieure à 100 octets pour ', __FILE__) . $this->getConfiguration('ip') . ' : ' . $content);
 		}
 	}
-	
+
 	public function postSave() {
 		$refresh = $this->getCmd(null, 'refresh');
 		if (!is_object($refresh)) {
@@ -292,15 +290,15 @@ class ipx800v4 extends eqLogic {
 		$refresh->setSubType('other');
 		$refresh->save();
 	}
-	
+
 	public function getIPXinfo($_onlyApi = null) {
 		$return = array();
 		$api = array();
-		
+
 		if ($_onlyApi != null && is_array($_onlyApi)) {
 			$apiCallType = $_onlyApi;
 		} else {
-			$apiCallType = array('all', 'A', 'VA', 'C', 'R', 'D', 'VI', 'VO', 'VA', 'PW', 'XTHL', 'VR', 'XENO', 'FP', 'G', 'T','XPWM','X010V');
+			$apiCallType = array('all', 'A', 'VA', 'C', 'R', 'D', 'VI', 'VO', 'VA', 'PW', 'XTHL', 'VR', 'XENO', 'FP', 'G', 'T', 'XPWM', 'X010V');
 		}
 		foreach ($apiCallType as $get) {
 			if (config::byKey('api::' . $get, 'ipx800v4', 1) != 1) {
@@ -311,13 +309,12 @@ class ipx800v4 extends eqLogic {
 			try {
 				$return = array_merge($return, is_json($request_http->exec(), array()));
 			} catch (Exception $e) {
-				
 			}
 		}
 		log::add('ipx800v4', 'debug', 'IPX800 ' . $this->getConfiguration('ip') . ' info : ' . json_encode($return));
 		return $return;
 	}
-	
+
 	public function applyCmdTemplate($_config) {
 		if (!is_array($_config)) {
 			throw new Exception(__('La configuration d\'un template doit etre un tableau', __FILE__));
@@ -348,9 +345,8 @@ class ipx800v4 extends eqLogic {
 			try {
 				$cmd->save();
 			} catch (Exception $e) {
-				
 			}
-			
+
 			$cmd_order++;
 			if (isset($command['value'])) {
 				$link_cmds[$cmd->getId()] = $command['value'];
@@ -387,17 +383,27 @@ class ipx800v4 extends eqLogic {
 		}
 		return;
 	}
-	
+
 	/* * **********************Getteur Setteur*************************** */
 }
 
 class ipx800v4Cmd extends cmd {
 	/* * *************************Attributs****************************** */
-	
+
 	/* * ***********************Methode static*************************** */
-	
+
 	/* * *********************Methode d'instance************************* */
-	
+
+	public function alreadyInState($_options) {
+		//$eqLogic = $this->getEqLogic();
+		$cmdValue = $this->getCmdValue();
+		$value =  $cmdValue->execCmd();
+		if ($this->getConfiguration('actionArgument') == 'VR') {
+			return ($this->getConfiguration('actionOptionVR') == $value);
+		}
+		return parent::alreadyInState();
+	}
+
 	public function execute($_options = array()) {
 		if ($this->getLogicalId() == 'refresh') {
 			ipx800v4::pull($this->getEqLogic_Id());
@@ -406,19 +412,19 @@ class ipx800v4Cmd extends cmd {
 		$eqLogic = $this->getEqLogic();
 		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
 		$url .= '&' . $this->getConfiguration('actionCmd') . $this->getConfiguration('actionArgument');
-		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR','PulseUP','PulseDOWN', 'FP', 'G', 'Thermo','PWM','010v'))) {
-			if($this->getConfiguration('actionArgument') == 'PWM'){
-				$url .= '='.$this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
+		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'PulseUP', 'PulseDOWN', 'FP', 'G', 'Thermo', 'PWM', '010v'))) {
+			if ($this->getConfiguration('actionArgument') == 'PWM') {
+				$url .= '=' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 				$url .= '&PWMValue';
-			}elseif($this->getConfiguration('actionArgument') == '010v'){
-				$url .= '='.$this->getConfiguration('actionParameter010vExt');
-				$url .= '&010vCha='.$this->getConfiguration('actionParameter010v');
+			} elseif ($this->getConfiguration('actionArgument') == '010v') {
+				$url .= '=' . $this->getConfiguration('actionParameter010vExt');
+				$url .= '&010vCha=' . $this->getConfiguration('actionParameter010v');
 				$url .= '&010vValue';
-			}elseif($this->getConfiguration('actionArgument') == 'Thermo'){
-				$url .= '='.($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument')) - 1);
-				$url .= '&Hys='.$this->getConfiguration('actionOptionThermo_hys');
+			} elseif ($this->getConfiguration('actionArgument') == 'Thermo') {
+				$url .= '=' . ($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument')) - 1);
+				$url .= '&Hys=' . $this->getConfiguration('actionOptionThermo_hys');
 				$url .= '&Cons';
-			}else{
+			} else {
 				if (strlen($this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'))) == 1) {
 					$url .= '0' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 				} else {
@@ -428,24 +434,24 @@ class ipx800v4Cmd extends cmd {
 			$value = $this->getConfiguration('actionOption' . $this->getConfiguration('actionArgument'));
 			switch ($this->getSubType()) {
 				case 'slider':
-				if (trim($value) == '') {
-					$value = '#slider#';
-				}
-				$value = str_replace('#slider#', urlencode($_options['slider']), $value);
-				break;
+					if (trim($value) == '') {
+						$value = '#slider#';
+					}
+					$value = str_replace('#slider#', urlencode($_options['slider']), $value);
+					break;
 				case 'color':
-				if (trim($value) == '') {
-					$value = '#color#';
-				}
-				$value = str_replace('#color#', urlencode($_options['color']), $value);
-				break;
+					if (trim($value) == '') {
+						$value = '#color#';
+					}
+					$value = str_replace('#color#', urlencode($_options['color']), $value);
+					break;
 				case 'message':
-				if (trim($value) == '') {
-					$value = '#title# #message#';
-				}
-				$value = str_replace('#title#', urlencode($_options['title']), $value);
-				$value = str_replace('#message#', urlencode($_options['message']), $value);
-				break;
+					if (trim($value) == '') {
+						$value = '#title# #message#';
+					}
+					$value = str_replace('#title#', urlencode($_options['title']), $value);
+					$value = str_replace('#message#', urlencode($_options['message']), $value);
+					break;
 			}
 			$url .= '=' . $value;
 		} else {
@@ -454,13 +460,16 @@ class ipx800v4Cmd extends cmd {
 		log::add('ipx800v4', 'info', 'Call url ' . $url);
 		$request_http = new com_http($url);
 		$result = is_json($request_http->exec());
-		if(isset($result['status']) && $result['status'] == 'Error'){
-			throw new \Exception(__('Echec de l\'éxecution de la commande : ',__FILE__).json_encode($result));
+		if (isset($result['status']) && $result['status'] == 'Error') {
+			throw new \Exception(__('Echec de l\'éxecution de la commande : ', __FILE__) . json_encode($result));
 		}
-		usleep(10000);
+		if ($this->getConfiguration('actionArgument') == 'VR') {
+			sleep(1);
+			ipx800v4::pull($eqLogic->getId());
+		} else {
+			usleep(10000);
+		}
 	}
-	
+
 	/* * **********************Getteur Setteur*************************** */
 }
-
-?>
