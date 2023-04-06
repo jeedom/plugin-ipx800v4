@@ -463,12 +463,7 @@ class ipx800v4Cmd extends cmd {
 		if (isset($result['status']) && $result['status'] == 'Error') {
 			throw new \Exception(__('Echec de l\'éxecution de la commande : ', __FILE__) . json_encode($result));
 		}
-		if ($this->getConfiguration('actionArgument') == 'VR') {
-			sleep(1);
-			ipx800v4::pull($eqLogic->getId());
-		} else {
-			usleep(10000);
-		}
+		usleep(10000);
 	}
 
 	/* * **********************Getteur Setteur*************************** */
