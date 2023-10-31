@@ -404,7 +404,7 @@ class ipx800v4Cmd extends cmd {
 		$cmdValue = $this->getCmdValue();
 		$value =  $cmdValue->execCmd();
 		if ($this->getConfiguration('actionArgument') == 'VR' && $this->getSubType() == 'other') {
-			return ($this->getConfiguration('actionOptionVR') == $value);
+			return ((100 - $this->getConfiguration('actionOptionVR')) == $value);
 		}
 		return parent::alreadyInState($_options);
 	}
