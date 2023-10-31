@@ -203,6 +203,9 @@ class ipx800v4 extends eqLogic {
 								$value = $value['Valeur'];
 							}
 						}
+						if($cmd->getConfiguration('infoType') = 'VR'){
+			                        	$value = 100 - $value;
+			                        }
 						$ipx800v4->checkAndUpdateCmd($cmd, $value, false);
 					}
 				}
@@ -440,6 +443,9 @@ class ipx800v4Cmd extends cmd {
 						$value = '#slider#';
 					}
 					$value = str_replace('#slider#', urlencode($_options['slider']), $value);
+					if($this->getConfiguration('actionArgument') == 'VR'){
+			                 	$value = 100 - $value;
+			                }
 					break;
 				case 'color':
 					if (trim($value) == '') {
