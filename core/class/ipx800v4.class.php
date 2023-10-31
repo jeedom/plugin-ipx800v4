@@ -203,7 +203,7 @@ class ipx800v4 extends eqLogic {
 								$value = $value['Valeur'];
 							}
 						}
-						if($cmd->getConfiguration('infoType') = 'VR'){
+						if($cmd->getConfiguration('infoType') == 'VR'){
 			                        	$value = 100 - $value;
 			                        }
 						$ipx800v4->checkAndUpdateCmd($cmd, $value, false);
