@@ -13,22 +13,22 @@ $eqLogics = eqLogic::byType($plugin->getId());
 		<div class="eqLogicThumbnailContainer">
 			<div class="cursor eqLogicAction logoPrimary" data-action="add">
 				<i class="fas fa-plus-circle"></i>
-				<br/>
+				<br />
 				<span>{{Ajouter}}</span>
 			</div>
 			<div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf">
 				<i class="fas fa-wrench"></i>
-				<br/>
+				<br />
 				<span>{{Configuration}}</span>
 			</div>
 		</div>
 		<legend><i class="fas fa-table"></i> {{Mes ipx800}}</legend>
-		<input class="form-control" placeholder="{{Rechercher}}" id="in_searchEqlogic"/>
+		<input class="form-control" placeholder="{{Rechercher}}" id="in_searchEqlogic" />
 		<div class="eqLogicThumbnailContainer">
 			<?php
 			foreach ($eqLogics as $eqLogic) {
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
-				echo '<div class="eqLogicDisplayCard cursor '.$opacity.'" data-eqLogic_id="' . $eqLogic->getId() . '">';
+				echo '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '">';
 				echo '<img src="' . $plugin->getPathImgIcon() . '"/>';
 				echo '<br/>';
 				echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
@@ -37,7 +37,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 			?>
 		</div>
 	</div>
-	
+
 	<div class="col-xs-12 eqLogic" style="display: none;">
 		<div class="input-group pull-right" style="display:inline-flex">
 			<span class="input-group-btn">
@@ -51,18 +51,18 @@ $eqLogics = eqLogic::byType($plugin->getId());
 		</ul>
 		<div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
 			<div role="tabpanel" class="tab-pane active" id="eqlogictab">
-				<br/>
+				<br />
 				<form class="form-horizontal">
 					<fieldset>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">{{Nom de l'équipement IPX800}}</label>
 							<div class="col-sm-3">
 								<input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
-								<input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement IPX800}}"/>
+								<input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement IPX800}}" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label" >{{Objet parent}}</label>
+							<label class="col-sm-2 control-label">{{Objet parent}}</label>
 							<div class="col-sm-3">
 								<select id="sel_object" class="eqLogicAttr form-control" data-l1key="object_id">
 									<option value="">{{Aucun}}</option>
@@ -79,8 +79,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<div class="form-group">
 							<label class="col-sm-2 control-label"></label>
 							<div class="col-sm-9">
-								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked/>{{Activer}}</label>
-								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked/>{{Visible}}</label>
+								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked />{{Activer}}</label>
+								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked />{{Visible}}</label>
 							</div>
 						</div>
 						<div class="form-group">
@@ -98,13 +98,13 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<div class="form-group">
 							<label class="col-sm-2 control-label">{{IP}}</label>
 							<div class="col-sm-3">
-								<input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="ip"/>
+								<input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="ip" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">{{Clef API}}</label>
 							<div class="col-sm-3">
-								<input type="password" autocomplete="new-password"  class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey"/>
+								<input type="password" autocomplete="new-password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey" />
 							</div>
 						</div>
 					</fieldset>
@@ -115,13 +115,13 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<div class="form-group">
 							<label class="col-sm-2 control-label">{{Nom d'utilisateur admin}}</label>
 							<div class="col-sm-3">
-								<input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="username"/>
+								<input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="username" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">{{Mot de passe}}</label>
 							<div class="col-sm-3">
-								<input type="password" autocomplete="new-password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="password"/>
+								<input type="password" autocomplete="new-password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="password" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -132,7 +132,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						</div>
 					</fieldset>
 				</form>
-				
+
 			</div>
 			<div role="tabpanel" class="tab-pane" id="commandtab">
 				<div class="input-group pull-right" style="display:inline-flex">
@@ -140,7 +140,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<a class="btn btn-default btn-sm cmdAction roundedLeft" data-action="importFromTemplate"><i class="fas fa-file"></i> {{Templates}}</a><a class="btn btn-success btn-sm cmdAction roundedRight" data-action="add"><i class="fas fa-plus-circle"></i> {{Commandes}}</a>
 					</span>
 				</div>
-				<br/><br/>
+				<br /><br />
 				<table id="table_cmd" class="table table-bordered table-condensed">
 					<thead>
 						<tr>
@@ -148,6 +148,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							<th style="width:50px;">{{Type}}</th>
 							<th>{{Configuration}}</th>
 							<th style="width:300px;">{{Paramètres}}</th>
+							<th>{{Etat}}</th>
 							<th style="width:125px;">{{Action}}</th>
 						</tr>
 					</thead>
@@ -159,5 +160,5 @@ $eqLogics = eqLogic::byType($plugin->getId());
 	</div>
 </div>
 
-<?php include_file('desktop', 'ipx800v4', 'js', 'ipx800v4');?>
-<?php include_file('core', 'plugin.template', 'js');?>
+<?php include_file('desktop', 'ipx800v4', 'js', 'ipx800v4'); ?>
+<?php include_file('core', 'plugin.template', 'js'); ?>
