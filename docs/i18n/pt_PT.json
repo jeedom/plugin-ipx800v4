@@ -2,8 +2,10 @@
     "changelog.md": {
         "Changelog IPX 800 v4": "Lista de Mudanças IPX 800 v4",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto",
+        "08\/01\/2024": "01\/08\/2024",
         "Changement du comportement sur les volets, inversion du sens, le plugin n'indique plus le % de fermeture mais le % d'ouverture": "Mudança de comportamento nas venezianas, inversão de direção, o plugin não indica mais o % fechamento mas sim o % abertura",
         "Controle du code retour de l'ipx lors d'une commande et si erreur Jeedom retentera la commande 150ms plus tard": "Verificando o código de retorno ipx durante um comando e se houver um erro, Jeedom tentará novamente o comando 150 ms depois",
+        "Préparation pour jeedom 4.4": "Preparando-se para Jeedom 4.4",
         "07\/02\/2022": "02\/07\/2022",
         "Mise à jour pour Jeedom 4.2": "Atualização para Jeedom 4.2",
         "25\/10\/2021": "25\/10\/2021",
