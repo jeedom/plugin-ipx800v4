@@ -232,6 +232,9 @@ function addCmdToTable(_cmd) {
     for (i = 1; i < 25; i++) {
       tr += '<option value=" ACTIONNEUR'+i+'">{{Actionneur}} '+i+'</option>';
     }
+    for (i = 1; i < 25; i++) {
+      tr += '<option value=" VOLET ROULANT'+i+'">{{Volet Roulant}} '+i+'</option>';
+    }
     tr += '</select>';
     
     tr += '<input class="cmdAttr form-control infoParameter A input-sm" data-l1key="configuration" data-l2key="infoParameterA" placeholder="{{Numéro du compteur de 1 à 16}}" style="display:none;" />';
