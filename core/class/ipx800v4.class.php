@@ -417,7 +417,7 @@ class ipx800v4Cmd extends cmd {
 		$eqLogic = $this->getEqLogic();
 		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
 		$url .= '&' . $this->getConfiguration('actionCmd') . $this->getConfiguration('actionArgument');
-		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'PulseUP', 'PulseDOWN', 'FP', 'G', 'Thermo', 'PWM', '010v'))) {
+		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'PulseUP', 'PulseDOWN', 'FP', 'G', 'Thermo', 'PWM', '010v','EnoVR'))) {
 			if ($this->getConfiguration('actionArgument') == 'PWM') {
 				$url .= '=' . $this->getConfiguration('actionParameter' . $this->getConfiguration('actionArgument'));
 				$url .= '&PWMValue';
