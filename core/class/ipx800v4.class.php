@@ -206,6 +206,9 @@ class ipx800v4 extends eqLogic {
 						if($cmd->getConfiguration('infoType') == 'VR'){
 			                        	$value = 100 - $value;
 			                        }
+						if($cmd->getConfiguration('infoType') == 'enoVR'){
+			                        	$value = 100 - $value;
+			                        }
 						$ipx800v4->checkAndUpdateCmd($cmd, $value, false);
 					}
 				}
@@ -403,8 +406,11 @@ class ipx800v4Cmd extends cmd {
 		//$eqLogic = $this->getEqLogic();
 		$cmdValue = $this->getCmdValue();
 		$value =  $cmdValue->execCmd();
-		if ($this->getConfiguration('actionArgument') == 'VR' && $this->getSubType() == 'other') {
+		if ($this->getConfiguration('actionArgument') == 'VR'&& $this->getSubType() == 'other') {
 			return ((100 - $this->getConfiguration('actionOptionVR')) == $value);
+		}
+		if ($this->getConfiguration('actionArgument') == 'EnoVR'&& $this->getSubType() == 'other') {
+			return ((100 - $this->getConfiguration('actionParameterEnoVR')) == $value);
 		}
 		return parent::alreadyInState($_options);
 	}
@@ -443,7 +449,7 @@ class ipx800v4Cmd extends cmd {
 						$value = '#slider#';
 					}
 					$value = str_replace('#slider#', urlencode($_options['slider']), $value);
-					if($this->getConfiguration('actionArgument') == 'VR'){
+					if($this->getConfiguration('actionArgument') == 'VR' || $this->getConfiguration('actionArgument') == 'EnoVR'){
 			                 	$value = 100 - $value;
 			                }
 					break;
