@@ -283,6 +283,12 @@ class ipx800v4 extends eqLogic {
 		}
 	}
 
+	public function preSave(){
+		if($this->getConfiguration('port') == ''){
+			$this->setConfiguration('port',80);
+		}
+	}
+
 	public function postSave() {
 		$refresh = $this->getCmd(null, 'refresh');
 		if (!is_object($refresh)) {
@@ -309,14 +315,14 @@ class ipx800v4 extends eqLogic {
 			if (config::byKey('api::' . $get, 'ipx800v4', 1) != 1) {
 				continue;
 			}
-			$url = 'http://' . $this->getConfiguration('ip') . '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=' . $get;
+			$url = 'http://' . $this->getConfiguration('ip').':'.$this->getConfiguration('port',80). '/api/xdevices.json?key=' . $this->getConfiguration('apikey') . '&Get=' . $get;
 			$request_http = new com_http($url);
 			try {
 				$return = array_merge($return, is_json($request_http->exec(), array()));
 			} catch (Exception $e) {
 			}
 		}
-		log::add('ipx800v4', 'debug', 'IPX800 ' . $this->getConfiguration('ip') . ' info : ' . json_encode($return));
+		log::add('ipx800v4', 'debug', 'IPX800 ' . $this->getConfiguration('ip').':'.$this->getConfiguration('port',80) . ' info : ' . json_encode($return));
 		return $return;
 	}
 
@@ -415,7 +421,7 @@ class ipx800v4Cmd extends cmd {
 			return;
 		}
 		$eqLogic = $this->getEqLogic();
-		$url = 'http://' . $eqLogic->getConfiguration('ip') . '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
+		$url = 'http://' . $eqLogic->getConfiguration('ip') .':'.$eqLogic->getConfiguration('port',80). '/api/xdevices.json?key=' . $eqLogic->getConfiguration('apikey');
 		$url .= '&' . $this->getConfiguration('actionCmd') . $this->getConfiguration('actionArgument');
 		if (in_array($this->getConfiguration('actionArgument'), array('VA', 'C', 'VR', 'PulseUP', 'PulseDOWN', 'FP', 'G', 'Thermo', 'PWM', '010v','EnoVR'))) {
 			if ($this->getConfiguration('actionArgument') == 'PWM') {

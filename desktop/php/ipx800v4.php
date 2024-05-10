@@ -102,6 +102,12 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							</div>
 						</div>
 						<div class="form-group">
+							<label class="col-sm-2 control-label">{{Port (si different du 80)}}</label>
+							<div class="col-sm-3">
+								<input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="port" />
+							</div>
+						</div>
+						<div class="form-group">
 							<label class="col-sm-2 control-label">{{Clef API}}</label>
 							<div class="col-sm-3">
 								<input type="password" autocomplete="new-password" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="apikey" />
