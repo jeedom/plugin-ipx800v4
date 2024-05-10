@@ -52,6 +52,7 @@
         "Visible": "Visible",
         "Catégorie": "Categoría",
         "IP": "IP",
+        "Port (si different du 80)": "Puerto (si es diferente de 80)",
         "Clef API": "Clave API",
         "Sauvegarde configuration IPX800": "Copia de seguridad de configuración IPX800",
         "Nom d'utilisateur admin": "Nombre de usuario admin",

@@ -52,6 +52,7 @@
         "Visible": "Terlihat",
         "Catégorie": "Kategori",
         "IP": "IP",
+        "Port (si different du 80)": "Port (si different du 80)",
         "Clef API": "Kunci API",
         "Sauvegarde configuration IPX800": "Sauvegarde configuration IPX800",
         "Nom d'utilisateur admin": "Nom d'utilisateur admin",
