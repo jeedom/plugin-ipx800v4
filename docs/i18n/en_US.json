@@ -2,8 +2,12 @@
     "changelog.md": {
         "Changelog IPX 800 v4": "Changelog IPX 800 v4",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text",
+        "Support des volets roulants EnOcean": "EnOcean roller shutter support",
+        "Possibilité de configurer le port de communication avec l'ip (par défaut 80": "Possibility of configuring the communication port with the IP (default 80",
+        "08\/01\/2024": "01\/08\/2024",
         "Changement du comportement sur les volets, inversion du sens, le plugin n'indique plus le % de fermeture mais le % d'ouverture": "Change in behavior on the shutters, reversal of direction, the plugin no longer indicates the % closing but the % opening",
         "Controle du code retour de l'ipx lors d'une commande et si erreur Jeedom retentera la commande 150ms plus tard": "Checking the ipx return code during a command and if there is an error Jeedom will retry the command 150ms later",
+        "Préparation pour jeedom 4.4": "Preparing for jeedom 4.4",
         "07\/02\/2022": "02\/07\/2022",
         "Mise à jour pour Jeedom 4.2": "Update for Jeedom 4.2",
         "25\/10\/2021": "25\/10\/2021",

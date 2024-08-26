@@ -29,7 +29,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 			foreach ($eqLogics as $eqLogic) {
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
 				echo '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '">';
-				echo '<img src="' . $plugin->getPathImgIcon() . '"/>';
+				echo '<img src="' . $eqLogic->getImage() . '"/>';
 				echo '<br/>';
 				echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
 				echo '</div>';
@@ -99,6 +99,12 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							<label class="col-sm-2 control-label">{{IP}}</label>
 							<div class="col-sm-3">
 								<input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="ip" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">{{Port (si different du 80)}}</label>
+							<div class="col-sm-3">
+								<input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="port" />
 							</div>
 						</div>
 						<div class="form-group">

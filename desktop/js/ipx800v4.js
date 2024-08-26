@@ -108,6 +108,7 @@ function addCmdToTable(_cmd) {
     tr += '<option value="VI" class="actionArgument Set Clear Toggle">{{Entrée virtuelle}}</option>';
     tr += '<option value="VA" class="actionArgument Set">{{Entrée analogique virtuelle}}</option>';
     tr += '<option value="EnoPC" class="actionArgument Set Clear Toggle">{{EnOcean}}</option>';
+    tr += '<option value="EnoVR" class="actionArgument Set Clear Toggle">{{EnOcean volet roulant}}</option>';
     tr += '<option value="VR" class="actionArgument Set">{{Volet roulant}}</option>';
     tr += '<option value="PulseUP" class="actionArgument Set">{{BSO impulsion haut}}</option>';
     tr += '<option value="PulseDOWN" class="actionArgument Set">{{BSO impulsion bas}}</option>';
@@ -133,6 +134,7 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control actionParameter PulseDOWN input-sm" data-l1key="configuration" data-l2key="actionParameterPulseDOWN" placeholder="{{Numéro du volet, ex : 02}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter FP input-sm" data-l1key="configuration" data-l2key="actionParameterFP" placeholder="{{Numéro de la zone (00 à 16)}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter EnoPC input-sm" data-l1key="configuration" data-l2key="actionParameterEnoPC" placeholder="{{Numéro de l\'actionneur de 1 à 24}}" style="display:none;" />';
+    tr += '<input class="cmdAttr form-control actionParameter EnoVR input-sm" data-l1key="configuration" data-l2key="actionParameterEnoVR" placeholder="{{Numéro du volet roulant de 1 à 24}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter G input-sm" data-l1key="configuration" data-l2key="actionParameterG" placeholder="{{Numéro de la voie de 1 à 24}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter PWM input-sm" data-l1key="configuration" data-l2key="actionParameterPWM" placeholder="{{Numéro du canal de 1 à 24}}" style="display:none;" />';
     tr += '<input class="cmdAttr form-control actionParameter Thermo input-sm" data-l1key="configuration" data-l2key="actionParameterThermo" placeholder="{{Numéro du thermostat de 1 à 16}}" style="display:none;" />';
@@ -231,6 +233,9 @@ function addCmdToTable(_cmd) {
     }
     for (i = 1; i < 25; i++) {
       tr += '<option value=" ACTIONNEUR'+i+'">{{Actionneur}} '+i+'</option>';
+    }
+    for (i = 1; i < 25; i++) {
+      tr += '<option value=" VOLET ROULANT'+i+'">{{Volet Roulant}} '+i+'</option>';
     }
     tr += '</select>';
     
