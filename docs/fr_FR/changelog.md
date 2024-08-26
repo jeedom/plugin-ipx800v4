@@ -6,6 +6,7 @@
 
 - Support des volets roulants EnOcean
 - Possibilité de configurer le port de communication avec l'ip (par défaut 80)
+- Support des images d'équipement personnalisées (Jeedom 4.5)
 
 # 08/01/2024
 
