@@ -2,8 +2,10 @@
     "changelog.md": {
         "Changelog IPX 800 v4": "Registro de cambios IPX 800 v4",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto",
+        "26\/08\/2024": "26\/08\/2024",
         "Support des volets roulants EnOcean": "Soporte para persianas enrollables EnOcean",
         "Possibilité de configurer le port de communication avec l'ip (par défaut 80": "Posibilidad de configurar el puerto de comunicación con la IP (por defecto 80",
+        "Support des images d'équipement personnalisées (Jeedom 4.5": "Soporte para imágenes de equipos personalizados (Jeedom 4.5",
         "08\/01\/2024": "08\/01\/2024",
         "Changement du comportement sur les volets, inversion du sens, le plugin n'indique plus le % de fermeture mais le % d'ouverture": "Cambio de comportamiento en las persianas, inversión de dirección, el complemento ya no indica el % de cierre sino el % de apertura",
         "Controle du code retour de l'ipx lors d'une commande et si erreur Jeedom retentera la commande 150ms plus tard": "Verificar el código de retorno de ipx durante un comando y, si hay un error, Jeedom volverá a intentar el comando 150 ms después",
