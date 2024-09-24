@@ -449,9 +449,9 @@ class ipx800v4Cmd extends cmd {
 						$value = '#slider#';
 					}
 					$value = str_replace('#slider#', urlencode($_options['slider']), $value);
-					if($this->getConfiguration('actionArgument') == 'VR'){
+					if($this->getConfiguration('actionArgument') == 'VR' && $value <= 100){
 			                 	$value = 100 - $value;
-			                }
+			        }
 					break;
 				case 'color':
 					if (trim($value) == '') {
