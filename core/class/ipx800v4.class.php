@@ -204,8 +204,8 @@ class ipx800v4 extends eqLogic {
 							}
 						}
 						if($cmd->getConfiguration('infoType') == 'VR'){
-			                        	$value = 100 - $value;
-			                        }
+			                $value = 100 - $value;
+			            }
 						$ipx800v4->checkAndUpdateCmd($cmd, $value, false);
 					}
 				}
@@ -264,7 +264,7 @@ class ipx800v4 extends eqLogic {
 		if ($this->getConfiguration('username') != '' && $this->getConfiguration('password') != '') {
 			$url .= urlencode($this->getConfiguration('username')) . ':' . urlencode($this->getConfiguration('password')) . '@';
 		}
-		$url .= $this->getConfiguration('ip') . '/admin/download/config.gce';
+		$url .= $this->getConfiguration('ip').':'.$this->getConfiguration('port',80) . '/admin/download/config.gce';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 60);
 		curl_setopt($ch, CURLOPT_FILE, fopen($filepath, 'w+'));
@@ -449,9 +449,9 @@ class ipx800v4Cmd extends cmd {
 						$value = '#slider#';
 					}
 					$value = str_replace('#slider#', urlencode($_options['slider']), $value);
-					if($this->getConfiguration('actionArgument') == 'VR'){
-			                 	$value = 100 - $value;
-			                }
+					if($this->getConfiguration('actionArgument') == 'VR' && $value <= 100){
+			            $value = 100 - $value;
+			        }
 					break;
 				case 'color':
 					if (trim($value) == '') {
